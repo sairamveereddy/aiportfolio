@@ -2,7 +2,8 @@ import { createReadStream, existsSync, statSync } from "node:fs";
 import { createServer } from "node:http";
 import { extname, join, normalize } from "node:path";
 
-const root = process.cwd();
+const staticRoot = join(process.cwd(), "public");
+const root = existsSync(staticRoot) ? staticRoot : process.cwd();
 const port = Number(process.env.PORT || 4173);
 const apiKey = process.env.OPENAI_API_KEY;
 

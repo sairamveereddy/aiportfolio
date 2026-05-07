@@ -2,7 +2,12 @@ param(
   [int]$Port = 4173
 )
 
-$Root = (Get-Location).Path
+$StaticRoot = Join-Path (Get-Location).Path "public"
+$Root = if (Test-Path -LiteralPath $StaticRoot -PathType Container) {
+  $StaticRoot
+} else {
+  (Get-Location).Path
+}
 $Prefix = "http://localhost:$Port/"
 
 $ContentTypes = @{
