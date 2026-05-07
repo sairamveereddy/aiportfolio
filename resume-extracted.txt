@@ -1,0 +1,98 @@
+﻿SAIRAM VEEREDDY
+AI ENGINEER
+vsairamkumarreddy@gmail.com  |  (217) 862-4693  |  Alpharetta, Georgia
+PROFESSIONAL SUMMARY
+AI Engineer with 5+ years of experience designing and delivering intelligent data and AI solutions across pharmacy, insurance, finance, and talent technology sectors. Proficient in building end-to-end machine learning pipelines, integrating AI-driven automation, and developing scalable backend systems that convert complex business requirements into measurable outcomes.
+Experienced with Python, Spark, SQL, and cloud platforms (GCP, Azure, AWS), with strong hands-on ability across the full AI/ML lifecycle — from data ingestion and model development to production deployment and monitoring using AWS SageMaker, Databricks, and Docker/Kubernetes.
+Skilled in building GenAI and LLM-powered applications using LangChain, LangGraph, LlamaIndex, and OpenAI APIs. Experienced in RAG pipeline design, agentic workflows, prompt engineering, and embedding-based search using ChromaDB and vector stores.
+Proficient in orchestrating batch and real-time data pipelines with Apache Airflow and Apache Spark, implementing CDC feeds (Kafka, GoldenGate), and building observability frameworks for SLA compliance, data freshness, and backlog monitoring.
+Effective collaborator with product, analytics, and engineering teams — translating ambiguous requirements into well-governed, documented AI-powered data products. Certified in Microsoft Azure (AZ-900) and well-versed in CI/CD best practices using Git, Docker, and GitHub Actions.
+EDUCATION
+Master of Science: Management Information Systems — University of Illinois at Springfield  (2024)
+Bachelor of Technology: Electronics & Communication Engineering — ACE Engineering College, Hyderabad  (2020)
+TECHNICAL SKILLS
+AI / ML
+Machine Learning, Predictive Modeling, Feature Engineering, NLP, Model Fine-tuning, Scikit-learn, XGBoost
+GenAI & LLMs
+LangChain, LangGraph, LlamaIndex, OpenAI APIs (GPT-4, Embeddings), AWS Bedrock, Azure OpenAI, Prompt Engineering, RAG Pipelines
+Vector Databases
+ChromaDB, FAISS, Pinecone — Embedding-based semantic search and retrieval
+Deep Learning
+TensorFlow, Keras, PyTorch — Model training, fine-tuning, and deployment
+Languages & Frameworks
+Python, SQL, Scala, PySpark, FastAPI, Flask, REST APIs
+Data & Pipelines
+Apache Spark, Airflow (DAGs, SLAs), Kafka, GoldenGate, ETL/ELT, CDC, Dimensional Modeling
+Cloud & MLOps
+AWS SageMaker, AWS Lambda, GCP (Dataproc, BigQuery), Azure, Databricks, Docker, Kubernetes, CI/CD
+Databases & Warehouses
+Snowflake, BigQuery, MySQL, SQL Server, Oracle DB
+Tools & Visualization
+Power BI, Git, Postman, MS Visio, Apache Airflow, GitHub Actions
+PROFESSIONAL EXPERIENCE
+CVS Pharmacy  —  Alpharetta, Georgia
+AI / ML Engineer   |   Feb 2026 – Present
+Project Summary: CVS Pharmacy is one of the largest pharmacy and healthcare companies in the U.S., operating retail pharmacies, pharmacy benefit management, and health services at scale. The role focuses on advancing AI/ML and data engineering initiatives — building intelligent systems that improve pharmacy operations, personalize patient health journeys, and enable data-driven decision-making across retail and clinical workflows.
+Roles and Responsibilities:
+Lead development of AI/ML models for pharmacy demand forecasting, medication adherence prediction, and personalized health recommendations using Python, Scikit-learn, and XGBoost across large-scale patient and prescription datasets.
+Design and deploy end-to-end machine learning pipelines — from pharmacy transaction and claims data ingestion through model training, validation, and HIPAA-compliant deployment on AWS SageMaker and Databricks.
+Build GenAI-powered pharmacy assistant and customer health copilot using LangChain, LlamaIndex, and RAG pipelines over structured prescription and formulary data to improve patient engagement and reduce call center volume.
+Collaborate with pharmacy operations, data science, and product teams to define AI feature requirements, design evaluation frameworks, and iterate on model performance using real-world customer and prescription feedback.
+Implement observability and monitoring for AI model outputs in production, ensuring data quality, model drift detection, and regulatory compliance with HIPAA and CMS data privacy standards.
+Apply NLP and transformer-based models for drug name entity recognition, prescription data extraction, and automated medication review from unstructured pharmacy and clinical notes.
+Environment: Python, LangChain, LlamaIndex, ChromaDB, OpenAI APIs, AWS Bedrock, FastAPI, Docker, Kubernetes, Spark, Airflow, Snowflake, AWS SageMaker, TensorFlow, PyTorch, CI/CD
+Nationwide Insurance  —  Columbus, Ohio
+AI Engineer   |   Mar 2025 – Feb 2026
+Project Summary: Nationwide Insurance is one of the largest insurance and financial services companies in the U.S. The role focused on architecting and delivering scalable AI and data pipelines, building analytics data products, and enabling near-real-time intelligence across Insurance Claims, Underwriting, and Finance domains using modern cloud and data engineering tools.
+Roles and Responsibilities:
+Built batch and incremental ETL/ELT pipelines using Spark and Python to move insurance claims and policy data from OLTP sources through staging, curated, and mart layers; enforced data quality with unit tests and expectations.
+Developed AI-powered fraud detection models for insurance claims using XGBoost and Scikit-learn, reducing false positives by improving feature engineering across structured claims and telematics data.
+Orchestrated AI-powered pipelines with Airflow — managing DAGs, SLAs, retries, and environment-specific deployments via CI/CD for reliable, automated execution across underwriting workflows.
+Modeled analytics layers using dimensional (star/snowflake schema) and data-vault patterns; delivered subject-area marts for Claims, Finance, and Operations with clear documentation.
+Implemented CDC feeds (GoldenGate/Kafka to Spark) to enable near-real-time data consumption and reduce latency in downstream AI model inputs for claims processing.
+Tuned pipelines for cost and performance on GCP and Azure (Dataproc, Databricks) using autoscaling, partitioning, file-size compaction, and Z-order/clustered tables.
+Built monitoring and observability dashboards tracking job success rates, SLA breaches, backlog depth, and data freshness; maintained on-call runbooks for incident response.
+Partnered with actuarial, product, and analytics stakeholders to define SLAs/SLOs and acceptance criteria, translating ambiguous requirements into clearly scoped, governed data products.
+Environment: Python, Spark/Scala, Airflow, Kafka, GoldenGate, Snowflake, BigQuery, Databricks, GCP Dataproc, Azure, Docker, Kubernetes, CI/CD, Power BI
+GM Financial  —  Fort Worth, Texas
+Data Analyst   |   Jul 2024 – Mar 2025
+Project Summary: GM Financial is the captive auto finance subsidiary of General Motors, providing lending and leasing solutions to automotive customers and dealers. The role involved full-cycle application development and data analysis, working closely with stakeholders to translate business needs into technical deliverables across auto lending and risk analytics.
+Roles and Responsibilities:
+Analyzed and designed systematic solutions aligned with customer requirements, ensuring compliance with financial IT standards and policies throughout the software development lifecycle.
+Collaborated with stakeholders to gather functional specifications and translated business requirements into technical solutions using Python, SQL, and Power BI across auto lending and risk domains.
+Developed workflow charts, data flow diagrams, and logical process sequences to organize project requirements and guide implementation for loan origination and servicing systems.
+Led enhancement and implementation of applications with minimal disruption to production systems, adhering to project scope, deadlines, and budget constraints.
+Designed and maintained applications and databases delivering tailored software solutions to streamline business operations and improve reporting accuracy for dealer and consumer finance portfolios.
+Environment: Python, SQL, Power BI, MS Visio, REST APIs, Git, Docker, SDLC, Agile
+Tech Mahindra  —  India
+Associate Software Engineer   |   Aug 2020 – Jul 2022
+Project Summary: Tech Mahindra is a global IT services company. Contributed to the Telefonica Germany telecom project, using Hansen Catalog to develop and enhance data solutions for telecom operations. Responsibilities spanned data engineering, API development, visualization, and process automation in a cross-functional Agile team.
+Roles and Responsibilities:
+Utilized Python, SQL, Power BI, and Visio to perform data engineering tasks including data extraction, transformation, and visualization across telecom operations.
+Debugged code and identified root causes of issues by reviewing configuration files and logs, ensuring reliability and efficiency of data pipelines.
+Contributed to the Telefonica Germany telecom project, leveraging Hansen Catalog to develop and enhance data solutions for telecom operations.
+Developed code and logic for tasks ranging from recharge processes to porting, optimizing performance and functionality across telecom workflows.
+Utilized Git and Docker for version control and containerization, ensuring consistency and scalability of engineering processes.
+Designed and maintained RESTful APIs and web services to facilitate seamless data exchange and communication between systems.
+Implemented advanced data visualization solutions using Power BI, enabling stakeholders to gain actionable insights and drive informed decision-making.
+Collaborated with cross-functional teams to gather requirements, troubleshoot issues, and deliver high-quality solutions on schedule.
+Environment: Python, SQL, Power BI, Visio, Git, Docker, REST APIs, Hansen Catalog, Agile/SDLC
+KEY PROJECTS
+Enterprise Patent & Research Assistant (LLM RAG Virtual Assistant)
+LangChain · LlamaIndex · ChromaDB · Azure OpenAI · AWS Bedrock · FastAPI
+Designed and built an end-to-end RAG pipeline using LangChain, LlamaIndex, and ChromaDB on Azure OpenAI and AWS Bedrock, enabling intelligent patent and research document retrieval at enterprise scale.
+Implemented hybrid retrieval with re-ranking, Llama 3 fallback via Ollama, citation verification agents, and scalable FastAPI serverless deployment for production reliability.
+Text-to-SQL Analytics Copilot (Agentic LLM + Guarded SQL)
+LangChain · ChromaDB · FastAPI · AWS Lambda · Azure Functions · Power BI
+Built a conversational analytics copilot converting natural language queries into SQL using LangChain agents and ChromaDB, enabling non-technical users to query structured data intuitively.
+Implemented guardrails, FastAPI APIs, serverless deployment on AWS Lambda and Azure Functions, Power BI integration, and an automated evaluation harness for output quality assurance.
+AI Job Application Copilot (RAG + Agentic Workflow)
+LangChain · LangGraph · LlamaIndex · ChromaDB · OpenAI · FastAPI · Docker
+Built an agentic job application assistant generating tailored resume bullets, cover letters, and recruiter outreach emails using LangChain/LangGraph and LlamaIndex RAG over user profiles with ChromaDB and OpenAI embeddings.
+Added evidence-based validation and ATS-style formatting checks; deployed production APIs via FastAPI and Docker with full CI/CD pipeline integration.
+CERTIFICATIONS
+Microsoft Azure AZ-900 – Microsoft Azure
+Generative AI with the Gemini API in Vertex AI – Google Cloud Skill Badge
+AI Fluency Framework & Foundations – Anthropic
+Robotic Enterprise Framework Overview – UiPath
+Orchestrator for RPA Developers – UiPath

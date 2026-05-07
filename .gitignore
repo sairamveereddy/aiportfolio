@@ -1,0 +1,7 @@
+.env
+node_modules/
+mingit/
+mingit.zip
+aiportfolio-site.zip
+.DS_Store
+Thumbs.db
