@@ -4,6 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "build": "echo Static site ready",
     "dev": "node server.mjs"
   }
 }
