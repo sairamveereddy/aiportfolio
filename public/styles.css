@@ -67,6 +67,14 @@ a {
   font-weight: 900;
 }
 
+.header-badge {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  object-fit: contain;
+  box-shadow: 0 8px 22px rgba(24, 23, 20, 0.12);
+}
+
 .site-header nav {
   display: flex;
   flex-wrap: wrap;
@@ -156,6 +164,37 @@ h3 {
 .hero-copy > p:not(.eyebrow) {
   max-width: 760px;
   font-size: 1.08rem;
+}
+
+.hero-credential {
+  display: inline-grid;
+  grid-template-columns: 58px minmax(0, 1fr);
+  align-items: center;
+  gap: 12px;
+  max-width: 590px;
+  margin-bottom: 24px;
+  border: 1px solid rgba(186, 77, 66, 0.28);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.78);
+  padding: 10px 14px 10px 10px;
+  box-shadow: 0 12px 34px rgba(24, 23, 20, 0.07);
+}
+
+.hero-credential img,
+.credential-section-badge {
+  width: 58px;
+  height: 58px;
+  object-fit: contain;
+}
+
+.hero-credential .eyebrow {
+  margin-bottom: 4px;
+  color: var(--coral);
+}
+
+.hero-credential strong {
+  display: block;
+  line-height: 1.35;
 }
 
 .hero-actions {
@@ -314,6 +353,7 @@ body.agent-preview-active .agent-orb span:nth-child(3) {
 .truth-grid,
 .experience-list,
 .project-list,
+.link-list,
 .skills-list,
 .personal-grid {
   display: grid;
@@ -333,6 +373,7 @@ body.agent-preview-active .agent-orb span:nth-child(3) {
 .truth-grid article,
 .job-card,
 .project-card,
+.link-card,
 .skill-card,
 .personal-grid article,
 .education-card {
@@ -422,7 +463,15 @@ body.agent-preview-active .agent-orb span:nth-child(3) {
 }
 
 .project-list {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.link-list {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.compact-link-list {
+  margin-top: 14px;
 }
 
 .research-callout {
@@ -444,11 +493,16 @@ body.agent-preview-active .agent-orb span:nth-child(3) {
   line-height: 1.65;
 }
 
-.project-card {
+.project-card,
+.link-card {
   display: flex;
   flex-direction: column;
   min-height: 360px;
   padding: 24px;
+}
+
+.link-card {
+  min-height: 240px;
 }
 
 .project-label {
@@ -460,6 +514,11 @@ body.agent-preview-active .agent-orb span:nth-child(3) {
 .project-card .pill-row {
   margin-top: auto;
   padding-top: 18px;
+}
+
+.link-card .button {
+  width: fit-content;
+  margin-top: auto;
 }
 
 .skills-list {
@@ -477,6 +536,17 @@ body.agent-preview-active .agent-orb span:nth-child(3) {
 .personal-grid article {
   min-height: 220px;
   padding: 24px;
+}
+
+.credential-section .personal-grid article:first-child {
+  display: grid;
+  grid-template-columns: 74px minmax(0, 1fr);
+  column-gap: 14px;
+  align-items: start;
+}
+
+.credential-section .personal-grid article:first-child p {
+  grid-column: 2;
 }
 
 .personal-grid p {
@@ -544,6 +614,12 @@ body.agent-preview-active .agent-orb span:nth-child(3) {
     flex-direction: column;
   }
 
+  .header-badge {
+    position: absolute;
+    right: 18px;
+    top: 14px;
+  }
+
   .hero,
   .guide-panel,
   .split-section,
@@ -554,10 +630,14 @@ body.agent-preview-active .agent-orb span:nth-child(3) {
   .metrics,
   .guide-grid,
   .truth-grid,
-  .project-list,
   .skills-list,
   .personal-grid {
     grid-template-columns: 1fr;
+  }
+
+  .project-list,
+  .link-list {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   }
 }
 
@@ -577,5 +657,14 @@ body.agent-preview-active .agent-orb span:nth-child(3) {
 
   h2 {
     font-size: 2.25rem;
+  }
+
+  .hero-credential,
+  .credential-section .personal-grid article:first-child {
+    grid-template-columns: 1fr;
+  }
+
+  .credential-section .personal-grid article:first-child p {
+    grid-column: auto;
   }
 }

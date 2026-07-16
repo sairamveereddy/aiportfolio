@@ -24,10 +24,20 @@ const siteTargets = [
   "gm",
   "tech-mahindra",
   "projects",
-  "patent-rag",
-  "text-to-sql",
-  "job-copilot",
+  "jobninjas",
+  "ai-talking-portfolio",
+  "pharmacy-genai-copilot",
+  "insurance-fraud",
+  "open-source",
+  "publications",
+  "research-paper-1",
+  "research-paper-2",
+  "github-profile",
+  "linkedin-profile",
+  "substack-profile",
   "skills",
+  "certifications",
+  "claude-certified-architect",
   "education",
   "contact"
 ];
@@ -35,51 +45,90 @@ const siteTargets = [
 const resumeKnowledge = `
 Sairam Veereddy is an AI Engineer in Alpharetta, Georgia.
 Contact: vsairamkumarreddy@gmail.com, (217) 862-4693.
+Links: https://www.linkedin.com/in/sairam-kumar-365232192/, sairamveereddy.com,
+https://github.com/sairamveereddy, https://substack.com/@firstninja.
 
 Professional summary:
-AI Engineer with 5+ years of experience designing and delivering intelligent data and AI
-solutions across pharmacy, insurance, finance, and talent technology. Experienced in Python,
-Spark, SQL, GCP, Azure, AWS, AWS SageMaker, Databricks, Docker, Kubernetes, LangChain,
-LangGraph, LlamaIndex, OpenAI APIs, RAG, agentic workflows, ChromaDB, Airflow, Kafka,
-GoldenGate, Snowflake, BigQuery, Power BI, FastAPI, Flask, and REST APIs.
+AI/ML Engineer with 4+ years translating cutting-edge research and emerging AI technologies
+into functional prototypes, experiments, and production systems. Expertise in quantitative
+evaluation of foundation models, generative AI systems, and multimodal experiences. Proven
+ability to rapidly prototype novel ideas, build evaluation frameworks and benchmarks,
+fine-tune and validate models against real-world datasets, and assess technology adoption
+potential. Comfortable moving between research papers, datasets, prototype code, and
+production-scale systems.
 
 Experience:
-CVS Pharmacy, AI / ML Engineer, Feb 2026 - Present. Builds AI/ML models for pharmacy demand
-forecasting, medication adherence prediction, personalized health recommendations, GenAI
-pharmacy assistant and health copilot using LangChain, LlamaIndex, RAG, ChromaDB, OpenAI APIs,
-AWS Bedrock, FastAPI, SageMaker, Databricks, Spark, Airflow, Snowflake, Docker, Kubernetes.
+CVS Pharmacy, AI/ML Engineer, Feb 2026 - Present. Designed and evaluated a GenAI-powered
+pharmacy assistant integrating OpenAI GPT-4 and AWS Bedrock with structured clinical data
+using LangChain, LlamaIndex, and RAG pipelines. Built evaluation benchmarks and testing
+datasets for fine-tuning transformer models on drug entity recognition and medication review
+extraction, measuring 28% extraction accuracy gains. Architected SageMaker MLOps monitoring
+for drift detection, data quality SLAs, and responsible AI governance. Deployed HIPAA-compliant
+ML pipelines with Docker and Kubernetes.
 
-Nationwide Insurance, AI Engineer, Mar 2025 - Feb 2026. Built Spark/Python ETL and ELT
-pipelines, AI fraud detection models using XGBoost and Scikit-learn, Airflow DAGs with SLAs,
-CDC feeds with Kafka and GoldenGate, observability dashboards, dimensional/data-vault marts,
-GCP Dataproc, Azure, Databricks, Snowflake, BigQuery, Power BI.
+Nationwide Insurance, AI/ML Engineer, Mar 2025 - Feb 2026. Designed and validated
+AI-powered fraud detection models with XGBoost and Scikit-learn, defining evaluation metrics,
+A/B testing protocols, and bias mitigation, achieving 92% precision on flagged claims. Built
+Airflow experimentation workflows and Kafka-to-Spark CDC feeds that reduced data latency from
+batch-daily to sub-5-minute refresh for continuous model monitoring. Created governed
+Snowflake and BigQuery AI data products with dashboards to track model behavior.
 
-GM Financial, Data Analyst, Jul 2024 - Mar 2025. Translated auto lending and risk analytics
-requirements into Python, SQL, Power BI, REST API, workflow, data flow, and database solutions.
+GM Financial, AI/ML Data Engineer, Jul 2024 - Mar 2025. Built AI-augmented Power BI analytics
+for financial datasets, developed Python and SQL ETL pipelines that reduced manual processing
+effort by 40%, created MS Visio system designs for AI-augmented workflows, and delivered
+three production data features per sprint with Docker, Git, and CI/CD.
 
-Tech Mahindra, Associate Software Engineer, Aug 2020 - Jul 2022. Worked on Telefonica Germany
-telecom project with Python, SQL, Power BI, Visio, REST APIs, Git, Docker, Hansen Catalog,
-data engineering, visualization, API development, and process automation.
+Tech Mahindra, Associate Software Engineer, Aug 2020 - Jul 2022. Developed full-stack data
+processing microservices for telecom workflows supporting 1M+ daily transactions with Python,
+SQL, and Hansen Catalog. Designed containerized services with Docker and Git and automated
+pipeline validation/reporting to reduce QA effort by 25%.
+
+Technical skills:
+Foundation models and GenAI: OpenAI GPT-4, Anthropic Claude, AWS Bedrock, Azure OpenAI,
+Google Gemini, Vertex AI, Hugging Face, multimodal models. Agentic and multi-agent systems:
+LangGraph, AutoGen, orchestration, agent workflows, tool-use design, function calling.
+Evaluation and experimentation: benchmarks, A/B testing, metrics design, bias assessment,
+drift detection, qualitative and quantitative evaluation, fine-tuning validation. Rapid
+prototyping: research paper implementation, proof-of-concepts, GitHub Copilot, Cursor,
+LangChain, LlamaIndex, ChromaDB. MLOps: MLflow, SageMaker, model monitoring, DVC, CI/CD.
+Core stack: Python, SQL, FastAPI, REST APIs, Git, Docker, Kubernetes, TensorFlow, PyTorch,
+Scikit-learn, XGBoost, Pandas, NumPy, Spark, Kafka, Airflow, Snowflake, BigQuery, Databricks,
+Power BI, ChromaDB, FAISS, Pinecone, RAG, semantic search.
 
 Projects:
-Enterprise Patent & Research Assistant: LLM RAG virtual assistant using LangChain, LlamaIndex,
-ChromaDB, Azure OpenAI, AWS Bedrock, FastAPI, hybrid retrieval, re-ranking, Llama 3 fallback
-via Ollama, citation verification agents, and scalable deployment.
+JobNinjas.ai: full-stack AI platform designed and shipped solo using AWS Cognito, RDS, S3,
+SES, FastAPI, LangChain RAG agent, 8 n8n automation workflows, Vapi voice AI, Faster-Whisper,
+Coqui/StyleTTS2, and WebRTC.
 
-Text-to-SQL Analytics Copilot: agentic LLM and guarded SQL system using LangChain agents,
-ChromaDB, FastAPI, AWS Lambda, Azure Functions, Power BI, guardrails, and evaluation harness.
+AI Talking Portfolio: full-stack conversational AI where visitors interact with an LLM agent
+in real time using RAG, ChromaDB, FastAPI, OpenAI GPT-4, semantic search over structured data,
+React front end, and streaming.
 
-AI Job Application Copilot: RAG and agentic workflow using LangChain, LangGraph, LlamaIndex,
-ChromaDB, OpenAI embeddings, FastAPI, Docker, CI/CD, evidence validation, ATS formatting.
+Pharmacy GenAI Copilot: RAG-based clinical assistant integrating OpenAI and AWS Bedrock,
+deployed on SageMaker with evaluation frameworks and HIPAA compliance.
+
+Insurance Fraud Detection System: end-to-end XGBoost and Scikit-learn ML pipeline with Airflow
+orchestration, real-time Kafka feeds, A/B testing, and 92% fraud detection precision.
+
+Open Source & Side Projects: 27+ public repositories spanning AI automation tools, full-stack
+applications, and data engineering experiments.
+
+Publications and links:
+Research Paper 1: https://zenodo.org/records/21348229.
+Research Paper 2: https://zenodo.org/records/21367111.
+GitHub: https://github.com/sairamveereddy.
+LinkedIn: https://www.linkedin.com/in/sairam-kumar-365232192/.
+Substack: https://substack.com/@firstninja.
 
 Education:
 MS Management Information Systems, University of Illinois at Springfield, 2024.
 BTech Electronics & Communication Engineering, ACE Engineering College, Hyderabad, 2020.
 
-Certifications:
-Microsoft Azure AZ-900; Generative AI with Gemini API in Vertex AI; AI Fluency Framework &
-Foundations from Anthropic; UiPath Robotic Enterprise Framework Overview; UiPath Orchestrator
-for RPA Developers.
+Certifications and training:
+Claude Certified Architect (Anthropic): agentic architecture, tool design, prompt engineering,
+structured output, and context management. Anthropic Specialty in progress / target 2026.
+Google Professional Machine Learning Engineer in progress / target 2026. LangChain & LangGraph
+Agentic AI Development. HIPAA Compliance for Healthcare Data Engineering.
 `;
 
 function buildSessionConfig() {
@@ -109,6 +158,13 @@ Website control rules:
 - For GM Financial/finance/auto lending/risk analytics, navigate to "gm".
 - For Tech Mahindra/telecom/Telefonica, navigate to "tech-mahindra".
 - For GenAI/RAG/LangChain/LlamaIndex/projects, navigate to "projects" or the exact project.
+- For JobNinjas.ai, navigate to "jobninjas".
+- For AI Talking Portfolio, navigate to "ai-talking-portfolio".
+- For Pharmacy GenAI Copilot, navigate to "pharmacy-genai-copilot".
+- For fraud detection, navigate to "insurance-fraud".
+- For open source or GitHub projects, navigate to "open-source".
+- For research papers, Zenodo, publications, GitHub, LinkedIn, or Substack, navigate to "publications" or the exact link card.
+- For Claude Certified Architect, Anthropic, certifications, or credentials, navigate to "certifications" or "claude-certified-architect".
 - For skills/tools/stack, navigate to "skills".
 - For education/certifications, navigate to "education".
 - For email/phone/contact/hiring, navigate to "contact".

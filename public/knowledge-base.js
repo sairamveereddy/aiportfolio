@@ -1,187 +1,283 @@
 window.PORTFOLIO_KB = {
   name: "Sairam Veereddy",
   initials: "SV",
-  role: "AI Engineer",
+  role: "AI/ML Engineer",
+  headline:
+    "AI/ML Engineer | Foundation Models & GenAI | Experimentation & Model Evaluation | Rapid Prototyping",
   location: "Alpharetta, Georgia",
   email: "vsairamkumarreddy@gmail.com",
   phone: "(217) 862-4693",
+  linkedin: "https://www.linkedin.com/in/sairam-kumar-365232192/",
+  website: "sairamveereddy.com",
+  github: "https://github.com/sairamveereddy",
+  substack: "https://substack.com/@firstninja",
   summary:
-    "I am an AI Engineer with 5+ years of experience designing and delivering intelligent data and AI solutions across pharmacy, insurance, finance, and talent technology sectors. I build end-to-end machine learning pipelines, GenAI applications, scalable backend systems, and data products that turn complex requirements into measurable outcomes.",
-  personal:
-    "Outside engineering, I am a DJ by hobby and a content creator who explains different AI tools to people every day. I enjoy making technical ideas easier to understand and more practical for real users.",
+    "I am an AI/ML Engineer with 4+ years translating cutting-edge research and emerging AI technologies into prototypes, experiments, and production systems. I design quantitative evaluations for foundation models, GenAI systems, and multimodal experiences, then validate whether those technologies deserve broader investment.",
   voice:
-    "Answer in first person as Sairam. Be confident, practical, warm, and specific. Keep answers grounded in the resume.",
+    "Answer in first person as Sairam. Be confident, concise, practical, and specific. Ground every answer in the Microsoft AI Engineer resume.",
   experience: [
     {
       id: "cvs",
       company: "CVS Pharmacy",
-      location: "Alpharetta, Georgia",
-      title: "AI / ML Engineer",
+      location: "Alpharetta, GA",
+      title: "AI/ML Engineer",
       period: "Feb 2026 - Present",
       summary:
-        "I build AI/ML and data engineering systems for pharmacy operations, personalized patient health journeys, pharmacy demand forecasting, medication adherence prediction, and GenAI pharmacy assistance.",
+        "I design and evaluate GenAI and ML systems for pharmacy workflows, clinical data extraction, model governance, and rapid validation of emerging healthcare AI use cases.",
       highlights: [
-        "Lead AI/ML models for demand forecasting, adherence prediction, and personalized health recommendations using Python, Scikit-learn, and XGBoost.",
-        "Deploy HIPAA-compliant ML pipelines on AWS SageMaker and Databricks across pharmacy transaction, claims, patient, and prescription data.",
-        "Build a GenAI pharmacy assistant and customer health copilot using LangChain, LlamaIndex, RAG, OpenAI APIs, AWS Bedrock, and ChromaDB.",
-        "Implement monitoring for model output quality, drift detection, data quality, and regulatory compliance."
+        "Designed and evaluated a GenAI pharmacy assistant integrating OpenAI GPT-4 and AWS Bedrock with structured clinical data through LangChain, LlamaIndex, and RAG pipelines.",
+        "Built evaluation benchmarks and testing datasets for fine-tuning transformer models on drug entity recognition and medication review extraction, measuring a 28% gain in extraction accuracy.",
+        "Architected SageMaker MLOps monitoring to detect drift, enforce data quality SLAs, and assess model bias for responsible AI governance.",
+        "Deployed HIPAA-compliant ML pipelines with Docker and Kubernetes while using GitHub Copilot and Cursor for rapid experimentation utilities."
       ],
-      stack: ["Python", "LangChain", "LlamaIndex", "ChromaDB", "OpenAI APIs", "AWS Bedrock", "FastAPI", "Docker", "Kubernetes", "Spark", "Airflow", "Snowflake", "SageMaker"]
+      stack: [
+        "Python",
+        "LangChain",
+        "LlamaIndex",
+        "ChromaDB",
+        "OpenAI APIs",
+        "AWS Bedrock",
+        "FastAPI",
+        "Docker",
+        "Kubernetes",
+        "AWS SageMaker",
+        "TensorFlow",
+        "PyTorch",
+        "MLflow"
+      ]
     },
     {
       id: "nationwide",
       company: "Nationwide Insurance",
-      location: "Columbus, Ohio",
-      title: "AI Engineer",
+      location: "Columbus, OH",
+      title: "AI/ML Engineer",
       period: "Mar 2025 - Feb 2026",
       summary:
-        "I delivered scalable AI and data pipelines across claims, underwriting, finance, and operations, including fraud detection, near-real-time feeds, and governed analytics marts.",
+        "I built fraud detection, experimentation, and governed AI data products across GCP, Azure, Snowflake, BigQuery, and Databricks.",
       highlights: [
-        "Built batch and incremental ETL/ELT pipelines using Spark and Python for claims and policy data.",
-        "Developed AI-powered fraud detection models with XGBoost and Scikit-learn.",
-        "Orchestrated Airflow DAGs with SLAs, retries, and CI/CD-backed environment deployments.",
-        "Implemented CDC feeds with GoldenGate, Kafka, and Spark to reduce latency for AI model inputs.",
-        "Built observability dashboards for job success, SLA breaches, backlog depth, and data freshness."
+        "Designed and validated AI-powered fraud detection models with XGBoost and Scikit-learn, achieving 92% precision on flagged claims.",
+        "Built an Airflow experimentation platform for multi-step ML workflows, quantitative evaluation pipelines, and SLA enforcement.",
+        "Implemented Kafka-to-Spark CDC feeds that reduced data latency from batch-daily to sub-5-minute refresh for model monitoring.",
+        "Created governed Snowflake and BigQuery AI data products with dashboards tracking model behavior across business contexts."
       ],
-      stack: ["Python", "Spark", "Scala", "Airflow", "Kafka", "GoldenGate", "Snowflake", "BigQuery", "Databricks", "GCP Dataproc", "Azure", "Power BI"]
+      stack: [
+        "Python",
+        "Spark",
+        "Airflow",
+        "Kafka",
+        "Snowflake",
+        "BigQuery",
+        "Databricks",
+        "GCP",
+        "Azure",
+        "Docker",
+        "Kubernetes",
+        "CI/CD",
+        "Power BI",
+        "Scikit-learn",
+        "XGBoost"
+      ]
     },
     {
       id: "gm",
       company: "GM Financial",
-      location: "Fort Worth, Texas",
-      title: "Data Analyst",
+      location: "Fort Worth, TX",
+      title: "AI/ML Data Engineer",
       period: "Jul 2024 - Mar 2025",
       summary:
-        "I worked across auto lending and risk analytics, translating stakeholder requirements into Python, SQL, Power BI, REST API, and database solutions.",
+        "I delivered AI-augmented analytics and data engineering work for financial datasets, risk workflows, and stakeholder reporting.",
       highlights: [
-        "Translated business requirements into technical solutions across auto lending and risk domains.",
-        "Developed workflow charts, data flow diagrams, and logical process sequences for loan origination and servicing systems.",
-        "Designed and maintained applications and databases to improve reporting accuracy."
+        "Built Power BI dashboards that translated complex financial datasets into business intelligence for 5+ cross-functional teams.",
+        "Developed Python and SQL ETL pipelines that automated ingestion and transformation, reducing manual processing effort by 40%.",
+        "Created MS Visio system designs for AI-augmented workflows to accelerate design review and stakeholder sign-off.",
+        "Delivered three production data features per sprint using Docker, Git, and CI/CD."
       ],
-      stack: ["Python", "SQL", "Power BI", "MS Visio", "REST APIs", "Git", "Docker", "Agile"]
+      stack: ["Python", "SQL", "Power BI", "MS Visio", "REST APIs", "Git", "Docker", "Agile/SDLC"]
     },
     {
       id: "tech-mahindra",
       company: "Tech Mahindra",
-      location: "India",
+      location: "Hyderabad, India",
       title: "Associate Software Engineer",
       period: "Aug 2020 - Jul 2022",
       summary:
-        "I contributed to the Telefonica Germany telecom project, working on data engineering, API development, visualization, and process automation.",
+        "I built data processing services, validation automation, and telecom workflow integrations for enterprise-scale operations.",
       highlights: [
-        "Built and maintained Python, SQL, Power BI, and Visio-based data engineering and visualization workflows.",
-        "Developed RESTful APIs and web services for seamless data exchange.",
-        "Debugged configuration, logs, and code issues to improve reliability of data pipelines."
+        "Developed full-stack data processing microservices supporting 1M+ daily telecom transactions with Python, SQL, and Hansen Catalog.",
+        "Designed containerized services with Docker and Git across cross-functional Agile teams.",
+        "Automated data pipeline validation and reporting, reducing QA effort by 25% and improving data quality scores."
       ],
-      stack: ["Python", "SQL", "Power BI", "Visio", "Git", "Docker", "REST APIs", "Hansen Catalog"]
+      stack: ["Python", "SQL", "Power BI", "Git", "Docker", "REST APIs", "Agile/SDLC"]
     }
   ],
   projects: [
     {
-      id: "agentic-rag-research",
-      name: "Agentic RAG Research",
-      label: "Current Research",
+      id: "jobninjas",
+      name: "JobNinjas.ai",
+      label: "Full-Stack AI Platform",
       summary:
-        "I am currently researching Agentic RAGs: retrieval systems where agents can plan, call tools, validate evidence, and decide when to retrieve, reason, or ask for clarification.",
+        "I designed and shipped a full-stack AI platform solo, connecting AWS infrastructure, FastAPI, LangChain RAG, workflow automation, and voice AI.",
       details:
-        "This is active research. If someone wants deeper details, they should talk to me directly so I can explain the direction, assumptions, and current thinking.",
-      stack: ["Agentic RAG", "Retrieval", "Planning", "Tool Use", "Evidence Validation", "LLM Systems"]
+        "The platform uses AWS Cognito, RDS, S3, SES, a FastAPI backend, a LangChain-powered RAG agent, 8 n8n automation workflows, Vapi voice AI, Faster-Whisper, Coqui/StyleTTS2, and WebRTC.",
+      stack: ["AWS", "FastAPI", "LangChain", "RAG", "n8n", "Vapi", "WebRTC", "Faster-Whisper"]
     },
     {
-      id: "patent-rag",
-      name: "Enterprise Patent & Research Assistant",
-      label: "LLM RAG Virtual Assistant",
+      id: "ai-talking-portfolio",
+      name: "AI Talking Portfolio",
+      label: "Realtime Conversational Portfolio",
       summary:
-        "I designed an end-to-end RAG pipeline for intelligent patent and research document retrieval at enterprise scale.",
+        "I built a conversational AI portfolio where visitors can interact with an LLM agent in real time.",
       details:
-        "The system used LangChain, LlamaIndex, ChromaDB, Azure OpenAI, AWS Bedrock, hybrid retrieval, re-ranking, Llama 3 fallback through Ollama, citation verification agents, and scalable FastAPI serverless deployment.",
-      stack: ["LangChain", "LlamaIndex", "ChromaDB", "Azure OpenAI", "AWS Bedrock", "FastAPI", "Ollama"]
+        "The system combines a RAG pipeline, ChromaDB, a FastAPI backend, OpenAI GPT-4, semantic search over structured data, and a React front end with streaming.",
+      stack: ["OpenAI GPT-4", "RAG", "ChromaDB", "FastAPI", "React", "Semantic Search", "Streaming"]
     },
     {
-      id: "text-to-sql",
-      name: "Text-to-SQL Analytics Copilot",
-      label: "Agentic LLM + Guarded SQL",
+      id: "pharmacy-genai-copilot",
+      name: "Pharmacy GenAI Copilot",
+      label: "Clinical RAG Assistant",
       summary:
-        "I built a conversational analytics copilot that converts natural language questions into guarded SQL for non-technical users.",
+        "I built a RAG-based clinical assistant integrating OpenAI and AWS Bedrock for pharmacy workflows.",
       details:
-        "The system used LangChain agents, ChromaDB, FastAPI APIs, AWS Lambda, Azure Functions, Power BI integration, guardrails, and an automated evaluation harness for output quality.",
-      stack: ["LangChain", "ChromaDB", "FastAPI", "AWS Lambda", "Azure Functions", "Power BI"]
+        "The copilot is deployed on SageMaker with evaluation frameworks and HIPAA-compliant data handling for responsible clinical use cases.",
+      stack: ["OpenAI", "AWS Bedrock", "RAG", "SageMaker", "Evaluation", "HIPAA"]
     },
     {
-      id: "job-copilot",
-      name: "AI Job Application Copilot",
-      label: "RAG + Agentic Workflow",
+      id: "insurance-fraud",
+      name: "Insurance Fraud Detection System",
+      label: "XGBoost + Realtime Feeds",
       summary:
-        "I built an agentic job application assistant that generates tailored resume bullets, cover letters, and recruiter outreach emails.",
+        "I delivered an end-to-end fraud detection pipeline with evaluation, orchestration, and near-real-time data feeds.",
       details:
-        "The system used LangChain, LangGraph, LlamaIndex, ChromaDB, OpenAI embeddings, evidence-based validation, ATS-style formatting checks, FastAPI, Docker, and CI/CD.",
-      stack: ["LangChain", "LangGraph", "LlamaIndex", "ChromaDB", "OpenAI", "FastAPI", "Docker"]
+        "The system used XGBoost, Scikit-learn, Airflow, real-time Kafka feeds, A/B testing, and achieved 92% fraud detection precision on flagged claims.",
+      stack: ["XGBoost", "Scikit-learn", "Airflow", "Kafka", "A/B Testing", "Model Evaluation"]
+    },
+    {
+      id: "open-source",
+      name: "Open Source & Side Projects",
+      label: "27+ Public Repositories",
+      summary:
+        "I maintain a shipping habit across AI automation tools, full-stack applications, and data engineering experiments.",
+      details:
+        "The projects on github.com/sairamveereddy show consistent iteration across practical AI tooling, application development, and data systems.",
+      stack: ["AI Automation", "Full-Stack Apps", "Data Engineering", "Prototyping", "GitHub"]
     }
   ],
   skills: [
     {
-      group: "AI / ML",
-      items: ["Machine Learning", "Predictive Modeling", "Feature Engineering", "NLP", "Model Fine-tuning", "Scikit-learn", "XGBoost"]
+      group: "Foundation Models & Generative AI",
+      items: ["OpenAI GPT-4", "Anthropic Claude", "AWS Bedrock", "Azure OpenAI", "Google Gemini", "Vertex AI", "Hugging Face", "Multimodal Models"]
     },
     {
-      group: "GenAI & LLMs",
-      items: ["LangChain", "LangGraph", "LlamaIndex", "OpenAI APIs", "AWS Bedrock", "Azure OpenAI", "Prompt Engineering", "RAG Pipelines"]
+      group: "Agentic & Multi-Agent Systems",
+      items: ["LangGraph", "AutoGen", "Multi-step Orchestration", "Agent Workflows", "Tool-use Design", "Function Calling"]
     },
     {
-      group: "Vector Databases",
-      items: ["ChromaDB", "FAISS", "Pinecone", "Embedding Search", "Semantic Retrieval"]
+      group: "Model Evaluation & Experimentation",
+      items: ["Evaluation Frameworks", "Benchmarks", "A/B Testing", "Metrics Design", "Bias Assessment", "Drift Detection", "Fine-tuning Validation"]
     },
     {
-      group: "Deep Learning",
-      items: ["TensorFlow", "Keras", "PyTorch", "Training", "Fine-tuning", "Deployment"]
+      group: "Rapid Prototyping & Research Translation",
+      items: ["Research Paper Implementation", "POC Development", "Iterative Experimentation", "GitHub Copilot", "Cursor", "LangChain", "LlamaIndex", "ChromaDB"]
     },
     {
-      group: "Languages & Frameworks",
-      items: ["Python", "SQL", "Scala", "PySpark", "FastAPI", "Flask", "REST APIs"]
+      group: "MLOps & Model Lifecycle",
+      items: ["MLflow", "AWS SageMaker", "Model Monitoring", "DVC", "CI/CD for ML", "Reproducible Experimentation"]
     },
     {
-      group: "Data & Pipelines",
-      items: ["Apache Spark", "Airflow", "Kafka", "GoldenGate", "ETL/ELT", "CDC", "Dimensional Modeling"]
+      group: "Programming, APIs & Data",
+      items: ["Python", "SQL", "FastAPI", "REST APIs", "Git", "Docker", "Kubernetes", "OOP", "Agile", "Spark", "Kafka", "Airflow"]
     },
     {
-      group: "Cloud & MLOps",
-      items: ["AWS SageMaker", "AWS Lambda", "GCP Dataproc", "BigQuery", "Azure", "Databricks", "Docker", "Kubernetes", "CI/CD"]
+      group: "ML Libraries & Cloud",
+      items: ["TensorFlow", "PyTorch", "Scikit-learn", "XGBoost", "Pandas", "NumPy", "AWS", "GCP", "Azure", "Snowflake", "Databricks", "Power BI"]
     },
     {
-      group: "Databases & Visualization",
-      items: ["Snowflake", "BigQuery", "MySQL", "SQL Server", "Oracle DB", "Power BI", "Git", "Postman"]
+      group: "Vector Databases & RAG",
+      items: ["ChromaDB", "FAISS", "Pinecone", "Retrieval-Augmented Generation", "Semantic Search"]
     }
   ],
   certifications: [
-    "Microsoft Azure AZ-900",
-    "Generative AI with the Gemini API in Vertex AI",
-    "AI Fluency Framework & Foundations - Anthropic",
-    "Robotic Enterprise Framework Overview - UiPath",
-    "Orchestrator for RPA Developers - UiPath"
+    "Claude Certified Architect (Anthropic) - Agentic architecture, tool design, prompt engineering, structured output, context management",
+    "Anthropic Specialty - in progress / target 2026",
+    "Google Professional Machine Learning Engineer - in progress / target 2026",
+    "LangChain & LangGraph Agentic AI Development - hands-on production deployments",
+    "HIPAA Compliance for Healthcare Data Engineering - applied in production"
+  ],
+  education: [
+    "MS, Management Information Systems - University of Illinois at Springfield, 2024",
+    "BTech, Electronics & Communication Engineering - ACE Engineering College, Hyderabad, 2020"
+  ],
+  publications: [
+    {
+      id: "research-paper-1",
+      title: "Research Paper 1",
+      label: "Zenodo Record",
+      url: "https://zenodo.org/records/21348229",
+      summary: "Research publication hosted on Zenodo."
+    },
+    {
+      id: "research-paper-2",
+      title: "Research Paper 2",
+      label: "Zenodo Record",
+      url: "https://zenodo.org/records/21367111",
+      summary: "Research publication hosted on Zenodo."
+    }
+  ],
+  externalLinks: [
+    {
+      id: "github-profile",
+      label: "GitHub",
+      title: "sairamveereddy",
+      url: "https://github.com/sairamveereddy",
+      summary: "Public repositories spanning AI automation, full-stack applications, and data engineering experiments."
+    },
+    {
+      id: "linkedin-profile",
+      label: "LinkedIn",
+      title: "Sairam Kumar",
+      url: "https://www.linkedin.com/in/sairam-kumar-365232192/",
+      summary: "Professional profile, experience, and networking link."
+    },
+    {
+      id: "substack-profile",
+      label: "Substack",
+      title: "First Ninja",
+      url: "https://substack.com/@firstninja",
+      summary: "Writing and AI content hub."
+    }
   ],
   routing: {
-    walkthrough: ["summary", "voice", "experience", "projects", "skills", "contact"],
+    walkthrough: ["summary", "voice", "experience", "projects", "publications", "skills", "contact"],
     genai: "projects",
+    "foundation models": "skills",
+    evaluation: "skills",
+    experimentation: "skills",
     rag: "projects",
     langchain: "projects",
+    claude: "education",
+    anthropic: "education",
+    badge: "top",
     cvs: "cvs",
     pharmacy: "cvs",
-    "agentic rag": "agentic-rag-research",
-    "agentic rags": "agentic-rag-research",
-    research: "agentic-rag-research",
-    dj: "beyond-engineering",
-    djing: "beyond-engineering",
-    hobbies: "beyond-engineering",
-    "content creator": "beyond-engineering",
-    creator: "beyond-engineering",
     nationwide: "nationwide",
     insurance: "nationwide",
+    fraud: "insurance-fraud",
     "gm financial": "gm",
     finance: "gm",
     "tech mahindra": "tech-mahindra",
     telecom: "tech-mahindra",
+    jobninjas: "jobninjas",
+    "talking portfolio": "ai-talking-portfolio",
+    github: "publications",
+    linkedin: "publications",
+    substack: "publications",
+    "research paper": "publications",
+    "research paper 1": "research-paper-1",
+    "research paper 2": "research-paper-2",
+    zenodo: "publications",
     skills: "skills",
     education: "education",
+    certifications: "education",
     contact: "contact",
     email: "contact",
     phone: "contact"

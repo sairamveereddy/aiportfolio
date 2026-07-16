@@ -3,6 +3,8 @@ const kb = window.PORTFOLIO_KB;
 const els = {
   experienceList: document.querySelector("#experienceList"),
   projectList: document.querySelector("#projectList"),
+  publicationList: document.querySelector("#publicationList"),
+  externalLinkList: document.querySelector("#externalLinkList"),
   skillsList: document.querySelector("#skillsList"),
   certificationList: document.querySelector("#certificationList")
 };
@@ -10,6 +12,8 @@ const els = {
 function init() {
   renderExperience();
   renderProjects();
+  renderPublications();
+  renderExternalLinks();
   renderSkills();
   renderCertifications();
   exposeAgentHelpers();
@@ -55,6 +59,36 @@ function renderProjects() {
           <div class="pill-row">
             ${project.stack.map((item) => `<span>${item}</span>`).join("")}
           </div>
+        </article>
+      `
+    )
+    .join("");
+}
+
+function renderPublications() {
+  els.publicationList.innerHTML = kb.publications
+    .map(
+      (paper) => `
+        <article id="${paper.id}" class="link-card" data-agent-section="${paper.id}">
+          <span class="project-label">${paper.label}</span>
+          <h3>${paper.title}</h3>
+          <p>${paper.summary}</p>
+          <a class="button secondary" href="${paper.url}" target="_blank" rel="noopener noreferrer">Open record</a>
+        </article>
+      `
+    )
+    .join("");
+}
+
+function renderExternalLinks() {
+  els.externalLinkList.innerHTML = kb.externalLinks
+    .map(
+      (link) => `
+        <article id="${link.id}" class="link-card" data-agent-section="${link.id}">
+          <span class="project-label">${link.label}</span>
+          <h3>${link.title}</h3>
+          <p>${link.summary}</p>
+          <a class="button secondary" href="${link.url}" target="_blank" rel="noopener noreferrer">Open link</a>
         </article>
       `
     )
