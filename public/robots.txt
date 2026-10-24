@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Allow: /papers/
+Allow: /research/
+Allow: /achievements/
+Allow: /projects/
+Allow: /blog/
+Allow: /speaking-and-community/
+
+Sitemap: https://sairamveereddy.com/sitemap.xml

@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Technical Blog & AI Engineering Insights | Sairam Kumar Reddy Veereddy</title>
+    <meta
+      name="description"
+      content="In-depth technical articles, system architectures, and engineering research on Agentic AI, RAG, foundation models, and workflow automation by Sairam Kumar Reddy Veereddy."
+    />
+    <link rel="canonical" href="https://sairamveereddy.com/blog" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="alternate" type="application/rss+xml" title="Sairam Kumar Reddy Veereddy's AI Engineering Blog" href="/feed.xml" />
+
+    <!-- Open Graph & Twitter Cards -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://sairamveereddy.com/blog" />
+    <meta property="og:title" content="Technical Blog & AI Engineering Insights | Sairam Kumar Reddy Veereddy" />
+    <meta property="og:description" content="Engineering deep-dives into Agentic AI, RAG, workflow automation, and foundation model evaluation." />
+    <meta property="og:image" content="https://sairamveereddy.com/assets/sairam-veereddy.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Schema.org Blog Collection -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Blog",
+        "name": "Sairam Kumar Reddy Veereddy — AI Engineering Blog",
+        "url": "https://sairamveereddy.com/blog",
+        "description": "Technical insights on Agentic AI, RAG architectures, model evaluation, and workflow automation.",
+        "author": {
+          "@type": "Person",
+          "name": "Sairam Kumar Reddy Veereddy",
+          "url": "https://sairamveereddy.com"
+        }
+      }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="Sairam Kumar Reddy Veereddy home">
+        <span>SV</span>
+        <strong>Sairam Kumar Reddy Veereddy</strong>
+      </a>
+      <img
+        class="header-badge"
+        src="/assets/claude-certified-architect.png"
+        alt="Claude Certified Architect badge"
+      />
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        Menu
+      </button>
+      <nav aria-label="Portfolio navigation">
+        <a href="/research">Research</a>
+        <a href="/achievements">Achievements</a>
+        <a href="/projects">Projects</a>
+        <a href="/blog" class="active">Blog</a>
+        <a href="/speaking-and-community">Community</a>
+        <a href="/#experience">Experience</a>
+        <a href="/#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main class="section-block" style="padding-top: 48px;">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="sep">/</span>
+        <span aria-current="page">Technical Blog</span>
+      </nav>
+
+      <div class="page-header">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:16px;">
+          <div>
+            <p class="eyebrow">Engineering Insights & Architecture Analysis</p>
+            <h1>AI Engineering Blog</h1>
+            <p class="page-lead">
+              Practical system designs, empirical model evaluations, hackathon post-mortems, and architectural
+              decision frameworks written for AI engineers, researchers, and technical leaders.
+            </p>
+          </div>
+          <div style="margin-top: 10px;">
+            <a class="button secondary" href="/feed.xml" target="_blank" rel="noopener noreferrer" style="font-size:0.85rem;">
+              📡 RSS Feed
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Controls: Live Search & Category Filters -->
+      <section class="blog-controls" aria-label="Article filters">
+        <div class="search-input-wrap">
+          <span class="search-icon">🔍</span>
+          <input
+            type="text"
+            id="blogSearchInput"
+            class="search-input"
+            placeholder="Search articles by topic, model, or tool (e.g. Mistral, n8n, RAG, agents)..."
+            aria-label="Search articles"
+          />
+        </div>
+
+        <div class="category-filter" id="categoryFilterContainer">
+          <button class="category-chip active" data-category="all">All Topics (8)</button>
+          <button class="category-chip" data-category="Automation">Automation</button>
+          <button class="category-chip" data-category="AI Engineering">AI Engineering</button>
+          <button class="category-chip" data-category="Architecture">Architecture</button>
+          <button class="category-chip" data-category="Agentic AI">Agentic AI</button>
+          <button class="category-chip" data-category="RAG">RAG</button>
+          <button class="category-chip" data-category="Research">Research</button>
+        </div>
+      </section>
+
+      <!-- Featured Articles Notice -->
+      <div style="margin-bottom: 24px;">
+        <p class="eyebrow">All Articles & Structured Technical Drafts</p>
+      </div>
+
+      <!-- Article Grid -->
+      <div class="grid-2" id="blogArticlesGrid">
+        <!-- Article 1: Miro × n8n Hackathon -->
+        <article class="article-card" data-category="Automation" data-tags="n8n,miro,agentic,hackathon,architecture,automation">
+          <div class="article-card-header">
+            <span class="badge badge-gold">Hackathon Architecture</span>
+            <span style="font-size:0.8rem; color:var(--muted); font-weight:700;">7 min read</span>
+          </div>
+          <h3>Inside Our Miro × n8n Hackathon-Winning Project: Architecture and Lessons Learned</h3>
+          <p>
+            How team 'Strangers' built a 1st-place bi-directional AI automation system bridging Miro visual whiteboard diagrams with n8n multi-agent execution in under a few hours.
+          </p>
+          <div class="pill-row" style="margin-bottom: 16px;">
+            <span>Miro</span>
+            <span>n8n</span>
+            <span>Agentic Loops</span>
+            <span>REST APIs</span>
+          </div>
+          <div class="article-card-footer">
+            <span>By Sairam Kumar Reddy Veereddy</span>
+            <a class="button secondary" href="/blog/inside-miro-n8n-hackathon" style="min-height:36px; padding:0 12px;">Read Article →</a>
+          </div>
+        </article>
+
+        <!-- Article 2: NYC PULSE -->
+        <article class="article-card" data-category="AI Engineering" data-tags="mistral,elasticsearch,agents,evidence loop,python,ai engineering">
+          <div class="article-card-header">
+            <span class="badge badge-teal">Search & Reasoning</span>
+            <span style="font-size:0.8rem; color:var(--muted); font-weight:700;">9 min read</span>
+          </div>
+          <h3>Building NYC PULSE with Mistral and Elasticsearch</h3>
+          <p>
+            Why standard RAG fails for complex urban disruption analysis, and how we engineered an autonomous Evidence Loop pairing Mistral Large reasoning with Elasticsearch memory.
+          </p>
+          <div class="pill-row" style="margin-bottom: 16px;">
+            <span>Mistral Large</span>
+            <span>Elasticsearch</span>
+            <span>Evidence Loop</span>
+            <span>GTFS Transit</span>
+          </div>
+          <div class="article-card-footer">
+            <span>By Sairam Kumar Reddy Veereddy</span>
+            <a class="button secondary" href="/blog/nyc-pulse-mistral-elasticsearch" style="min-height:36px; padding:0 12px;">Read Article →</a>
+          </div>
+        </article>
+
+        <!-- Article 3: JobNinjas.ai -->
+        <article class="article-card" data-category="Architecture" data-tags="fastapi,aws,langchain,n8n,vapi,full stack ai,architecture">
+          <div class="article-card-header">
+            <span class="badge badge-coral">System Design</span>
+            <span style="font-size:0.8rem; color:var(--muted); font-weight:700;">11 min read</span>
+          </div>
+          <h3>How I Built JobNinjas.ai: AI Platform Architecture</h3>
+          <p>
+            A deep dive into shipping a production AI platform solo: combining AWS Cognito/RDS, FastAPI, LangChain RAG, 8 automated n8n workflows, and real-time WebRTC voice.
+          </p>
+          <div class="pill-row" style="margin-bottom: 16px;">
+            <span>FastAPI</span>
+            <span>AWS Cloud</span>
+            <span>WebRTC Voice</span>
+            <span>n8n Clusters</span>
+          </div>
+          <div class="article-card-footer">
+            <span>By Sairam Kumar Reddy Veereddy</span>
+            <a class="button secondary" href="/blog/building-jobninjas-ai-platform" style="min-height:36px; padding:0 12px;">Read Article →</a>
+          </div>
+        </article>
+
+        <!-- Article 4: Evaluating AI Agent Reliability -->
+        <article class="article-card" data-category="Agentic AI" data-tags="ai agents,tool calling,evaluation,reliability,langgraph,agentic ai">
+          <div class="article-card-header">
+            <span class="badge badge-draft">Draft — Requires Author Verification</span>
+            <span style="font-size:0.8rem; color:var(--muted); font-weight:700;">8 min read</span>
+          </div>
+          <h3>Evaluating AI Agent Reliability and Tool Calling</h3>
+          <p>
+            Architectural patterns for measuring deterministic tool execution, schema compliance, timeout recovery, and avoiding recursive infinite loops in production agent swarms.
+          </p>
+          <div class="pill-row" style="margin-bottom: 16px;">
+            <span>Tool Calling</span>
+            <span>LangGraph</span>
+            <span>Agent Reliability</span>
+            <span>Schema Auditing</span>
+          </div>
+          <div class="article-card-footer">
+            <span>By Sairam Kumar Reddy Veereddy</span>
+            <a class="button secondary" href="/blog/evaluating-ai-agent-reliability" style="min-height:36px; padding:0 12px;">Read Draft →</a>
+          </div>
+        </article>
+
+        <!-- Article 5: Building Production-Ready RAG Systems -->
+        <article class="article-card" data-category="RAG" data-tags="rag,chromadb,vector search,llamaindex,production ai">
+          <div class="article-card-header">
+            <span class="badge badge-teal">RAG Engineering</span>
+            <span style="font-size:0.8rem; color:var(--muted); font-weight:700;">10 min read</span>
+          </div>
+          <h3>Building Production-Ready RAG Systems</h3>
+          <p>
+            Moving beyond toy vector search: hybrid retrieval (BM25 + dense embeddings), cross-encoder re-ranking, document chunking tradeoffs, and strict citation attribution.
+          </p>
+          <div class="pill-row" style="margin-bottom: 16px;">
+            <span>Hybrid Search</span>
+            <span>Cross-Encoders</span>
+            <span>Citation Guardrails</span>
+            <span>ChromaDB</span>
+          </div>
+          <div class="article-card-footer">
+            <span>By Sairam Kumar Reddy Veereddy</span>
+            <a class="button secondary" href="/blog/building-production-rag-systems" style="min-height:36px; padding:0 12px;">Read Article →</a>
+          </div>
+        </article>
+
+        <!-- Article 6: RAG vs Fine-Tuning -->
+        <article class="article-card" data-category="Architecture" data-tags="enterprise ai,fine-tuning,rag,llm strategy,cost optimization,architecture">
+          <div class="article-card-header">
+            <span class="badge badge-coral">Strategic Decision</span>
+            <span style="font-size:0.8rem; color:var(--muted); font-weight:700;">8 min read</span>
+          </div>
+          <h3>RAG vs Fine-Tuning for Enterprise AI</h3>
+          <p>
+            A practical decision matrix comparing latency, cost, knowledge freshness, and data privacy when deciding between RAG, fine-tuning, or hybrid compound AI patterns.
+          </p>
+          <div class="pill-row" style="margin-bottom: 16px;">
+            <span>Enterprise Strategy</span>
+            <span>Fine-Tuning</span>
+            <span>RAG</span>
+            <span>Cost Analysis</span>
+          </div>
+          <div class="article-card-footer">
+            <span>By Sairam Kumar Reddy Veereddy</span>
+            <a class="button secondary" href="/blog/rag-vs-finetuning-enterprise-ai" style="min-height:36px; padding:0 12px;">Read Article →</a>
+          </div>
+        </article>
+
+        <!-- Article 7: Engineering Reliable n8n Workflows -->
+        <article class="article-card" data-category="Automation" data-tags="n8n,workflow automation,error handling,webhooks,devops,automation">
+          <div class="article-card-header">
+            <span class="badge badge-gold">Workflow Automation</span>
+            <span style="font-size:0.8rem; color:var(--muted); font-weight:700;">7 min read</span>
+          </div>
+          <h3>Engineering Reliable Multi-Step n8n Workflows</h3>
+          <p>
+            Production engineering patterns for mission-critical n8n automations: idempotency tokens, dead letter queues, webhook security, and Python FastAPI microservice bridges.
+          </p>
+          <div class="pill-row" style="margin-bottom: 16px;">
+            <span>n8n</span>
+            <span>Idempotency</span>
+            <span>Error Handling</span>
+            <span>Microservices</span>
+          </div>
+          <div class="article-card-footer">
+            <span>By Sairam Kumar Reddy Veereddy</span>
+            <a class="button secondary" href="/blog/engineering-reliable-n8n-workflows" style="min-height:36px; padding:0 12px;">Read Article →</a>
+          </div>
+        </article>
+
+        <!-- Article 8: Benchmarking AI Agent Performance -->
+        <article class="article-card" data-category="Research" data-tags="benchmarking,agentic ai,metrics,research,testing">
+          <div class="article-card-header">
+            <span class="badge badge-draft">Draft — Requires Author Verification</span>
+            <span style="font-size:0.8rem; color:var(--muted); font-weight:700;">9 min read</span>
+          </div>
+          <h3>Benchmarking AI Agent Performance</h3>
+          <p>
+            Formulating rigorous quantitative metrics for autonomous AI agents: task completion rate, step efficiency, cost-per-successful-action, and regression testing pipelines.
+          </p>
+          <div class="pill-row" style="margin-bottom: 16px;">
+            <span>Benchmarks</span>
+            <span>Agent Metrics</span>
+            <span>Evaluation</span>
+            <span>Cost Efficiency</span>
+          </div>
+          <div class="article-card-footer">
+            <span>By Sairam Kumar Reddy Veereddy</span>
+            <a class="button secondary" href="/blog/benchmarking-ai-agent-performance" style="min-height:36px; padding:0 12px;">Read Draft →</a>
+          </div>
+        </article>
+      </div>
+    </main>
+
+    <div id="toast" class="toast-notice" role="status" aria-live="polite"></div>
+
+    <script src="/data/site-data.js"></script>
+    <script src="/app-helpers.js"></script>
+    <script>
+      // Interactive Client-Side Search and Category Filtering
+      document.addEventListener("DOMContentLoaded", () => {
+        const searchInput = document.getElementById("blogSearchInput");
+        const categoryButtons = document.querySelectorAll(".category-chip");
+        const cards = document.querySelectorAll("#blogArticlesGrid .article-card");
+
+        let activeCategory = "all";
+        let searchQuery = "";
+
+        function filterCards() {
+          cards.forEach((card) => {
+            const cardCategory = card.getAttribute("data-category") || "";
+            const cardTags = (card.getAttribute("data-tags") || "").toLowerCase();
+            const cardText = card.innerText.toLowerCase();
+
+            const matchesCategory =
+              activeCategory === "all" ||
+              cardCategory.toLowerCase() === activeCategory.toLowerCase();
+
+            const matchesSearch =
+              !searchQuery ||
+              cardText.includes(searchQuery) ||
+              cardTags.includes(searchQuery);
+
+            if (matchesCategory && matchesSearch) {
+              card.style.display = "flex";
+            } else {
+              card.style.display = "none";
+            }
+          });
+        }
+
+        categoryButtons.forEach((btn) => {
+          btn.addEventListener("click", () => {
+            categoryButtons.forEach((b) => b.classList.remove("active"));
+            btn.classList.add("active");
+            activeCategory = btn.getAttribute("data-category");
+            filterCards();
+          });
+        });
+
+        if (searchInput) {
+          searchInput.addEventListener("input", (e) => {
+            searchQuery = e.target.value.trim().toLowerCase();
+            filterCards();
+          });
+        }
+      });
+    </script>
+    <script src="https://api.foyer.ink/static/widget.js" data-agent-id="tl_6e74c516a62d" data-server="https://api.foyer.ink" async></script>
+  </body>
+</html>

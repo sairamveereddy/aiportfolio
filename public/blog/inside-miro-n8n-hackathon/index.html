@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inside Our Miro × n8n Hackathon-Winning Project | Sairam Kumar Reddy Veereddy</title>
+    <meta
+      name="description"
+      content="Architecture, code patterns, and lessons learned from winning 1st place with team Strangers at the official Miro × n8n Hackathon: From Diagram to Automation."
+    />
+    <link rel="canonical" href="https://sairamveereddy.com/blog/inside-miro-n8n-hackathon" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+    <!-- Open Graph & Twitter Cards -->
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://sairamveereddy.com/blog/inside-miro-n8n-hackathon" />
+    <meta property="og:title" content="Inside Our Miro × n8n Hackathon-Winning Project: Architecture and Lessons Learned" />
+    <meta property="og:description" content="Technical walkthrough of team Strangers' 1st-place winning project bridging Miro canvases with n8n multi-agent automations." />
+    <meta property="og:image" content="https://sairamveereddy.com/assets/sairam-veereddy.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Schema.org TechArticle -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "Inside Our Miro × n8n Hackathon-Winning Project: Architecture and Lessons Learned",
+        "author": {
+          "@type": "Person",
+          "name": "Sairam Kumar Reddy Veereddy",
+          "url": "https://sairamveereddy.com"
+        },
+        "datePublished": "2026-08-20",
+        "description": "Technical case study of how team Strangers engineered a bi-directional event-driven automation loop between Miro and n8n.",
+        "url": "https://sairamveereddy.com/blog/inside-miro-n8n-hackathon"
+      }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        mermaid.initialize({ startOnLoad: true, theme: "neutral" });
+      });
+    </script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="Sairam Kumar Reddy Veereddy home">
+        <span>SV</span>
+        <strong>Sairam Kumar Reddy Veereddy</strong>
+      </a>
+      <img
+        class="header-badge"
+        src="/assets/claude-certified-architect.png"
+        alt="Claude Certified Architect badge"
+      />
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        Menu
+      </button>
+      <nav aria-label="Portfolio navigation">
+        <a href="/research">Research</a>
+        <a href="/achievements">Achievements</a>
+        <a href="/projects">Projects</a>
+        <a href="/blog" class="active">Blog</a>
+        <a href="/speaking-and-community">Community</a>
+        <a href="/#experience">Experience</a>
+        <a href="/#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main class="section-block" style="padding-top: 48px;">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="sep">/</span>
+        <a href="/blog">Blog</a>
+        <span class="sep">/</span>
+        <span aria-current="page">Inside Our Miro × n8n Hackathon Win</span>
+      </nav>
+
+      <article class="prose" style="margin: 0 auto; max-width: 860px;">
+        <header style="margin-bottom: 32px;">
+          <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px;">
+            <span class="badge badge-gold">1st Place Hackathon Winner</span>
+            <span class="badge badge-teal">Automation & Multi-Agent</span>
+            <span style="font-size:0.85rem; color:var(--muted); font-weight:700;">7 min read · August 20, 2026</span>
+          </div>
+          <h1 style="font-size: clamp(2.2rem, 4.5vw, 3.4rem); line-height: 1.15; margin-bottom: 16px;">
+            Inside Our Miro × n8n Hackathon-Winning Project: Architecture and Lessons Learned
+          </h1>
+          <p style="font-size: 1.15rem; color: var(--muted); line-height: 1.6;">
+            By <strong>Sairam Kumar Reddy Veereddy</strong> · Lead AI & Workflow Automation Engineer
+          </p>
+        </header>
+
+        <p>
+          At the official <strong>Miro × n8n Hackathon</strong> (themed <em>"From Diagram to Automation"</em>),
+          cross-functional teams were placed in a high-intensity, time-compressed sprint: build an AI automation
+          that turns stalled visual diagrams into live executable workflows, pitch it in a strict 2.5-minute demo,
+          and close the loop directly back onto the Miro canvas.
+        </p>
+        <p>
+          Our team, <strong>Strangers</strong>, formed on-site and captured <strong>1st Place</strong>. In this article,
+          I break down the event-driven system architecture, the challenges of low-latency canvas manipulation,
+          and the key lessons for engineering production agentic workflows.
+        </p>
+
+        <h2>The Core Problem: Static Whiteboards vs Live Execution</h2>
+        <p>
+          Whiteboards like Miro are where modern engineering thinking happens: sprint topologies, database migrations,
+          user feedback trees, and multi-service event routers. Yet once designed, they become static historical records.
+          When changes occur in upstream services, the board goes stale. Conversely, updates on the board require manual
+          developer translation into ticketing platforms or API calls.
+        </p>
+        <p>
+          The hackathon brief required completing a 3-stage loop:
+        </p>
+        <ol>
+          <li><strong>Design in Miro:</strong> Triggering from native board elements.</li>
+          <li><strong>Build in n8n:</strong> Parsing and orchestrating agentic logic.</li>
+          <li><strong>Write Back to Miro:</strong> Rendering structured AI outputs on the active canvas in real time.</li>
+        </ol>
+
+        <h2>System Architecture: The Bi-Directional Event Loop</h2>
+        <p>
+          Here is how we architected the real-time bridge:
+        </p>
+
+        <div class="mermaid-box">
+          <div class="caption">Architecture: Miro × n8n Bi-Directional Automation</div>
+          <pre class="mermaid">
+flowchart TD
+    subgraph Miro [Miro Canvas]
+        Board[Live Whiteboard Canvas]
+        Delta[Webhook: Node Added / Linked]
+    end
+
+    subgraph n8n [n8n Automation Cluster]
+        Listener[n8n Webhook Endpoint]
+        Parser[JSON Schema Normalizer]
+        Agent[n8n AI Reasoning Agent]
+        Tools[Function Calling Tools]
+    end
+
+    subgraph LLM [Foundation Model]
+        Model[LLM API Context Window]
+    end
+
+    Board --> Delta
+    Delta -->|POST JSON| Listener
+    Listener --> Parser
+    Parser --> Agent
+    Agent <-->|Tool Execution| Tools
+    Agent <-->|Structured Prompting| Model
+    Agent -->|HTTP POST: /boards/{id}/items| Board
+          </pre>
+        </div>
+
+        <h2>Deep Dive: Direct Miro REST API Integration</h2>
+        <p>
+          One of our immediate technical constraints was that standard n8n integrations at the time did not feature
+          rich canvas-drawing primitives out of the box. We solved this by implementing custom HTTP Request nodes
+          within n8n that talk directly to Miro's REST API v2:
+        </p>
+
+        <div class="code-container">
+          <div class="code-header">
+            <span>JavaScript (n8n Custom Function Node)</span>
+            <button class="code-copy-btn">Copy Code</button>
+          </div>
+          <pre><code>// Normalizing Miro Webhook payload and calculating coordinate offsets
+const item = $json.data.item;
+const boardId = $json.data.boardId;
+
+// Derive child card coordinates offset by 320px on the X-axis
+const parentX = item.position?.x || 0;
+const parentY = item.position?.y || 0;
+
+return {
+  boardId: boardId,
+  parentId: item.id,
+  parentText: item.data?.content || "Untitled Node",
+  childX: parentX + 320,
+  childY: parentY,
+  timestamp: new Date().toISOString()
+};</code></pre>
+        </div>
+
+        <p>
+          Once the AI agent synthesized the necessary actions, a subsequent n8n HTTP node posted the response back
+          to Miro using bearer authentication:
+        </p>
+
+        <div class="code-container">
+          <div class="code-header">
+            <span>HTTP POST (Miro REST API Payload)</span>
+            <button class="code-copy-btn">Copy Code</button>
+          </div>
+          <pre><code>POST https://api.miro.com/v2/boards/{board_id}/sticky_notes
+Content-Type: application/json
+Authorization: Bearer {n8n_vault_miro_token}
+
+{
+  "data": {
+    "content": "<strong>Action:</strong> Automated customer routing logic dispatched.<br/>Status: <em>Verified</em>",
+    "shape": "square"
+  },
+  "style": {
+    "fillColor": "light_green"
+  },
+  "position": {
+    "origin": "center",
+    "x": 450,
+    "y": 120
+  }
+}</code></pre>
+        </div>
+
+        <h2>Overcoming Rate Limits and Board Clutter</h2>
+        <p>
+          During our initial testing sprint, recursive webhooks posed a critical risk: when the n8n agent created a new
+          sticky note on Miro, that creation fired another Miro webhook! This created a potential infinite loop.
+        </p>
+        <p>
+          We fixed this by appending a deterministic metadata signature:
+        </p>
+        <blockquote>
+          <p>
+            Every automated note generated by n8n was tagged with a hidden metadata attribute <code>origin: "agent-automation"</code>.
+            Our n8n webhook listener immediately discarded any event carrying this flag, guaranteeing zero feedback recursion.
+          </p>
+        </blockquote>
+
+        <h2>The 2.5-Minute Pitch</h2>
+        <p>
+          Judging criteria heavily penalized slide decks: judges wanted to see live whiteboard motion. During our demo,
+          we typed a stalled workflow problem on a red sticky note, watched n8n process the event live on a split screen,
+          and watched Miro dynamically spawn three green verified resolution cards with connecting arrows within 1.8 seconds.
+        </p>
+
+        <!-- Share and Links -->
+        <div class="share-bar">
+          <strong>Share this article:</strong>
+          <button class="share-btn" onclick="copyToClipboard(window.location.href, 'Article link copied!')">📋 Copy Link</button>
+          <a class="share-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https://sairamveereddy.com/blog/inside-miro-n8n-hackathon" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a class="share-btn" href="https://twitter.com/intent/tweet?text=Inside+Our+Miro+x+n8n+Hackathon-Winning+Project&url=https://sairamveereddy.com/blog/inside-miro-n8n-hackathon" target="_blank" rel="noopener noreferrer">X / Twitter</a>
+        </div>
+
+        <!-- Related Navigation -->
+        <div style="margin: 40px 0; display:flex; justify-content:space-between; flex-wrap:wrap; gap:16px;">
+          <a class="button secondary" href="/achievements/miro-n8n-hackathon">← View Hackathon Achievement Page</a>
+          <a class="button primary" href="/blog/nyc-pulse-mistral-elasticsearch">Next: Building NYC PULSE with Mistral →</a>
+        </div>
+      </article>
+    </main>
+
+    <div id="toast" class="toast-notice" role="status" aria-live="polite"></div>
+
+    <script src="/data/site-data.js"></script>
+    <script src="/app-helpers.js"></script>
+    <script src="https://api.foyer.ink/static/widget.js" data-agent-id="tl_6e74c516a62d" data-server="https://api.foyer.ink" async></script>
+  </body>
+</html>

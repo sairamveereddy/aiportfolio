@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sairam Kumar Reddy Veereddy | AI Engineering Blog</title>
+    <link>https://sairamveereddy.com/blog</link>
+    <description>Technical articles, system architectures, and research in Agentic AI, RAG, and foundation model engineering.</description>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 24 Oct 2026 00:00:00 GMT</lastBuildDate>
+    <atom:link href="https://sairamveereddy.com/feed.xml" rel="self" type="application/rss+xml" />
+
+    <item>
+      <title>Inside Our Miro × n8n Hackathon-Winning Project: Architecture and Lessons Learned</title>
+      <link>https://sairamveereddy.com/blog/inside-miro-n8n-hackathon</link>
+      <guid>https://sairamveereddy.com/blog/inside-miro-n8n-hackathon</guid>
+      <pubDate>Thu, 20 Aug 2026 00:00:00 GMT</pubDate>
+      <description>How team 'Strangers' built a 1st-place bi-directional AI automation system bridging Miro visual canvas diagrams with n8n multi-agent execution in under a few hours.</description>
+    </item>
+
+    <item>
+      <title>Building NYC PULSE with Mistral and Elasticsearch</title>
+      <link>https://sairamveereddy.com/blog/nyc-pulse-mistral-elasticsearch</link>
+      <guid>https://sairamveereddy.com/blog/nyc-pulse-mistral-elasticsearch</guid>
+      <pubDate>Mon, 10 Aug 2026 00:00:00 GMT</pubDate>
+      <description>Why standard RAG fails for urban disruption analysis and how we engineered an autonomous Evidence Loop pairing Mistral Large reasoning with Elasticsearch memory.</description>
+    </item>
+
+    <item>
+      <title>How I Built JobNinjas.ai: AI Platform Architecture</title>
+      <link>https://sairamveereddy.com/blog/building-jobninjas-ai-platform</link>
+      <guid>https://sairamveereddy.com/blog/building-jobninjas-ai-platform</guid>
+      <pubDate>Tue, 28 Jul 2026 00:00:00 GMT</pubDate>
+      <description>A deep dive into shipping an AI platform solo: combining AWS Cognito/RDS, FastAPI, LangChain RAG, 8 n8n automation workflows, and real-time WebRTC voice.</description>
+    </item>
+
+    <item>
+      <title>Evaluating AI Agent Reliability and Tool Calling</title>
+      <link>https://sairamveereddy.com/blog/evaluating-ai-agent-reliability</link>
+      <guid>https://sairamveereddy.com/blog/evaluating-ai-agent-reliability</guid>
+      <pubDate>Sun, 05 Jul 2026 00:00:00 GMT</pubDate>
+      <description>Techniques for measuring deterministic tool execution, schema compliance, timeout recovery, and avoiding infinite loops in production agent architectures.</description>
+    </item>
+
+    <item>
+      <title>Building Production-Ready RAG Systems</title>
+      <link>https://sairamveereddy.com/blog/building-production-rag-systems</link>
+      <guid>https://sairamveereddy.com/blog/building-production-rag-systems</guid>
+      <pubDate>Thu, 18 Jun 2026 00:00:00 GMT</pubDate>
+      <description>Moving beyond basic vector search: hybrid retrieval, cross-encoder re-ranking, document chunking tradeoffs, and enforcing strict citation attribution.</description>
+    </item>
+
+    <item>
+      <title>RAG vs Fine-Tuning for Enterprise AI</title>
+      <link>https://sairamveereddy.com/blog/rag-vs-finetuning-enterprise-ai</link>
+      <guid>https://sairamveereddy.com/blog/rag-vs-finetuning-enterprise-ai</guid>
+      <pubDate>Sat, 30 May 2026 00:00:00 GMT</pubDate>
+      <description>An engineering decision framework comparing latency, cost, knowledge freshness, and data privacy when deciding between RAG, fine-tuning, or hybrid setups.</description>
+    </item>
+
+    <item>
+      <title>Engineering Reliable Multi-Step n8n Workflows</title>
+      <link>https://sairamveereddy.com/blog/engineering-reliable-n8n-workflows</link>
+      <guid>https://sairamveereddy.com/blog/engineering-reliable-n8n-workflows</guid>
+      <pubDate>Tue, 12 May 2026 00:00:00 GMT</pubDate>
+      <description>Design patterns for resilient workflow automations: idempotency tokens, dead letter queues, webhook security, and custom Python microservice bridges.</description>
+    </item>
+
+    <item>
+      <title>Benchmarking AI Agent Performance</title>
+      <link>https://sairamveereddy.com/blog/benchmarking-ai-agent-performance</link>
+      <guid>https://sairamveereddy.com/blog/benchmarking-ai-agent-performance</guid>
+      <pubDate>Wed, 22 Apr 2026 00:00:00 GMT</pubDate>
+      <description>Formulating quantitative metrics for autonomous agents: goal completion rate, step efficiency, cost-per-successful-action, and regression testing pipelines.</description>
+    </item>
+  </channel>
+</rss>

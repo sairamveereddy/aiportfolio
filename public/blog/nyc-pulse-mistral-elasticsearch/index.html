@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Building NYC PULSE with Mistral and Elasticsearch | Sairam Kumar Reddy Veereddy</title>
+    <meta
+      name="description"
+      content="Why standard RAG fails for urban disruption analysis, and how we engineered NYC Pulse's autonomous Evidence Loop combining Mistral Large reasoning with Elasticsearch memory."
+    />
+    <link rel="canonical" href="https://sairamveereddy.com/blog/nyc-pulse-mistral-elasticsearch" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+    <!-- Open Graph & Social -->
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://sairamveereddy.com/blog/nyc-pulse-mistral-elasticsearch" />
+    <meta property="og:title" content="Building NYC PULSE with Mistral and Elasticsearch" />
+    <meta property="og:description" content="Detailed engineering breakdown of NYC Pulse: geo-distance search, 311 historical data, and the two-phase Evidence Loop." />
+    <meta property="og:image" content="https://sairamveereddy.com/assets/sairam-veereddy.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Schema.org TechArticle -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "Building NYC PULSE with Mistral and Elasticsearch",
+        "author": {
+          "@type": "Person",
+          "name": "Sairam Kumar Reddy Veereddy",
+          "url": "https://sairamveereddy.com"
+        },
+        "datePublished": "2026-08-10",
+        "description": "Evidence-driven urban disruption intelligence using Mistral Large and Elasticsearch.",
+        "url": "https://sairamveereddy.com/blog/nyc-pulse-mistral-elasticsearch"
+      }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        mermaid.initialize({ startOnLoad: true, theme: "neutral" });
+      });
+    </script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="Sairam Kumar Reddy Veereddy home">
+        <span>SV</span>
+        <strong>Sairam Kumar Reddy Veereddy</strong>
+      </a>
+      <img
+        class="header-badge"
+        src="/assets/claude-certified-architect.png"
+        alt="Claude Certified Architect badge"
+      />
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        Menu
+      </button>
+      <nav aria-label="Portfolio navigation">
+        <a href="/research">Research</a>
+        <a href="/achievements">Achievements</a>
+        <a href="/projects">Projects</a>
+        <a href="/blog" class="active">Blog</a>
+        <a href="/speaking-and-community">Community</a>
+        <a href="/#experience">Experience</a>
+        <a href="/#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main class="section-block" style="padding-top: 48px;">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="sep">/</span>
+        <a href="/blog">Blog</a>
+        <span class="sep">/</span>
+        <span aria-current="page">Building NYC PULSE</span>
+      </nav>
+
+      <article class="prose" style="margin: 0 auto; max-width: 860px;">
+        <header style="margin-bottom: 32px;">
+          <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px;">
+            <span class="badge badge-teal">AI Engineering</span>
+            <span class="badge badge-gold">Elasticsearch & Mistral</span>
+            <span style="font-size:0.85rem; color:var(--muted); font-weight:700;">9 min read · August 10, 2026</span>
+          </div>
+          <h1 style="font-size: clamp(2.2rem, 4.5vw, 3.4rem); line-height: 1.15; margin-bottom: 16px;">
+            Building NYC PULSE with Mistral and Elasticsearch
+          </h1>
+          <p style="font-size: 1.15rem; color: var(--muted); line-height: 1.6;">
+            By <strong>Sairam Kumar Reddy Veereddy</strong> · AI/ML Engineer
+          </p>
+        </header>
+
+        <blockquote>
+          <p>
+            <strong>"Elastic gives NYC Pulse memory. Mistral gives NYC Pulse reasoning."</strong>
+          </p>
+        </blockquote>
+
+        <p>
+          In complex urban centers like New York City, a major infrastructure failure is never an isolated event.
+          When the L subway train breaks down at Bedford Avenue during evening rush hour, the immediate problem is
+          strand passengers. But within 15 minutes, secondary ripple effects unfold: tens of thousands of commuters
+          flood street level, ride-share surge pricing skyrockets, the M14 bus is overwhelmed, sidewalk congestion
+          triggers noise complaints, and nearby bodega foot-traffic swings wildly.
+        </p>
+        <p>
+          Conventional emergency management systems output static alerts. Modern AI attempts typically feed the incident
+          into an LLM with naive RAG: <em>"A train is stalled at Bedford. What happens next?"</em>
+          The LLM hallucinates generalized speculation that cannot be audited or acted upon.
+        </p>
+        <p>
+          To solve this, I built <strong>NYC Pulse</strong>: an evidence-driven urban intelligence agent that pairs
+          <strong>Mistral Large</strong> with an <strong>Elasticsearch</strong> memory bank using an autonomous
+          <strong>Evidence Loop</strong>.
+        </p>
+
+        <h2>Why Standard RAG Fails for Ripple-Effect Modeling</h2>
+        <p>
+          In traditional Retrieval-Augmented Generation (RAG):
+        </p>
+        <div class="code-container">
+          <div class="code-header">
+            <span>Traditional RAG Architecture (Single Pass)</span>
+          </div>
+          <pre><code>User Query -> Retrieve Vector Docs -> Prompt Context -> Single LLM Output</code></pre>
+        </div>
+        <p>
+          This single-shot pipeline fails because ripple effects are <em>hypothetical until verified by empirical signals</em>.
+          If the LLM assumes that an outage at Bedford Avenue will cause a surge in 311 noise complaints, but historical
+          Elasticsearch records show that noise complaints in Williamsburg correlate strictly with weekend nightlife rather
+          than transit outages, standard RAG will still state it as fact.
+        </p>
+
+        <h2>The Core Differentiator: The Two-Phase Evidence Loop</h2>
+        <p>
+          NYC Pulse replaces naive retrieval with an active investigation loop:
+        </p>
+
+        <div class="mermaid-box">
+          <div class="caption">NYC Pulse Architecture: The Evidence Loop</div>
+          <pre class="mermaid">
+flowchart TD
+    Event[NYC Urban Event: Subway Failure] --> M1[Mistral Large: Initial Analysis]
+    M1 -->|Geo & Schedule Tools| E1[Elasticsearch GTFS & Baseline Indices]
+    E1 -.->|Nearby transit stations & baseline complaints| M1
+    M1 -->|Formulates Testable Hypotheses| M2[Mistral Hypothesis Engine]
+    M2 -->|Evidence Query Tools| E2[Elasticsearch 311 Evidence Verification]
+    E2 -.->|Supporting / Contradicting Historical Signals| M2
+    M2 --> Final[Structured Ripple-Effect Intelligence Report]
+          </pre>
+        </div>
+
+        <h2>How Elasticsearch Powers the Memory</h2>
+        <p>
+          Elasticsearch serves three distinct memory functions in NYC Pulse:
+        </p>
+        <ol>
+          <li><strong>Geographic Transit Awareness:</strong> Using <code>geo_distance</code> queries over static GTFS subway schedules to locate all alternate train and bus stops within an 800-meter radius.</li>
+          <li><strong>Historical 311 Analysis:</strong> Full-text BM25 search over millions of historical 311 service requests to find complaints logged during past disruptions.</li>
+          <li><strong>Statistical Baseline Aggregations:</strong> Computing expected complaint rates per neighborhood to separate disruption spikes from normal city background noise.</li>
+        </ol>
+
+        <div class="code-container">
+          <div class="code-header">
+            <span>Python (Elasticsearch Geo-Distance & Aggregation Tool)</span>
+            <button class="code-copy-btn">Copy Code</button>
+          </div>
+          <pre><code>def find_alternate_transit(lat: float, lon: float, radius_meters: int = 800):
+    """Locate alternate transit stations within radius using geo_distance."""
+    query = {
+        "bool": {
+            "filter": {
+                "geo_distance": {
+                    "distance": f"{radius_meters}m",
+                    "location": {"lat": lat, "lon": lon}
+                }
+            }
+        }
+    }
+    res = es_client.search(index="mta-gtfs-stops", query=query, size=10)
+    return [hit["_source"] for hit in res["hits"]["hits"]]</code></pre>
+        </div>
+
+        <h2>Mistral Large Function Calling</h2>
+        <p>
+          We selected <code>mistral-large-latest</code> for its deterministic tool execution and strong reasoning
+          over JSON schemas. In our implementation, Mistral is registered with specialized tool primitives:
+        </p>
+        <ul>
+          <li><code>search_311_complaints(descriptor, neighborhood, time_range)</code></li>
+          <li><code>find_nearby_stops(station_name, radius_meters)</code></li>
+          <li><code>get_neighborhood_baseline(borough, complaint_type)</code></li>
+          <li><code>verify_causal_hypothesis(hypothesis_statement, required_signal)</code></li>
+        </ul>
+
+        <div class="code-container">
+          <div class="code-header">
+            <span>Python (Mistral Agent Investigation Loop)</span>
+            <button class="code-copy-btn">Copy Code</button>
+          </div>
+          <pre><code>messages = [
+    {"role": "system", "content": SYSTEM_PROMPT},
+    {"role": "user", "content": f"Analyze disruption: {event_description}"}
+]
+
+# Turn 1: Mistral autonomously investigates geographic context
+response = mistral_client.chat(
+    model="mistral-large-latest",
+    messages=messages,
+    tools=NYC_PULSE_TOOLS,
+    tool_choice="auto"
+)
+
+# Execute tool calls and feed evidence back into conversation context
+if response.choices[0].message.tool_calls:
+    for tool_call in response.choices[0].message.tool_calls:
+        tool_result = execute_tool(tool_call.function.name, tool_call.function.arguments)
+        messages.append({
+            "role": "tool",
+            "name": tool_call.function.name,
+            "content": json.dumps(tool_result),
+            "tool_call_id": tool_call.id
+        })
+
+# Turn 2: Mistral synthesizes grounded hypotheses and checks contradictory evidence
+final_report = mistral_client.chat(
+    model="mistral-large-latest",
+    messages=messages,
+    response_format={"type": "json_object"}
+)</code></pre>
+        </div>
+
+        <h2>Lessons Learned & Future Architecture</h2>
+        <p>
+          The primary engineering lesson from NYC Pulse is that <strong>multi-turn evidence verification beats larger context windows</strong>.
+          Dumping thousands of 311 rows into a massive prompt confuses the model's causal reasoning. Allowing the model
+          to ask targeted follow-up queries against Elasticsearch produces grounded, hallucination-free outputs that city
+          planners and logistics operators can trust.
+        </p>
+
+        <!-- Share and Links -->
+        <div class="share-bar">
+          <strong>Share this article:</strong>
+          <button class="share-btn" onclick="copyToClipboard(window.location.href, 'Article link copied!')">📋 Copy Link</button>
+          <a class="share-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https://sairamveereddy.com/blog/nyc-pulse-mistral-elasticsearch" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a class="share-btn" href="https://twitter.com/intent/tweet?text=Building+NYC+PULSE+with+Mistral+and+Elasticsearch&url=https://sairamveereddy.com/blog/nyc-pulse-mistral-elasticsearch" target="_blank" rel="noopener noreferrer">X / Twitter</a>
+        </div>
+
+        <div style="margin: 40px 0; display:flex; justify-content:space-between; flex-wrap:wrap; gap:16px;">
+          <a class="button secondary" href="https://github.com/sairamveereddy/nyc-pulse" target="_blank" rel="noopener noreferrer">View nyc-pulse on GitHub →</a>
+          <a class="button primary" href="/blog/building-jobninjas-ai-platform">Next: How I Built JobNinjas.ai →</a>
+        </div>
+      </article>
+    </main>
+
+    <div id="toast" class="toast-notice" role="status" aria-live="polite"></div>
+
+    <script src="/data/site-data.js"></script>
+    <script src="/app-helpers.js"></script>
+    <script src="https://api.foyer.ink/static/widget.js" data-agent-id="tl_6e74c516a62d" data-server="https://api.foyer.ink" async></script>
+  </body>
+</html>

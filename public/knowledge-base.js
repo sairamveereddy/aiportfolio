@@ -1,20 +1,22 @@
 window.PORTFOLIO_KB = {
-  name: "Sairam Veereddy",
+  name: "Sairam Kumar Reddy Veereddy",
+  shortName: "Sairam Veereddy",
   initials: "SV",
-  role: "AI/ML Engineer",
+  role: "AI/ML Engineer | Applied AI Researcher | Hackathon Winner | AI Educator",
   headline:
-    "AI/ML Engineer | Foundation Models & GenAI | Experimentation & Model Evaluation | Rapid Prototyping",
+    "AI/ML Engineer | Applied AI Researcher | Hackathon Winner (Miro × n8n) | AI Educator (16.9k+ Community)",
   location: "Alpharetta, Georgia",
   email: "vsairamkumarreddy@gmail.com",
   phone: "(217) 862-4693",
   linkedin: "https://www.linkedin.com/in/sairam-kumar-365232192/",
-  website: "sairamveereddy.com",
+  website: "https://sairamveereddy.com",
   github: "https://github.com/sairamveereddy",
   substack: "https://substack.com/@firstninja",
+  instagram: "https://www.instagram.com/first.ninja_/",
   summary:
-    "I am an AI/ML Engineer with 4+ years translating cutting-edge research and emerging AI technologies into prototypes, experiments, and production systems. I design quantitative evaluations for foundation models, GenAI systems, and multimodal experiences, then validate whether those technologies deserve broader investment.",
+    "I am an AI/ML Engineer with 4+ years translating cutting-edge research, foundation models, and emerging AI tools into robust production systems. I design quantitative evaluations, build multi-agent and RAG workflows, publish independent AI research on Zenodo, won the Miro × n8n hackathon with team Strangers, and educate a community of 16,900+ engineers on Instagram and Substack.",
   voice:
-    "Answer in first person as Sairam. Be confident, concise, practical, and specific. Ground every answer in the Microsoft AI Engineer resume.",
+    "Answer in first person as Sairam. Be confident, concise, practical, and specific. Ground every answer in Sairam's verified engineering experience, research publications, hackathon wins, and community education.",
   experience: [
     {
       id: "cvs",
@@ -112,6 +114,16 @@ window.PORTFOLIO_KB = {
   ],
   projects: [
     {
+      id: "nyc-pulse",
+      name: "NYC Pulse",
+      label: "AI Urban Intelligence & Semantic Search",
+      summary:
+        "Evidence-driven urban disruption intelligence powered by Mistral Large and Elasticsearch.",
+      details:
+        "Replaces naive LLM guessing with an autonomous two-phase Evidence Loop that queries millions of historical 311 complaints and GTFS subway schedules to verify ripple-effect hypotheses.",
+      stack: ["Python", "Mistral Large", "Elasticsearch", "Streamlit", "GTFS", "Function Calling", "311 Open Data"]
+    },
+    {
       id: "jobninjas",
       name: "JobNinjas.ai",
       label: "Full-Stack AI Platform",
@@ -126,10 +138,20 @@ window.PORTFOLIO_KB = {
       name: "AI Talking Portfolio",
       label: "Realtime Conversational Portfolio",
       summary:
-        "I built a conversational AI portfolio where visitors can interact with an LLM agent in real time.",
+        "I built a conversational AI portfolio where visitors interact with an LLM agent in real time via WebRTC.",
       details:
-        "The system combines a RAG pipeline, ChromaDB, a FastAPI backend, OpenAI GPT-4, semantic search over structured data, and a React front end with streaming.",
-      stack: ["OpenAI GPT-4", "RAG", "ChromaDB", "FastAPI", "React", "Semantic Search", "Streaming"]
+        "The system combines OpenAI Realtime API, browser WebRTC audio streaming, dynamic DOM manipulation via function calling, and factual resume grounding.",
+      stack: ["OpenAI Realtime API", "WebRTC", "Node.js", "FastAPI", "Streaming", "Tool Calling"]
+    },
+    {
+      id: "miro-n8n-hackathon-proj",
+      name: "Miro × n8n Autonomous Bridge",
+      label: "Hackathon Winning Solution",
+      summary:
+        "First-place winning project from Miro × n8n Hackathon built with team 'Strangers'.",
+      details:
+        "Bi-directional pipeline translating visual whiteboard logic on Miro into active n8n agentic workflows and posting structured outputs back to the live canvas in real time.",
+      stack: ["n8n", "Miro REST API", "Webhooks", "AI Agents", "Function Calling", "JavaScript"]
     },
     {
       id: "pharmacy-genai-copilot",
@@ -138,7 +160,7 @@ window.PORTFOLIO_KB = {
       summary:
         "I built a RAG-based clinical assistant integrating OpenAI and AWS Bedrock for pharmacy workflows.",
       details:
-        "The copilot is deployed on SageMaker with evaluation frameworks and HIPAA-compliant data handling for responsible clinical use cases.",
+        "The copilot is deployed on SageMaker with evaluation frameworks and HIPAA-compliant data handling for responsible clinical use cases, measuring 28% extraction accuracy gains.",
       stack: ["OpenAI", "AWS Bedrock", "RAG", "SageMaker", "Evaluation", "HIPAA"]
     },
     {
@@ -153,7 +175,7 @@ window.PORTFOLIO_KB = {
     },
     {
       id: "open-source",
-      name: "Open Source & Side Projects",
+      name: "Open Source Ecosystem",
       label: "27+ Public Repositories",
       summary:
         "I maintain a shipping habit across AI automation tools, full-stack applications, and data engineering experiments.",
@@ -200,6 +222,7 @@ window.PORTFOLIO_KB = {
     "Claude Certified Architect (Anthropic) - Agentic architecture, tool design, prompt engineering, structured output, context management",
     "Anthropic Specialty - in progress / target 2026",
     "Google Professional Machine Learning Engineer - in progress / target 2026",
+    "Microsoft Azure AZ-900 - Microsoft Azure",
     "LangChain & LangGraph Agentic AI Development - hands-on production deployments",
     "HIPAA Compliance for Healthcare Data Engineering - applied in production"
   ],
@@ -210,17 +233,23 @@ window.PORTFOLIO_KB = {
   publications: [
     {
       id: "research-paper-1",
-      title: "Research Paper 1",
-      label: "Zenodo Record",
-      url: "https://zenodo.org/records/21348229",
-      summary: "Research publication hosted on Zenodo."
+      slug: "the-invisible-singularity",
+      title: "The Invisible Singularity: Artificial Intelligence as Convergent Infrastructure and the Reorganization of Global Work, 2027–2035",
+      label: "Zenodo DOI: 10.5281/zenodo.21348229",
+      url: "/research/the-invisible-singularity",
+      zenodoUrl: "https://zenodo.org/doi/10.5281/zenodo.21348229",
+      pdfUrl: "/papers/The_Invisible_Singularity_Veereddy_2026.pdf",
+      summary: "Three-phase model of AI capability acceleration and infrastructural convergence, proposing that AI will recede into ubiquitous invisibility while task reinstatement drives net labor growth."
     },
     {
       id: "research-paper-2",
-      title: "Research Paper 2",
-      label: "Zenodo Record",
-      url: "https://zenodo.org/records/21367111",
-      summary: "Research publication hosted on Zenodo."
+      slug: "from-detection-to-proficiency",
+      title: "From Detection to Proficiency: The Coming Inversion of Academic AI Policy and a Framework for Assessing Student AI Utilization in Higher Education (2026–2035)",
+      label: "Zenodo DOI: 10.5281/zenodo.21367111",
+      url: "/research/from-detection-to-proficiency",
+      zenodoUrl: "https://zenodo.org/doi/10.5281/zenodo.21367111",
+      pdfUrl: "/papers/From_Detection_to_Proficiency_Veereddy_2026.pdf",
+      summary: "Proposes AI Utilization Proficiency (AUP) and Baseline Differential Analysis (BDA) to invert university AI policies from unworkable detection to rigorous literacy assessment."
     }
   ],
   externalLinks: [
@@ -229,25 +258,57 @@ window.PORTFOLIO_KB = {
       label: "GitHub",
       title: "sairamveereddy",
       url: "https://github.com/sairamveereddy",
-      summary: "Public repositories spanning AI automation, full-stack applications, and data engineering experiments."
+      summary: "27+ public repositories spanning AI automation, agent architectures, full-stack applications, and data systems."
     },
     {
       id: "linkedin-profile",
       label: "LinkedIn",
-      title: "Sairam Kumar",
+      title: "Sairam Kumar Reddy Veereddy",
       url: "https://www.linkedin.com/in/sairam-kumar-365232192/",
-      summary: "Professional profile, experience, and networking link."
+      summary: "Professional background, verified career progression, and technical network."
+    },
+    {
+      id: "instagram-profile",
+      label: "Instagram AI Hub",
+      title: "@first.ninja_ (16.9k+ followers)",
+      url: "https://www.instagram.com/first.ninja_/",
+      summary: "Daily AI engineering tutorials, open-source model reviews, and automation architecture walkthroughs."
     },
     {
       id: "substack-profile",
       label: "Substack",
       title: "First Ninja",
       url: "https://substack.com/@firstninja",
-      summary: "Writing and AI content hub."
+      summary: "Long-form engineering deep-dives, RAG research, and autonomous systems analysis."
     }
   ],
   routing: {
-    walkthrough: ["summary", "voice", "experience", "projects", "publications", "skills", "contact"],
+    walkthrough: ["summary", "voice", "research-engineering", "experience", "projects", "publications", "skills", "contact"],
+    research: "research",
+    "research papers": "research",
+    "paper 1": "research-paper-1",
+    "invisible singularity": "research-paper-1",
+    "paper 2": "research-paper-2",
+    "detection to proficiency": "research-paper-2",
+    zenodo: "research",
+    hackathon: "achievements",
+    achievements: "achievements",
+    "miro hackathon": "miro-n8n-hackathon",
+    "n8n hackathon": "miro-n8n-hackathon",
+    strangers: "miro-n8n-hackathon",
+    "nyc pulse": "nyc-pulse",
+    pulse: "nyc-pulse",
+    mistral: "nyc-pulse",
+    elasticsearch: "nyc-pulse",
+    jobninjas: "jobninjas",
+    "talking portfolio": "ai-talking-portfolio",
+    blog: "blog",
+    articles: "blog",
+    writing: "blog",
+    instagram: "speaking-and-community",
+    community: "speaking-and-community",
+    followers: "speaking-and-community",
+    speaking: "speaking-and-community",
     genai: "projects",
     "foundation models": "skills",
     evaluation: "skills",
@@ -266,15 +327,9 @@ window.PORTFOLIO_KB = {
     finance: "gm",
     "tech mahindra": "tech-mahindra",
     telecom: "tech-mahindra",
-    jobninjas: "jobninjas",
-    "talking portfolio": "ai-talking-portfolio",
     github: "publications",
     linkedin: "publications",
     substack: "publications",
-    "research paper": "publications",
-    "research paper 1": "research-paper-1",
-    "research paper 2": "research-paper-2",
-    zenodo: "publications",
     skills: "skills",
     education: "education",
     certifications: "education",

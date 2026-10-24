@@ -12,11 +12,20 @@ const contentTypes = {
   ".css": "text/css; charset=utf-8",
   ".js": "text/javascript; charset=utf-8",
   ".json": "application/json; charset=utf-8",
-  ".txt": "text/plain; charset=utf-8"
+  ".txt": "text/plain; charset=utf-8",
+  ".xml": "application/xml; charset=utf-8",
+  ".pdf": "application/pdf",
+  ".svg": "image/svg+xml",
+  ".png": "image/png",
+  ".jpg": "image/jpeg",
+  ".jpeg": "image/jpeg",
+  ".webp": "image/webp",
+  ".bib": "text/plain; charset=utf-8"
 };
 
 const siteTargets = [
   "top",
+  "research-engineering",
   "voice-demo",
   "experience",
   "cvs",
@@ -24,17 +33,24 @@ const siteTargets = [
   "gm",
   "tech-mahindra",
   "projects",
+  "nyc-pulse",
   "jobninjas",
   "ai-talking-portfolio",
+  "miro-n8n-hackathon",
   "pharmacy-genai-copilot",
   "insurance-fraud",
   "open-source",
   "publications",
-  "research-paper-1",
-  "research-paper-2",
+  "research",
+  "the-invisible-singularity",
+  "from-detection-to-proficiency",
+  "achievements",
+  "blog",
+  "speaking-and-community",
   "github-profile",
   "linkedin-profile",
   "substack-profile",
+  "instagram-profile",
   "skills",
   "certifications",
   "claude-certified-architect",
@@ -43,19 +59,19 @@ const siteTargets = [
 ];
 
 const resumeKnowledge = `
-Sairam Veereddy is an AI Engineer in Alpharetta, Georgia.
+Sairam Kumar Reddy Veereddy is an AI/ML Engineer, Applied AI Researcher, Hackathon Winner, and AI Educator based in Alpharetta, Georgia.
 Contact: vsairamkumarreddy@gmail.com, (217) 862-4693.
-Links: https://www.linkedin.com/in/sairam-kumar-365232192/, sairamveereddy.com,
-https://github.com/sairamveereddy, https://substack.com/@firstninja.
+Links: https://www.linkedin.com/in/sairam-kumar-365232192/, https://sairamveereddy.com,
+https://github.com/sairamveereddy, https://substack.com/@firstninja, https://www.instagram.com/first.ninja_/.
 
 Professional summary:
 AI/ML Engineer with 4+ years translating cutting-edge research and emerging AI technologies
-into functional prototypes, experiments, and production systems. Expertise in quantitative
-evaluation of foundation models, generative AI systems, and multimodal experiences. Proven
-ability to rapidly prototype novel ideas, build evaluation frameworks and benchmarks,
-fine-tune and validate models against real-world datasets, and assess technology adoption
-potential. Comfortable moving between research papers, datasets, prototype code, and
-production-scale systems.
+into functional prototypes, evaluation frameworks, and production systems across healthcare,
+insurance, finance, and enterprise automation. Hackathon winner (Miro × n8n), independent researcher
+with citable publications on Zenodo, and creator educating 16,900+ engineers on practical AI development.
+Expertise in quantitative evaluation of foundation models, generative AI systems, and multimodal experiences.
+Proven ability to rapidly prototype novel ideas, build evaluation frameworks and benchmarks,
+fine-tune and validate models against real-world datasets, and assess technology adoption potential.
 
 Experience:
 CVS Pharmacy, AI/ML Engineer, Feb 2026 - Present. Designed and evaluated a GenAI-powered
@@ -83,52 +99,45 @@ processing microservices for telecom workflows supporting 1M+ daily transactions
 SQL, and Hansen Catalog. Designed containerized services with Docker and Git and automated
 pipeline validation/reporting to reduce QA effort by 25%.
 
+Hackathon Achievements:
+Miro × n8n Hackathon — Winning Team: Strangers. Built a bi-directional event-driven bridge
+connecting collaborative visual whiteboard logic in Miro with multi-agent automation in n8n.
+Real-time webhooks parse visual changes, execute AI tool pipelines, and generate structured
+sticky notes, connected nodes, and status badges directly back onto the live Miro board.
+
+Research Publications:
+1. The Invisible Singularity: Artificial Intelligence as Convergent Infrastructure and the Reorganization of Global Work, 2027–2035.
+   DOI: 10.5281/zenodo.21348229. Zenodo Citable Research Archive. Analyzes general-purpose AI convergence, capability acceleration, and employment reorganization.
+2. From Detection to Proficiency: The Coming Inversion of Academic AI Policy and a Framework for Assessing Student AI Utilization in Higher Education (2026–2035).
+   DOI: 10.5281/zenodo.21367111. Zenodo Citable Research Archive. Proposes AI Utilization Proficiency (AUP) and Baseline Differential Analysis (BDA) for AI literacy assessment.
+
+Selected Projects:
+NYC Pulse: AI-powered urban disruption intelligence using Mistral Large and Elasticsearch. Features the Evidence Loop verifying ripple-effect hypotheses against historical 311 data and GTFS transit schedules.
+JobNinjas.ai: Full-stack AI platform built solo using AWS (Cognito, RDS, S3, SES), FastAPI, LangChain RAG agent, 8 n8n automation workflows, Vapi voice AI, Faster-Whisper, and WebRTC.
+AI Talking Portfolio: Full-stack conversational AI where visitors interact with an LLM agent in real time using WebRTC, OpenAI Realtime API, RAG, and dynamic DOM control.
+Pharmacy GenAI Copilot: Clinical RAG assistant on AWS SageMaker with Bedrock and OpenAI.
+Insurance Fraud Detection System: XGBoost pipeline with Kafka CDC and Airflow (92% precision).
+
+Speaking and Community:
+Instagram AI Content Creator (@first.ninja_) with ~16,900 followers (as of October 2026).
+Publishes daily AI tool explainers, multi-agent tutorials, open-source breakdowns, and research summaries.
+Technical blog on sairamveereddy.com/blog covering agent reliability, RAG architecture, and n8n workflows.
+Substack writer at firstninja. Substack and GitHub contributor with 27+ public repositories.
+
 Technical skills:
-Foundation models and GenAI: OpenAI GPT-4, Anthropic Claude, AWS Bedrock, Azure OpenAI,
-Google Gemini, Vertex AI, Hugging Face, multimodal models. Agentic and multi-agent systems:
-LangGraph, AutoGen, orchestration, agent workflows, tool-use design, function calling.
-Evaluation and experimentation: benchmarks, A/B testing, metrics design, bias assessment,
-drift detection, qualitative and quantitative evaluation, fine-tuning validation. Rapid
-prototyping: research paper implementation, proof-of-concepts, GitHub Copilot, Cursor,
-LangChain, LlamaIndex, ChromaDB. MLOps: MLflow, SageMaker, model monitoring, DVC, CI/CD.
-Core stack: Python, SQL, FastAPI, REST APIs, Git, Docker, Kubernetes, TensorFlow, PyTorch,
-Scikit-learn, XGBoost, Pandas, NumPy, Spark, Kafka, Airflow, Snowflake, BigQuery, Databricks,
-Power BI, ChromaDB, FAISS, Pinecone, RAG, semantic search.
-
-Projects:
-JobNinjas.ai: full-stack AI platform designed and shipped solo using AWS Cognito, RDS, S3,
-SES, FastAPI, LangChain RAG agent, 8 n8n automation workflows, Vapi voice AI, Faster-Whisper,
-Coqui/StyleTTS2, and WebRTC.
-
-AI Talking Portfolio: full-stack conversational AI where visitors interact with an LLM agent
-in real time using RAG, ChromaDB, FastAPI, OpenAI GPT-4, semantic search over structured data,
-React front end, and streaming.
-
-Pharmacy GenAI Copilot: RAG-based clinical assistant integrating OpenAI and AWS Bedrock,
-deployed on SageMaker with evaluation frameworks and HIPAA compliance.
-
-Insurance Fraud Detection System: end-to-end XGBoost and Scikit-learn ML pipeline with Airflow
-orchestration, real-time Kafka feeds, A/B testing, and 92% fraud detection precision.
-
-Open Source & Side Projects: 27+ public repositories spanning AI automation tools, full-stack
-applications, and data engineering experiments.
-
-Publications and links:
-Research Paper 1: https://zenodo.org/records/21348229.
-Research Paper 2: https://zenodo.org/records/21367111.
-GitHub: https://github.com/sairamveereddy.
-LinkedIn: https://www.linkedin.com/in/sairam-kumar-365232192/.
-Substack: https://substack.com/@firstninja.
+Foundation models & GenAI: OpenAI GPT-4, Anthropic Claude, AWS Bedrock, Azure OpenAI, Google Gemini, Vertex AI, Hugging Face, multimodal models.
+Agentic & multi-agent systems: LangGraph, AutoGen, orchestration, agent workflows, tool-use design, function calling.
+Evaluation & experimentation: Benchmarks, A/B testing, metrics design, bias assessment, drift detection, quantitative evaluation, fine-tuning validation.
+Rapid prototyping: Research paper implementation, POC development, Cursor, LangChain, LlamaIndex, ChromaDB.
+MLOps: MLflow, SageMaker, model monitoring, DVC, CI/CD.
+Core stack: Python, SQL, FastAPI, REST APIs, Git, Docker, Kubernetes, TensorFlow, PyTorch, Scikit-learn, XGBoost, Spark, Kafka, Airflow, Snowflake, BigQuery, Databricks.
 
 Education:
 MS Management Information Systems, University of Illinois at Springfield, 2024.
 BTech Electronics & Communication Engineering, ACE Engineering College, Hyderabad, 2020.
 
-Certifications and training:
-Claude Certified Architect (Anthropic): agentic architecture, tool design, prompt engineering,
-structured output, and context management. Anthropic Specialty in progress / target 2026.
-Google Professional Machine Learning Engineer in progress / target 2026. LangChain & LangGraph
-Agentic AI Development. HIPAA Compliance for Healthcare Data Engineering.
+Certifications:
+Claude Certified Architect (Anthropic). Microsoft Azure AZ-900. Google Cloud Generative AI. LangChain & LangGraph. HIPAA Compliance.
 `;
 
 function buildSessionConfig() {
@@ -141,7 +150,7 @@ You are Sairam Veereddy's realtime portfolio voice agent.
 Your job:
 - Speak in first person as Sairam.
 - Sound natural, confident, concise, and helpful.
-- Answer only from the resume knowledge below.
+- Answer only from the resume and portfolio knowledge below.
 - If the visitor asks about something not in the knowledge base, say you do not have that
   detail yet and offer to talk about relevant resume evidence.
 - While answering, control the website using the navigate_site tool.
@@ -151,22 +160,24 @@ Your job:
 - Keep most spoken answers under 25 seconds unless the user asks for a deep walkthrough.
 
 Website control rules:
-- For general intro, navigate to "top".
+- For general intro, navigate to "top" or "research-engineering".
 - For how the voice website works, navigate to "voice-demo".
 - For CVS/pharmacy/healthcare, navigate to "cvs".
 - For Nationwide/insurance/fraud/claims/underwriting, navigate to "nationwide".
 - For GM Financial/finance/auto lending/risk analytics, navigate to "gm".
 - For Tech Mahindra/telecom/Telefonica, navigate to "tech-mahindra".
 - For GenAI/RAG/LangChain/LlamaIndex/projects, navigate to "projects" or the exact project.
+- For NYC Pulse, navigate to "nyc-pulse".
 - For JobNinjas.ai, navigate to "jobninjas".
 - For AI Talking Portfolio, navigate to "ai-talking-portfolio".
-- For Pharmacy GenAI Copilot, navigate to "pharmacy-genai-copilot".
-- For fraud detection, navigate to "insurance-fraud".
-- For open source or GitHub projects, navigate to "open-source".
-- For research papers, Zenodo, publications, GitHub, LinkedIn, or Substack, navigate to "publications" or the exact link card.
-- For Claude Certified Architect, Anthropic, certifications, or credentials, navigate to "certifications" or "claude-certified-architect".
+- For Miro × n8n Hackathon or team Strangers, navigate to "miro-n8n-hackathon" or "achievements".
+- For research papers, Zenodo, publications, navigate to "research", "the-invisible-singularity", or "from-detection-to-proficiency".
+- For achievements and hackathon wins, navigate to "achievements".
+- For technical blog posts and articles, navigate to "blog".
+- For Instagram, community, speaking, navigate to "speaking-and-community" or "instagram-profile".
+- For Claude Certified Architect, Anthropic, certifications, navigate to "certifications" or "claude-certified-architect".
 - For skills/tools/stack, navigate to "skills".
-- For education/certifications, navigate to "education".
+- For education, navigate to "education".
 - For email/phone/contact/hiring, navigate to "contact".
 
 Resume knowledge:
@@ -247,14 +258,46 @@ function sendJson(response, status, payload) {
   response.end(body);
 }
 
+function resolveFilePath(pathname) {
+  let cleanPath = pathname;
+  if (cleanPath.endsWith("/") && cleanPath.length > 1) {
+    cleanPath = cleanPath.slice(0, -1);
+  }
+
+  const relativePath = normalize(cleanPath === "/" ? "index.html" : cleanPath.slice(1));
+  const candidate = join(root, relativePath);
+
+  if (existsSync(candidate)) {
+    if (statSync(candidate).isDirectory()) {
+      const indexCandidate = join(candidate, "index.html");
+      if (existsSync(indexCandidate) && statSync(indexCandidate).isFile()) {
+        return indexCandidate;
+      }
+    } else if (statSync(candidate).isFile()) {
+      return candidate;
+    }
+  }
+
+  const htmlCandidate = candidate + ".html";
+  if (existsSync(htmlCandidate) && statSync(htmlCandidate).isFile()) {
+    return htmlCandidate;
+  }
+
+  const indexCandidate = join(candidate, "index.html");
+  if (existsSync(indexCandidate) && statSync(indexCandidate).isFile()) {
+    return indexCandidate;
+  }
+
+  return null;
+}
+
 function serveStatic(request, response) {
   const requestedPath = decodeURIComponent(new URL(request.url, "http://localhost").pathname);
-  const relativePath = normalize(requestedPath === "/" ? "index.html" : requestedPath.slice(1));
-  const filePath = join(root, relativePath);
+  const filePath = resolveFilePath(requestedPath);
 
-  if (!filePath.startsWith(root) || !existsSync(filePath) || !statSync(filePath).isFile()) {
+  if (!filePath || !filePath.startsWith(root)) {
     response.writeHead(404, { "content-type": "text/plain; charset=utf-8" });
-    response.end("Not found");
+    response.end("Not found: " + requestedPath);
     return;
   }
 

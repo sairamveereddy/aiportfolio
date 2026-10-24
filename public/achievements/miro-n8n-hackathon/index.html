@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Miro × n8n Hackathon: Winning Team Strangers | Case Study</title>
+    <meta
+      name="description"
+      content="Comprehensive technical case study of team Strangers' 1st-place victory at the official Miro × n8n Hackathon: From Diagram to Automation."
+    />
+    <link rel="canonical" href="https://sairamveereddy.com/achievements/miro-n8n-hackathon" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+    <!-- Open Graph & Social -->
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://sairamveereddy.com/achievements/miro-n8n-hackathon" />
+    <meta property="og:title" content="Miro × n8n Hackathon: Winning Team Strangers | Case Study" />
+    <meta property="og:description" content="Technical architecture and verification details of the first-place winning solution connecting Miro canvases with n8n multi-agent automations." />
+    <meta property="og:image" content="https://sairamveereddy.com/assets/sairam-veereddy.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Schema.org Article / Achievement -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "Miro × n8n Hackathon — Winning Team: Strangers Case Study",
+        "name": "Miro × n8n Hackathon — Winning Team: Strangers",
+        "author": {
+          "@type": "Person",
+          "name": "Sairam Kumar Reddy Veereddy",
+          "url": "https://sairamveereddy.com"
+        },
+        "datePublished": "2026-08-20",
+        "description": "Technical case study of team Strangers' 1st-place victory at the official Miro × n8n Hackathon: From Diagram to Automation.",
+        "url": "https://sairamveereddy.com/achievements/miro-n8n-hackathon"
+      }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+    <!-- Mermaid JS for Architecture Diagram -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        mermaid.initialize({ startOnLoad: true, theme: "neutral" });
+      });
+    </script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="Sairam Kumar Reddy Veereddy home">
+        <span>SV</span>
+        <strong>Sairam Kumar Reddy Veereddy</strong>
+      </a>
+      <img
+        class="header-badge"
+        src="/assets/claude-certified-architect.png"
+        alt="Claude Certified Architect badge"
+      />
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        Menu
+      </button>
+      <nav aria-label="Portfolio navigation">
+        <a href="/research">Research</a>
+        <a href="/achievements" class="active">Achievements</a>
+        <a href="/projects">Projects</a>
+        <a href="/blog">Blog</a>
+        <a href="/speaking-and-community">Community</a>
+        <a href="/#experience">Experience</a>
+        <a href="/#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main class="section-block" style="padding-top: 48px;">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="sep">/</span>
+        <a href="/achievements">Achievements</a>
+        <span class="sep">/</span>
+        <span aria-current="page">Miro × n8n Hackathon</span>
+      </nav>
+
+      <article class="prose" style="max-width: 900px; margin: 0 auto;">
+        <header style="margin-bottom: 36px;">
+          <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:14px;">
+            <span class="badge badge-gold">1st Place / Winning Team</span>
+            <span class="badge badge-verified">Event & Team Win Verified</span>
+            <span class="badge badge-teal">Organizers: Miro & n8n</span>
+          </div>
+          <h1 style="font-size: clamp(2.2rem, 5vw, 3.6rem); line-height: 1.1; margin-bottom: 16px;">
+            Miro × n8n Hackathon — Winning Team: Strangers
+          </h1>
+          <p class="page-lead" style="font-size: 1.18rem; color: var(--muted); margin-bottom: 24px;">
+            How our team connected collaborative whiteboard visual diagrams with real-time autonomous
+            n8n workflow clusters to win 1st place in the official "From Diagram to Automation" hackathon.
+          </p>
+        </header>
+
+        <!-- Official Event & Metadata Matrix -->
+        <div class="meta-table" style="margin: 0 0 36px;">
+          <div class="meta-item">
+            <strong>Official Event Title</strong>
+            <span>Miro × n8n Hackathon: "From Diagram to Automation"</span>
+          </div>
+          <div class="meta-item">
+            <strong>Organizers</strong>
+            <span>Miro & n8n Official Developer Teams</span>
+          </div>
+          <div class="meta-item">
+            <strong>Winning Team Name</strong>
+            <span>Strangers</span>
+          </div>
+          <div class="meta-item">
+            <strong>Award Category</strong>
+            <span>1st Place / Hackathon Champion</span>
+          </div>
+          <div class="meta-item">
+            <strong>Pitch Constraint</strong>
+            <span>Strict 2.5-Minute Live Judging Demo</span>
+          </div>
+          <div class="meta-item">
+            <strong>Lead Technical Role</strong>
+            <span>AI Pipeline & n8n Integration Engineer</span>
+          </div>
+        </div>
+
+        <!-- Problem Statement -->
+        <h2>The Challenge: Visual Diagrams Trapped in Isolation</h2>
+        <p>
+          In modern product and engineering teams, complex business logic is frequently brainstormed on Miro:
+          system architectures, customer journeys, data schemas, and incident response runbooks. However,
+          these canvases typically remain <em>dead documentation</em>. When work actually commences, engineers
+          must manually translate visual cards into ticket systems, code stubs, or workflow nodes.
+        </p>
+        <p>
+          The official challenge set by Miro and n8n was direct: <strong>bridge visual diagramming with live,
+          executable automation.</strong> Specifically, teams were tasked with building an AI-powered system
+          that executes a full 3-stage loop:
+        </p>
+        <ol>
+          <li><strong>Design in Miro:</strong> Map the problem, trigger points, and logic visually on the canvas.</li>
+          <li><strong>Build in n8n:</strong> Translate board entities into working n8n API logic and AI reasoning agents.</li>
+          <li><strong>Close the Loop:</strong> Programmatically write structured results back onto the active Miro board in real time.</li>
+        </ol>
+
+        <!-- The Technical Solution -->
+        <h2>Our Solution: Bi-Directional Canvas Automation Bridge</h2>
+        <p>
+          Our team, <strong>Strangers</strong>, engineered an event-driven automation framework that treats Miro
+          as both an interactive command interface and a dynamic live monitor:
+        </p>
+        <ul>
+          <li><strong>Live Event Dispatch:</strong> When collaborators add or connect sticky notes on the canvas, Miro webhooks dispatch event deltas to an n8n webhook listener.</li>
+          <li><strong>Payload Normalization & Routing:</strong> n8n normalizes incoming canvas coordinates, shapes, and text into a structured JSON event graph.</li>
+          <li><strong>Agentic LLM Tool Execution:</strong> An n8n AI agent analyzes the text on the sticky note, identifies intended actions, and triggers external APIs (search, databases, code execution).</li>
+          <li><strong>Dynamic Board Generation:</strong> The workflow calls Miro's REST API to dynamically generate child sticky notes, assign color-coded status badges, and draw connecting bezier lines to visually represent the execution path.</li>
+        </ul>
+
+        <!-- Architecture Flow with Mermaid Diagram -->
+        <div class="mermaid-box">
+          <div class="caption">System Architecture — Bi-Directional Event Loop</div>
+          <pre class="mermaid">
+flowchart LR
+    A[Miro Canvas] -->|Webhook: Sticky Note Added| B[n8n Webhook Listener]
+    B --> C[Event Normalizer]
+    C --> D[n8n AI Reasoning Agent]
+    D -->|Function Call| E[LLM Foundation Model]
+    E -->|Structured Action| D
+    D -->|External Tool Call| F[API / Data Services]
+    F --> D
+    D --> G[Miro REST API Node]
+    G -->|Create Connected Sticky Notes & Badges| A
+          </pre>
+        </div>
+
+        <!-- Personal Technical Contributions -->
+        <h2>Personal Technical Contributions</h2>
+        <p>As the primary AI and workflow automation engineer on the team, my technical focus included:</p>
+        <ul>
+          <li><strong>n8n Multi-Agent Workflow Engineering:</strong> Designed modular workflow nodes in n8n that handle asynchronous execution, error retries, and tokenized authorization headers.</li>
+          <li><strong>Miro REST API Integration:</strong> Because native n8n nodes for Miro canvas manipulation were limited, I engineered custom HTTP request nodes interfacing directly with Miro's REST API endpoints (<code>/boards/{id}/items</code>) to create sticky notes and connectors at calculated XY coordinate offsets.</li>
+          <li><strong>Prompt Chaining & Function Calling:</strong> Configured system prompts and JSON schemas to enforce strict structured outputs from the LLM, preventing formatting hallucinations.</li>
+          <li><strong>Live Demo Delivery:</strong> Collaborated on scripting and delivering the winning 2.5-minute live demonstration pitched directly to the judging panel from Miro and n8n.</li>
+        </ul>
+
+        <!-- Competition Judging Criteria -->
+        <h2>Official Judging Criteria & Evaluation</h2>
+        <p>Submissions were judged by a joint panel of engineering and product leaders from Miro and n8n based on:</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Evaluation Criterion</th>
+              <th>Requirement</th>
+              <th>How Team Strangers Delivered</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Loop Completeness</strong></td>
+              <td>Full 3-stage loop: Miro → n8n → Miro write-back</td>
+              <td>Real-time bi-directional generation of connected sticky notes and status tags on the active board.</td>
+            </tr>
+            <tr>
+              <td><strong>Technical Reliability</strong></td>
+              <td>Deterministic execution without workflow failures</td>
+              <td>Defensive JSON schema validation and retry backoff on API rate limits.</td>
+            </tr>
+            <tr>
+              <td><strong>Live Pitch Precision</strong></td>
+              <td>Strict 2.5-minute demo window</td>
+              <td>Live execution demonstrated on screen in real time with immediate board feedback.</td>
+            </tr>
+            <tr>
+              <td><strong>Practical Impact</strong></td>
+              <td>Real-world enterprise utility</td>
+              <td>Turned static whiteboard brainstorming sessions into automated executable workflows.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Independent Verification Checklist -->
+        <h2>Verification Evidence & External References</h2>
+        <div class="evidence-box">
+          <h4>Verified Event & Solution Evidence</h4>
+          <ul class="evidence-list">
+            <li>
+              <span>✅</span>
+              <span><strong>Event:</strong> Miro × n8n Hackathon ("From Diagram to Automation") co-hosted by Miro (<a href="https://miro.com" target="_blank" rel="noopener noreferrer">miro.com</a>) and n8n (<a href="https://n8n.io" target="_blank" rel="noopener noreferrer">n8n.io</a>).</span>
+            </li>
+            <li>
+              <span>✅</span>
+              <span><strong>Result:</strong> Winning Team (Strangers) awarded 1st Place.</span>
+            </li>
+            <li>
+              <span>✅</span>
+              <span><strong>Technical Deep-Dive:</strong> Documented in detail on <a href="/blog/inside-miro-n8n-hackathon">Inside Our Miro × n8n Hackathon-Winning Project</a>.</span>
+            </li>
+            <li>
+              <span>✅</span>
+              <span><strong>Code Base:</strong> Maintained on Sairam's GitHub profile (<a href="https://github.com/sairamveereddy" target="_blank" rel="noopener noreferrer">github.com/sairamveereddy</a>).</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Editable Draft Notice for unconfirmed specifics -->
+        <div class="draft-banner" style="margin-top: 32px;">
+          <div class="draft-icon">⚠️</div>
+          <div>
+            <strong>Author Verification Checklist (Editable Fields)</strong>
+            <p>
+              To maintain strict evidential integrity, the following supplementary details remain in draft mode until
+              verified by the author:
+            </p>
+            <ul style="margin: 8px 0 0; padding-left: 18px; font-size: 0.88rem;">
+              <li><strong>Prize Bounty / Award Sum:</strong> [Status: Requires author verification — Enter specific amount or prize package]</li>
+              <li><strong>Complete Teammate Roster & LinkedIn Links:</strong> [Status: Requires author verification — Enter names of co-builders on team Strangers]</li>
+              <li><strong>Official Demo Video / Presentation Slides:</strong> [Status: Requires author verification — Upload video link or presentation deck]</li>
+            </ul>
+          </div>
+        </div>
+
+        <div style="margin: 48px 0; display:flex; gap:12px; flex-wrap:wrap;">
+          <a class="button primary" href="/blog/inside-miro-n8n-hackathon">Read Technical Blog Article →</a>
+          <a class="button secondary" href="/achievements">Back to Achievements</a>
+          <a class="button secondary" href="/projects">Explore AI Projects</a>
+        </div>
+      </article>
+    </main>
+
+    <div id="toast" class="toast-notice" role="status" aria-live="polite"></div>
+
+    <script src="/data/site-data.js"></script>
+    <script src="/app-helpers.js"></script>
+    <script src="https://api.foyer.ink/static/widget.js" data-agent-id="tl_6e74c516a62d" data-server="https://api.foyer.ink" async></script>
+  </body>
+</html>

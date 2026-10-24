@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>How I Built JobNinjas.ai: AI Platform Architecture | Sairam Kumar Reddy Veereddy</title>
+    <meta
+      name="description"
+      content="System design and architecture breakdown of shipping JobNinjas.ai solo: AWS infrastructure, FastAPI, LangChain RAG, 8 n8n workflows, and real-time voice AI."
+    />
+    <link rel="canonical" href="https://sairamveereddy.com/blog/building-jobninjas-ai-platform" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+    <!-- Open Graph & Twitter Cards -->
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://sairamveereddy.com/blog/building-jobninjas-ai-platform" />
+    <meta property="og:title" content="How I Built JobNinjas.ai: AI Platform Architecture" />
+    <meta property="og:description" content="Technical deep-dive into building a production AI platform: AWS, FastAPI, LangChain RAG, 8 n8n workflows, and WebRTC voice." />
+    <meta property="og:image" content="https://sairamveereddy.com/assets/sairam-veereddy.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Schema.org TechArticle -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "How I Built JobNinjas.ai: AI Platform Architecture",
+        "author": {
+          "@type": "Person",
+          "name": "Sairam Kumar Reddy Veereddy",
+          "url": "https://sairamveereddy.com"
+        },
+        "datePublished": "2026-07-28",
+        "description": "System architecture and cloud engineering patterns behind shipping JobNinjas.ai solo.",
+        "url": "https://sairamveereddy.com/blog/building-jobninjas-ai-platform"
+      }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        mermaid.initialize({ startOnLoad: true, theme: "neutral" });
+      });
+    </script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="Sairam Kumar Reddy Veereddy home">
+        <span>SV</span>
+        <strong>Sairam Kumar Reddy Veereddy</strong>
+      </a>
+      <img
+        class="header-badge"
+        src="/assets/claude-certified-architect.png"
+        alt="Claude Certified Architect badge"
+      />
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        Menu
+      </button>
+      <nav aria-label="Portfolio navigation">
+        <a href="/research">Research</a>
+        <a href="/achievements">Achievements</a>
+        <a href="/projects">Projects</a>
+        <a href="/blog" class="active">Blog</a>
+        <a href="/speaking-and-community">Community</a>
+        <a href="/#experience">Experience</a>
+        <a href="/#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main class="section-block" style="padding-top: 48px;">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="sep">/</span>
+        <a href="/blog">Blog</a>
+        <span class="sep">/</span>
+        <span aria-current="page">JobNinjas.ai Architecture</span>
+      </nav>
+
+      <article class="prose" style="margin: 0 auto; max-width: 860px;">
+        <header style="margin-bottom: 32px;">
+          <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px;">
+            <span class="badge badge-coral">System Design</span>
+            <span class="badge badge-teal">Full-Stack Cloud AI</span>
+            <span style="font-size:0.85rem; color:var(--muted); font-weight:700;">11 min read · July 28, 2026</span>
+          </div>
+          <h1 style="font-size: clamp(2.2rem, 4.5vw, 3.4rem); line-height: 1.15; margin-bottom: 16px;">
+            How I Built JobNinjas.ai: AI Platform Architecture
+          </h1>
+          <p style="font-size: 1.15rem; color: var(--muted); line-height: 1.6;">
+            By <strong>Sairam Kumar Reddy Veereddy</strong> · Creator & Lead AI Engineer
+          </p>
+        </header>
+
+        <p>
+          Shipping a modern generative AI product solo is no longer just about calling an LLM endpoint.
+          Production readiness requires authentication, transactional messaging, document storage,
+          vector databases, background event orchestration, latency-sensitive voice streaming, and cost control.
+        </p>
+        <p>
+          I designed and launched <strong>JobNinjas.ai</strong> entirely on my own. In this article, I outline
+          the full architectural blueprint: how AWS cloud primitives, a FastAPI microservice backend,
+          LangChain RAG agents, 8 production n8n workflows, and real-time WebRTC voice interact to create
+          a resilient user experience.
+        </p>
+
+        <h2>High-Level System Topology</h2>
+        <p>
+          The platform separates concerns into four clear tiers:
+        </p>
+        <ul>
+          <li><strong>Client & Voice Interface:</strong> WebRTC streaming audio combined with responsive frontend components.</li>
+          <li><strong>Core API & Intelligence Gateway:</strong> Python FastAPI deployed on AWS ECS containers with Cognito JWT validation.</li>
+          <li><strong>Retrieval & Agent Tier:</strong> LangChain and LangGraph coordination with ChromaDB vector indices.</li>
+          <li><strong>Asynchronous Automation Cluster:</strong> 8 multi-step n8n workflows handling document processing, user notifications, and CRM sync.</li>
+        </ul>
+
+        <div class="mermaid-box">
+          <div class="caption">JobNinjas.ai Full-Stack Architecture</div>
+          <pre class="mermaid">
+flowchart TD
+    subgraph Client [Client Tier]
+        UI[Web UI]
+        Voice[WebRTC Voice Channel]
+    end
+
+    subgraph AWS [AWS Cloud Infrastructure]
+        Cognito[AWS Cognito Auth]
+        S3[AWS S3 Document Lake]
+        RDS[(AWS RDS PostgreSQL)]
+        SES[AWS SES Email Gateway]
+    end
+
+    subgraph Backend [FastAPI Backend]
+        API[FastAPI Router]
+        RAG[LangChain RAG Agent]
+        Chroma[(ChromaDB Vector Store)]
+    end
+
+    subgraph Automations [Automation Tier]
+        n8nCluster[8 n8n Production Workflows]
+    end
+
+    subgraph VoiceEngine [Speech Tier]
+        Vapi[Vapi Realtime Engine]
+        Whisper[Faster-Whisper STT]
+    end
+
+    UI --> Cognito
+    UI --> API
+    Voice <--> Vapi
+    Vapi <--> Whisper
+    Vapi <--> API
+
+    API --> RDS
+    API --> S3
+    API --> RAG
+    RAG --> Chroma
+
+    API -->|Webhooks| n8nCluster
+    n8nCluster --> SES
+    n8nCluster --> RDS
+          </pre>
+        </div>
+
+        <h2>FastAPI Backend & Asynchronous Tool Execution</h2>
+        <p>
+          We chose FastAPI because native Python asynchronous support (<code>asyncio</code>) allows high concurrency
+          without blocking thread pools during external LLM and vector store calls:
+        </p>
+
+        <div class="code-container">
+          <div class="code-header">
+            <span>Python (FastAPI RAG Router)</span>
+            <button class="code-copy-btn">Copy Code</button>
+          </div>
+          <pre><code>from fastapi import APIRouter, Depends, HTTPException, BackgroundTasks
+from langchain.chains import RetrievalQA
+from core.auth import get_current_user_cognito
+from services.rag_engine import job_rag_agent
+
+router = APIRouter(prefix="/api/v1/dossier", tags=["Dossier RAG"])
+
+@router.post("/adapt-bullet")
+async def adapt_resume_bullet(
+    bullet_req: BulletAdaptationRequest,
+    background_tasks: BackgroundTasks,
+    user: dict = Depends(get_current_user_cognito)
+):
+    """Adapt experience bullet point against target job description with RAG citations."""
+    try:
+        adapted_content = await job_rag_agent.aexecute_bullet_adaptation(
+            user_id=user["sub"],
+            raw_experience=bullet_req.bullet_text,
+            target_role=bullet_req.target_job_title
+        )
+        
+        # Dispatch background event to n8n for user analytics and logging
+        background_tasks.add_task(
+            dispatch_n8n_event, 
+            event_type="bullet_adaptation_completed",
+            payload={"user_id": user["sub"], "tokens": adapted_content.token_usage}
+        )
+        return adapted_content
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc))</code></pre>
+        </div>
+
+        <h2>Why 8 n8n Workflows? (Separation of Synchronous vs Asynchronous Work)</h2>
+        <p>
+          A common anti-pattern in early AI projects is cramming background tasks—email delivery, document chunking,
+          CRM updates, and PDF rendering—directly into API endpoints. This inflates API latency and causes HTTP timeouts.
+        </p>
+        <p>
+          In JobNinjas.ai, I delegated these jobs to <strong>8 independent n8n workflows</strong>:
+        </p>
+        <ol>
+          <li><strong>Document Ingestion & OCR:</strong> Normalizes uploaded PDFs from S3 and chunks text for embedding.</li>
+          <li><strong>Vector Index Refresher:</strong> Re-indexes ChromaDB embeddings when a user updates their profile.</li>
+          <li><strong>Welcome & Onboarding Sequence:</strong> Dispatches personalized emails via AWS SES.</li>
+          <li><strong>Interview Analytics Compiler:</strong> Gathers Vapi voice logs and formats a strengths-and-weaknesses report.</li>
+          <li><strong>Daily Job Match Alert:</strong> Queries indexed job feeds and matches candidates based on semantic distance.</li>
+          <li><strong>Billing & Subscription Lifecycle:</strong> Processes Stripe webhook events and updates AWS RDS entitlements.</li>
+          <li><strong>Dead Letter Queue Auditor:</strong> Retries failed external API calls with exponential backoff.</li>
+          <li><strong>System Observability Alert:</strong> Sends automated Slack notifications on API latency spikes.</li>
+        </ol>
+
+        <h2>Real-Time Voice Architecture with WebRTC</h2>
+        <p>
+          For realistic mock interviews, standard HTTP audio requests feel disjointed due to 3-second latency lags.
+          JobNinjas.ai implements WebRTC audio streams connecting directly to a Vapi voice bridge running <strong>Faster-Whisper</strong>
+          for transcription and low-latency neural speech synthesis. Conversational turnarounds average under 750 milliseconds,
+          providing an experience that feels remarkably human.
+        </p>
+
+        <!-- Share and Links -->
+        <div class="share-bar">
+          <strong>Share this article:</strong>
+          <button class="share-btn" onclick="copyToClipboard(window.location.href, 'Article link copied!')">📋 Copy Link</button>
+          <a class="share-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https://sairamveereddy.com/blog/building-jobninjas-ai-platform" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a class="share-btn" href="https://twitter.com/intent/tweet?text=How+I+Built+JobNinjas.ai:+AI+Platform+Architecture&url=https://sairamveereddy.com/blog/building-jobninjas-ai-platform" target="_blank" rel="noopener noreferrer">X / Twitter</a>
+        </div>
+
+        <div style="margin: 40px 0; display:flex; justify-content:space-between; flex-wrap:wrap; gap:16px;">
+          <a class="button secondary" href="/blog/nyc-pulse-mistral-elasticsearch">← Previous: NYC PULSE with Mistral</a>
+          <a class="button primary" href="/blog/evaluating-ai-agent-reliability">Next: Evaluating AI Agent Reliability →</a>
+        </div>
+      </article>
+    </main>
+
+    <div id="toast" class="toast-notice" role="status" aria-live="polite"></div>
+
+    <script src="/data/site-data.js"></script>
+    <script src="/app-helpers.js"></script>
+    <script src="https://api.foyer.ink/static/widget.js" data-agent-id="tl_6e74c516a62d" data-server="https://api.foyer.ink" async></script>
+  </body>
+</html>

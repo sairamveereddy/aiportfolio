@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Benchmarking AI Agent Performance | Sairam Kumar Reddy Veereddy</title>
+    <meta
+      name="description"
+      content="Formulating quantitative metrics for autonomous AI agents: task completion rate, step efficiency, cost-per-successful-action, and regression testing pipelines."
+    />
+    <link rel="canonical" href="https://sairamveereddy.com/blog/benchmarking-ai-agent-performance" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+    <!-- Open Graph & Social -->
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://sairamveereddy.com/blog/benchmarking-ai-agent-performance" />
+    <meta property="og:title" content="Benchmarking AI Agent Performance" />
+    <meta property="og:description" content="A quantitative evaluation framework for autonomous AI agent performance, cost, and accuracy." />
+    <meta property="og:image" content="https://sairamveereddy.com/assets/sairam-veereddy.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Schema.org TechArticle -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "Benchmarking AI Agent Performance",
+        "author": {
+          "@type": "Person",
+          "name": "Sairam Kumar Reddy Veereddy",
+          "url": "https://sairamveereddy.com"
+        },
+        "datePublished": "2026-04-22",
+        "description": "Quantitative frameworks for assessing agentic AI step efficiency and cost per resolution.",
+        "url": "https://sairamveereddy.com/blog/benchmarking-ai-agent-performance"
+      }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        mermaid.initialize({ startOnLoad: true, theme: "neutral" });
+      });
+    </script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="Sairam Kumar Reddy Veereddy home">
+        <span>SV</span>
+        <strong>Sairam Kumar Reddy Veereddy</strong>
+      </a>
+      <img
+        class="header-badge"
+        src="/assets/claude-certified-architect.png"
+        alt="Claude Certified Architect badge"
+      />
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        Menu
+      </button>
+      <nav aria-label="Portfolio navigation">
+        <a href="/research">Research</a>
+        <a href="/achievements">Achievements</a>
+        <a href="/projects">Projects</a>
+        <a href="/blog" class="active">Blog</a>
+        <a href="/speaking-and-community">Community</a>
+        <a href="/#experience">Experience</a>
+        <a href="/#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main class="section-block" style="padding-top: 48px;">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="sep">/</span>
+        <a href="/blog">Blog</a>
+        <span class="sep">/</span>
+        <span aria-current="page">Benchmarking Agent Performance</span>
+      </nav>
+
+      <article class="prose" style="margin: 0 auto; max-width: 860px;">
+        <header style="margin-bottom: 24px;">
+          <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px;">
+            <span class="badge badge-draft">Draft — Requires Author Verification</span>
+            <span class="badge badge-teal">Research & Benchmarking</span>
+            <span style="font-size:0.85rem; color:var(--muted); font-weight:700;">9 min read · April 22, 2026</span>
+          </div>
+          <h1 style="font-size: clamp(2.2rem, 4.5vw, 3.4rem); line-height: 1.15; margin-bottom: 16px;">
+            Benchmarking AI Agent Performance
+          </h1>
+          <p style="font-size: 1.15rem; color: var(--muted); line-height: 1.6;">
+            By <strong>Sairam Kumar Reddy Veereddy</strong> · AI/ML Engineer & Researcher
+          </p>
+        </header>
+
+        <!-- Draft Warning Banner -->
+        <div class="draft-banner">
+          <div class="draft-icon">📝</div>
+          <div>
+            <strong>Technical Article Draft — Author Verification Required</strong>
+            <p>
+              This draft establishes the mathematical metrics and benchmarking methodology for agent evaluation.
+              Empirical testing datasets, final hardware setup specifications, and comparative model run numbers
+              contain author verification placeholders.
+            </p>
+          </div>
+        </div>
+
+        <p>
+          While conventional machine learning evaluates models on F1-score, accuracy, or mean squared error,
+          autonomous AI agents operate over multi-turn trajectory graphs. An agent might ultimately reach the correct
+          answer, but take 14 unnecessary tool calls, rack up $1.20 in API costs, and require 45 seconds of wall-clock time.
+        </p>
+        <p>
+          To reliably deploy agents in production, we need a multi-dimensional benchmarking harness that evaluates
+          both <strong>efficacy</strong> (did it achieve the goal?) and <strong>efficiency</strong> (how many steps and dollars did it take?).
+        </p>
+
+        <h2>The Core Agent Evaluation Metrics</h2>
+
+        <div class="mermaid-box">
+          <div class="caption">Triangular Agent Benchmark Model</div>
+          <pre class="mermaid">
+flowchart TD
+    Bench[Agent Benchmark Metrics]
+    Bench --> TaskSucc[1. Goal Completion Rate: GCR]
+    Bench --> StepEff[2. Step Efficiency Ratio: SER]
+    Bench --> CostEff[3. Cost Per Resolved Action: CPRA]
+    Bench --> ToolPrec[4. Tool Calling Precision: TCP]
+
+    TaskSucc --> Eval[Compound Production Readiness Score]
+    StepEff --> Eval
+    CostEff --> Eval
+    ToolPrec --> Eval
+          </pre>
+        </div>
+
+        <h2>Mathematical Metric Definitions</h2>
+        <ul>
+          <li>
+            <strong>Goal Completion Rate (GCR):</strong>
+            $$\text{GCR} = \frac{\sum_{i=1}^N \mathbb{I}(\text{task}_i = \text{success})}{N}$$
+            The percentage of test scenarios where the agent successfully satisfies all unit test assertions without human intervention.
+          </li>
+          <li>
+            <strong>Step Efficiency Ratio (SER):</strong>
+            $$\text{SER} = \frac{\text{Optimal Minimum Trajectory Steps}}{\text{Observed Steps}}$$
+            A score of 1.0 indicates an optimal trajectory with zero wasted turns or redundant tool queries.
+          </li>
+          <li>
+            <strong>Cost Per Resolved Action (CPRA):</strong>
+            $$\text{CPRA} = \frac{\text{Total Input + Output Token Cost}}{\text{Successful Resolutions}}$$
+            Guarantees that cost increases are normalized against actual delivered work rather than gross query volume.
+          </li>
+        </ul>
+
+        <h2>Automated Regression Testing Pipeline</h2>
+        <p>
+          Just as unit tests protect traditional codebases from regressions during CI/CD, an agent benchmark harness
+          must run against a static test dataset before any prompt tweak or model version upgrade:
+        </p>
+
+        <div class="code-container">
+          <div class="code-header">
+            <span>Python (Agent Evaluation Test Harness Runner)</span>
+            <button class="code-copy-btn">Copy Code</button>
+          </div>
+          <pre><code>import pytest
+from evaluation.runner import evaluate_agent_trajectory
+
+@pytest.mark.parametrize("scenario", LOADED_TEST_SCENARIOS)
+def test_agent_benchmark_trajectory(scenario):
+    trajectory = evaluate_agent_trajectory(
+        agent=production_agent,
+        prompt=scenario["input"],
+        ground_truth=scenario["expected_output"]
+    )
+    
+    assert trajectory.success is True, f"Agent failed scenario: {scenario['id']}"
+    assert trajectory.step_count <= scenario["max_allowed_steps"], "Exceeded trajectory budget"
+    assert trajectory.tool_precision >= 0.85, "Sub-optimal tool invocation detected"</code></pre>
+        </div>
+
+        <!-- Author Verification Specifics -->
+        <h2>Empirical Test Runs (Author Verification Checklist)</h2>
+        <div class="draft-banner">
+          <div class="draft-icon">⚠️</div>
+          <div>
+            <strong>[Placeholder — Requires author verification before final publish]</strong>
+            <p>
+              <em>Author Note:</em> The following metrics require verification against your local benchmarking run logs:
+            </p>
+            <ul>
+              <li>Test Suite Size: [Requires author verification — e.g. 250 multi-turn test trajectories]</li>
+              <li>Observed Step Efficiency Ratio: [Requires author verification — e.g. 0.82]</li>
+              <li>Average CPRA on GPT-4 vs Claude 3.5 Sonnet: [Requires author verification — e.g. $0.04 vs $0.025]</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Share and Links -->
+        <div class="share-bar">
+          <strong>Share this article:</strong>
+          <button class="share-btn" onclick="copyToClipboard(window.location.href, 'Article link copied!')">📋 Copy Link</button>
+          <a class="share-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https://sairamveereddy.com/blog/benchmarking-ai-agent-performance" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a class="share-btn" href="https://twitter.com/intent/tweet?text=Benchmarking+AI+Agent+Performance&url=https://sairamveereddy.com/blog/benchmarking-ai-agent-performance" target="_blank" rel="noopener noreferrer">X / Twitter</a>
+        </div>
+
+        <div style="margin: 40px 0; display:flex; justify-content:space-between; flex-wrap:wrap; gap:16px;">
+          <a class="button secondary" href="/blog/engineering-reliable-n8n-workflows">← Previous: Reliable n8n Workflows</a>
+          <a class="button primary" href="/blog">Back to Blog Index →</a>
+        </div>
+      </article>
+    </main>
+
+    <div id="toast" class="toast-notice" role="status" aria-live="polite"></div>
+
+    <script src="/data/site-data.js"></script>
+    <script src="/app-helpers.js"></script>
+    <script src="https://api.foyer.ink/static/widget.js" data-agent-id="tl_6e74c516a62d" data-server="https://api.foyer.ink" async></script>
+  </body>
+</html>

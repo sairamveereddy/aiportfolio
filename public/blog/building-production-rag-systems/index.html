@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Building Production-Ready RAG Systems | Sairam Kumar Reddy Veereddy</title>
+    <meta
+      name="description"
+      content="Moving beyond basic vector search: hybrid retrieval, cross-encoder re-ranking, document chunking tradeoffs, and enforcing strict citation attribution."
+    />
+    <link rel="canonical" href="https://sairamveereddy.com/blog/building-production-rag-systems" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+    <!-- Open Graph & Social -->
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://sairamveereddy.com/blog/building-production-rag-systems" />
+    <meta property="og:title" content="Building Production-Ready RAG Systems" />
+    <meta property="og:description" content="Engineering architectures for enterprise RAG: hybrid search, re-ranking, and hallucination reduction." />
+    <meta property="og:image" content="https://sairamveereddy.com/assets/sairam-veereddy.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Schema.org TechArticle -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "Building Production-Ready RAG Systems",
+        "author": {
+          "@type": "Person",
+          "name": "Sairam Kumar Reddy Veereddy",
+          "url": "https://sairamveereddy.com"
+        },
+        "datePublished": "2026-06-18",
+        "description": "Techniques for building robust enterprise RAG pipelines with hybrid search and cross-encoder re-ranking.",
+        "url": "https://sairamveereddy.com/blog/building-production-rag-systems"
+      }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        mermaid.initialize({ startOnLoad: true, theme: "neutral" });
+      });
+    </script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="Sairam Kumar Reddy Veereddy home">
+        <span>SV</span>
+        <strong>Sairam Kumar Reddy Veereddy</strong>
+      </a>
+      <img
+        class="header-badge"
+        src="/assets/claude-certified-architect.png"
+        alt="Claude Certified Architect badge"
+      />
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        Menu
+      </button>
+      <nav aria-label="Portfolio navigation">
+        <a href="/research">Research</a>
+        <a href="/achievements">Achievements</a>
+        <a href="/projects">Projects</a>
+        <a href="/blog" class="active">Blog</a>
+        <a href="/speaking-and-community">Community</a>
+        <a href="/#experience">Experience</a>
+        <a href="/#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main class="section-block" style="padding-top: 48px;">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="sep">/</span>
+        <a href="/blog">Blog</a>
+        <span class="sep">/</span>
+        <span aria-current="page">Production-Ready RAG</span>
+      </nav>
+
+      <article class="prose" style="margin: 0 auto; max-width: 860px;">
+        <header style="margin-bottom: 32px;">
+          <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px;">
+            <span class="badge badge-teal">RAG Engineering</span>
+            <span class="badge badge-gold">Enterprise AI</span>
+            <span style="font-size:0.85rem; color:var(--muted); font-weight:700;">10 min read · June 18, 2026</span>
+          </div>
+          <h1 style="font-size: clamp(2.2rem, 4.5vw, 3.4rem); line-height: 1.15; margin-bottom: 16px;">
+            Building Production-Ready RAG Systems
+          </h1>
+          <p style="font-size: 1.15rem; color: var(--muted); line-height: 1.6;">
+            By <strong>Sairam Kumar Reddy Veereddy</strong> · AI/ML Engineer
+          </p>
+        </header>
+
+        <p>
+          Tutorials on Retrieval-Augmented Generation (RAG) make it look trivial: take a PDF, split it every 500 characters,
+          embed it with OpenAI <code>text-embedding-3-small</code>, query ChromaDB, and prompt GPT-4.
+        </p>
+        <p>
+          In production—especially in highly regulated environments like pharmacy clinical formularies or insurance
+          underwriting—that basic setup fails catastrophically. Dense embeddings lose exact entity matches (such as
+          NDC drug codes or policy numbers), standard chunking splits critical tables across borders, and the LLM
+          generates convincing answers supported by non-existent citations.
+        </p>
+        <p>
+          Here are the architectural patterns required to transform toy RAG into a production-grade enterprise system.
+        </p>
+
+        <h2>The Enterprise RAG Pipeline</h2>
+
+        <div class="mermaid-box">
+          <div class="caption">Production RAG Architecture: Hybrid Retrieval & Re-Ranking</div>
+          <pre class="mermaid">
+flowchart TD
+    Query[User Query] --> Pre[Query Decomposition & Expansion]
+    
+    subgraph Retrieval [Two-Pronged Hybrid Retrieval]
+        Pre -->|Lexical Match| BM25[BM25 Keyword Search / Elastic]
+        Pre -->|Dense Vector| Vector[ChromaDB / Pinecone Vector Store]
+    end
+
+    BM25 --> Recip[Reciprocal Rank Fusion RRF]
+    Vector --> Recip
+    
+    Recip --> Rerank[Cross-Encoder Re-Ranking Model]
+    Rerank --> Context[Top 5 High-Precision Chunks]
+    
+    Context --> Guard[Citation Attribution & Guardrails]
+    Guard --> LLM[LLM Foundation Model]
+    LLM --> VerifiedAnswer[Audited Answer with Exact Citations]
+          </pre>
+        </div>
+
+        <h2>1. Hybrid Retrieval: Why Dense Vectors Alone Fail</h2>
+        <p>
+          Vector embeddings represent semantic concepts well, but perform poorly on keyword specificity.
+          If a doctor queries <em>"Dosage for Metformin 500mg ER vs IR"</em>, a dense vector model might retrieve
+          chunks discussing Metformin side effects or Glipizide dosages because their embeddings are nearby in latent space.
+        </p>
+        <p>
+          Production RAG must implement <strong>Hybrid Retrieval</strong>: pairing BM25 inverted index search
+          (for exact keyword, drug, and code matches) with dense vector search (for conceptual semantics).
+          We combine their ranked outputs using <strong>Reciprocal Rank Fusion (RRF)</strong>:
+        </p>
+
+        <div class="code-container">
+          <div class="code-header">
+            <span>Python (Reciprocal Rank Fusion Implementation)</span>
+            <button class="code-copy-btn">Copy Code</button>
+          </div>
+          <pre><code>def reciprocal_rank_fusion(dense_results, lexical_results, k=60):
+    """Combines dense vector and BM25 rank scores without requiring score normalization."""
+    rrf_scores = {}
+    
+    for rank, doc in enumerate(dense_results):
+        doc_id = doc["id"]
+        rrf_scores[doc_id] = rrf_scores.get(doc_id, 0) + (1 / (k + rank + 1))
+        
+    for rank, doc in enumerate(lexical_results):
+        doc_id = doc["id"]
+        rrf_scores[doc_id] = rrf_scores.get(doc_id, 0) + (1 / (k + rank + 1))
+        
+    # Sort docs by highest combined reciprocal rank
+    sorted_docs = sorted(rrf_scores.items(), key=lambda item: item[1], reverse=True)
+    return sorted_docs</code></pre>
+        </div>
+
+        <h2>2. Cross-Encoder Re-Ranking: The Quality Multiplier</h2>
+        <p>
+          Initial retrieval returns the top 25 candidate chunks. Feeding all 25 chunks into an LLM prompt inflates token costs
+          and introduces the "lost in the middle" attention degradation phenomenon.
+        </p>
+        <p>
+          We insert a fast <strong>Cross-Encoder</strong> (such as <code>bge-reranker-large</code> or Cohere Rerank)
+          that computes full token-level cross-attention between the query and candidate chunk. This winnows 25 candidates
+          down to the 5 highest-relevance passages with high precision.
+        </p>
+
+        <h2>3. Enforcing Verifiable Citation Anchors</h2>
+        <p>
+          An enterprise RAG response is useless unless a human auditor can verify every claim.
+          We mandate that the LLM cite specific chunk IDs in brackets (e.g. <code>[Doc-3, Page 14]</code>).
+          A post-generation validation step verifies that every cited chunk was indeed in the prompt and contains
+          the supporting semantic tokens.
+        </p>
+
+        <!-- Share and Links -->
+        <div class="share-bar">
+          <strong>Share this article:</strong>
+          <button class="share-btn" onclick="copyToClipboard(window.location.href, 'Article link copied!')">📋 Copy Link</button>
+          <a class="share-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https://sairamveereddy.com/blog/building-production-rag-systems" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a class="share-btn" href="https://twitter.com/intent/tweet?text=Building+Production-Ready+RAG+Systems&url=https://sairamveereddy.com/blog/building-production-rag-systems" target="_blank" rel="noopener noreferrer">X / Twitter</a>
+        </div>
+
+        <div style="margin: 40px 0; display:flex; justify-content:space-between; flex-wrap:wrap; gap:16px;">
+          <a class="button secondary" href="/blog/evaluating-ai-agent-reliability">← Previous: Evaluating AI Agent Reliability</a>
+          <a class="button primary" href="/blog/rag-vs-finetuning-enterprise-ai">Next: RAG vs Fine-Tuning →</a>
+        </div>
+      </article>
+    </main>
+
+    <div id="toast" class="toast-notice" role="status" aria-live="polite"></div>
+
+    <script src="/data/site-data.js"></script>
+    <script src="/app-helpers.js"></script>
+    <script src="https://api.foyer.ink/static/widget.js" data-agent-id="tl_6e74c516a62d" data-server="https://api.foyer.ink" async></script>
+  </body>
+</html>

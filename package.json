@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "build": "echo Static site ready",
-    "dev": "node server.mjs"
+    "dev": "node server.mjs",
+    "test": "node test-e2e.mjs"
   }
 }

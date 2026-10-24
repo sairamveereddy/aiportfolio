@@ -10,14 +10,15 @@ const els = {
 };
 
 function init() {
-  renderExperience();
-  renderProjects();
-  renderPublications();
-  renderExternalLinks();
-  renderSkills();
-  renderCertifications();
+  if (els.experienceList) renderExperience();
+  if (els.projectList) renderProjects();
+  if (els.publicationList) renderPublications();
+  if (els.externalLinkList) renderExternalLinks();
+  if (els.skillsList) renderSkills();
+  if (els.certificationList) renderCertifications();
   exposeAgentHelpers();
   bindFoyerPreviewMotion();
+  bindMobileNav();
 }
 
 function renderExperience() {
@@ -73,7 +74,11 @@ function renderPublications() {
           <span class="project-label">${paper.label}</span>
           <h3>${paper.title}</h3>
           <p>${paper.summary}</p>
-          <a class="button secondary" href="${paper.url}" target="_blank" rel="noopener noreferrer">Open record</a>
+          <div style="display:flex; gap:8px; flex-wrap:wrap; margin-top:auto; padding-top:14px;">
+            <a class="button primary" href="${paper.url}">View Research Page</a>
+            <a class="button secondary" href="${paper.pdfUrl}" target="_blank" rel="noopener noreferrer">Direct PDF</a>
+            <a class="button secondary" href="${paper.zenodoUrl}" target="_blank" rel="noopener noreferrer">Official Zenodo</a>
+          </div>
         </article>
       `
     )
@@ -164,6 +169,18 @@ function highlightSection(targetId) {
   target.classList.remove("section-highlight");
   window.setTimeout(() => target.classList.add("section-highlight"), 80);
   return true;
+}
+
+function bindMobileNav() {
+  const navToggle = document.querySelector(".nav-toggle");
+  const navMenu = document.querySelector(".site-header nav");
+  if (!navToggle || !navMenu) return;
+
+  navToggle.addEventListener("click", () => {
+    const isExpanded = navToggle.getAttribute("aria-expanded") === "true";
+    navToggle.setAttribute("aria-expanded", String(!isExpanded));
+    navMenu.classList.toggle("nav-open");
+  });
 }
 
 init();
