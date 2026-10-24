@@ -40,7 +40,14 @@
               "name": "NYC Pulse",
               "applicationCategory": "AI Urban Intelligence & Semantic Search",
               "operatingSystem": "Web / Cloud",
-              "description": "Evidence-driven urban disruption intelligence powered by Mistral Large and Elasticsearch."
+              "description": "Evidence-driven urban disruption intelligence prototype built at NYC Mistral × Elastic Hackathon."
+            },
+            {
+              "@type": "SoftwareApplication",
+              "name": "CrossWise",
+              "applicationCategory": "AI Curb Crossing Copilot for Food Delivery Robots",
+              "operatingSystem": "Robotics / Cloud GPU",
+              "description": "Vision-language crossing copilot evaluating curb video streams with NVIDIA Cosmos Reason, YOLO11, and VastDB."
             },
             {
               "@type": "SoftwareApplication",
@@ -110,20 +117,43 @@
         </p>
       </div>
 
+      <!-- Interactive Category Filter -->
+      <div class="category-filter" id="projectCategoryFilter" style="margin-bottom: 32px;">
+        <button class="category-chip active" data-category="all">All Projects</button>
+        <button class="category-chip" data-category="Hackathon Projects">Hackathon Projects</button>
+        <button class="category-chip" data-category="Enterprise AI">Enterprise AI</button>
+        <button class="category-chip" data-category="Full-Stack Platforms">Full-Stack Platforms</button>
+      </div>
+
+      <div id="projectContainer">
       <!-- Project 1: NYC PULSE -->
-      <article id="nyc-pulse" class="paper-card" style="margin-bottom: 40px; padding: 36px;">
+      <article id="nyc-pulse" class="paper-card project-entry" data-category="Hackathon Projects,Full-Stack Platforms" style="margin-bottom: 40px; padding: 36px;">
         <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:12px;">
           <div>
-            <span class="badge badge-teal">AI Urban Intelligence & Search</span>
-            <h2 style="font-size: 2rem; margin: 12px 0 6px;">NYC Pulse: Urban Disruption Intelligence</h2>
+            <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:8px;">
+              <span class="badge badge-teal">AI Urban Intelligence & Search</span>
+              <span class="badge badge-gold">NYC Mistral × Elastic Hackathon Prototype</span>
+            </div>
+            <h2 style="font-size: 2rem; margin: 8px 0 6px;">NYC PULSE: Evidence-Driven Urban Intelligence Agent</h2>
             <p style="color: var(--gold); font-weight: 700; margin-bottom: 0;">
               "Elastic gives NYC Pulse memory. Mistral gives NYC Pulse reasoning."
             </p>
           </div>
-          <div style="display:flex; gap:8px;">
+          <div style="display:flex; gap:8px; flex-wrap:wrap;">
             <a class="button secondary" href="https://github.com/sairamveereddy/nyc-pulse" target="_blank" rel="noopener noreferrer">GitHub Repo</a>
             <a class="button primary" href="/blog/nyc-pulse-mistral-elasticsearch">Architecture Case Study</a>
           </div>
+        </div>
+
+        <div class="evidence-box" style="margin: 20px 0;">
+          <h4>Hackathon Event & Documented Implementation Scope</h4>
+          <p style="font-size: 0.92rem; color: var(--muted); margin: 0; line-height: 1.6;">
+            Built as a functional urban intelligence prototype at the <strong>NYC Mistral × Elastic Hackathon</strong> (October 2026).
+            The system pairs Mistral AI reasoning with Elasticsearch retrieval to investigate hypotheses with verified evidence.
+            <strong>Documented implementation scale:</strong> integrated <strong>1,488 subway-stop records</strong>, <strong>20,000 NYC 311 request records</strong>,
+            and <strong>2,000 semantically indexed 311 records</strong> with geospatial distance filters.
+            <em>(Clearly labeled as prototype implementation scale; this project was an active hackathon entry and did not claim a competition award.)</em>
+          </p>
         </div>
 
         <div class="meta-table" style="margin: 24px 0;">
@@ -140,8 +170,8 @@
             <span>Two-Phase Evidence Loop</span>
           </div>
           <div class="meta-item">
-            <strong>Datasets</strong>
-            <span>NYC 311 Open Data + MTA GTFS</span>
+            <strong>Indexed Datasets</strong>
+            <span>1,488 Subway Stops + 20,000 311 Records</span>
           </div>
         </div>
 
@@ -160,16 +190,16 @@
           </p>
           <ol>
             <li><strong>Event Ingestion:</strong> Incident trigger details (location, line, severity) are parsed by the agent.</li>
-            <li><strong>Initial Investigation:</strong> Mistral Large calls Elasticsearch tools to retrieve nearby transit hubs (geo-distance) and historical 311 baseline complaint levels.</li>
+            <li><strong>Initial Investigation:</strong> Mistral Large calls Elasticsearch tools to retrieve nearby transit hubs (geo-distance) and historical 311 baseline complaint levels across 1,488 subway stops and 20,000 municipal records.</li>
             <li><strong>Hypothesis Generation:</strong> Mistral formulates specific causal hypotheses (e.g., "M14 bus route overload will cause sidewalk crowding along 14th St").</li>
-            <li><strong>Evidence Verification:</strong> The agent autonomously issues follow-up queries against Elasticsearch to find historical signals supporting or contradicting the hypothesis.</li>
+            <li><strong>Evidence Verification:</strong> The agent autonomously issues follow-up queries against Elasticsearch to find historical signals supporting or contradicting the hypothesis across 2,000 semantically indexed complaints.</li>
             <li><strong>Grounded Output:</strong> A structured, evidential ripple-effect report is delivered to the Streamlit UI with confidence anchors.</li>
           </ol>
 
           <h3>My Technical Contributions</h3>
           <ul>
             <li>Implemented the autonomous tool-calling loop using Python and Mistral Large's native function-calling API.</li>
-            <li>Constructed the Elasticsearch indexing pipeline ingesting millions of NYC 311 complaints and GTFS transit station geometries.</li>
+            <li>Constructed the Elasticsearch indexing pipeline ingesting 1,488 subway stops and 20,000 NYC 311 records.</li>
             <li>Engineered geo-point bounding box filters and historical baseline aggregations to isolate statistically significant complaint surges.</li>
             <li>Built the full-stack Streamlit interactive dashboard with scenario simulations.</li>
           </ul>
@@ -184,17 +214,99 @@
 
         <div class="pill-row" style="margin-top: 24px;">
           <span>Python</span>
-          <span>Mistral Large</span>
+          <span>Mistral AI</span>
           <span>Elasticsearch</span>
-          <span>Function Calling</span>
+          <span>Geospatial Search</span>
+          <span>Vector Embeddings</span>
+          <span>AI Agent Tool Calling</span>
           <span>Streamlit</span>
-          <span>Geo-Distance Queries</span>
-          <span>Open Data</span>
         </div>
       </article>
 
-      <!-- Project 2: JobNinjas.ai -->
-      <article id="jobninjas" class="paper-card" style="margin-bottom: 40px; padding: 36px;">
+      <!-- Project 2: CrossWise AI Food Delivery Robot Copilot -->
+      <article id="crosswise" class="paper-card project-entry" data-category="Hackathon Projects,Enterprise AI" style="margin-bottom: 40px; padding: 36px;">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:12px;">
+          <div>
+            <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:8px;">
+              <span class="badge badge-gold">NYC Hackathon Project</span>
+              <span class="badge badge-teal">VAST Builders Challenge (team-48)</span>
+              <span class="badge badge-coral">Robotics Perception Prototype</span>
+            </div>
+            <h2 style="font-size: 2rem; margin: 8px 0 6px;">CrossWise: AI Curb Crossing Copilot for Food Delivery Robots</h2>
+            <p style="color: var(--gold); font-weight: 700; margin-bottom: 0;">
+              Vision-Language AI Copilot Preventing Intersection Stalls and Pedestrian Collisions
+            </p>
+          </div>
+          <div style="display:flex; gap:8px; flex-wrap:wrap;">
+            <a class="button secondary" href="https://github.com/sairamveereddy/CROSSWISE" target="_blank" rel="noopener noreferrer">GitHub Repo</a>
+            <a class="button primary" href="/projects/crosswise">Full Case Study →</a>
+          </div>
+        </div>
+
+        <div class="evidence-box" style="margin: 20px 0;">
+          <h4>Hackathon Scope & Hardware Transparency Notice</h4>
+          <p style="font-size: 0.92rem; color: var(--muted); margin: 0; line-height: 1.6;">
+            Built at the <strong>VAST Builders Challenge NYC Hackathon</strong> (October 2026) by team-48.
+            CrossWise was evaluated as a software perception and policy copilot on recorded multi-camera curb footage across 7 fixed intersections in NYC and SF.
+            <em>It operated as decision-support software without physical rover steering actuation.</em>
+          </p>
+        </div>
+
+        <div class="meta-table" style="margin: 24px 0;">
+          <div class="meta-item">
+            <strong>Fast Perception Loop</strong>
+            <span>YOLO11 (0.2s Object Tracking)</span>
+          </div>
+          <div class="meta-item">
+            <strong>Deep Reasoning</strong>
+            <span>NVIDIA Cosmos Reason + Llama 3.3 70B</span>
+          </div>
+          <div class="meta-item">
+            <strong>Data Engine & Storage</strong>
+            <span>VAST DataEngine + VastDB</span>
+          </div>
+          <div class="meta-item">
+            <strong>Benchmark Performance</strong>
+            <span>0 Violations Against DON'T WALK (Frame Replay)</span>
+          </div>
+        </div>
+
+        <div class="prose" style="max-width: 100%;">
+          <h3>The Problem</h3>
+          <p>
+            Autonomous food delivery rovers suffer severe freeze rates at urban curbs due to pedestrian crowding, ambiguous signal heads,
+            and turning vehicles entering from blind spots. Overly timid sensors stall delivery routes, while naive models risk crosswalk incursions.
+          </p>
+
+          <h3>Technical Architecture</h3>
+          <p>
+            CrossWise implements a dual-speed perception loop: high-FPS YOLO11 tracks pedestrians, bicycles, and signal heads every 0.2s,
+            while deep multimodal reasoning (NVIDIA Cosmos Reason and Gemma 4 31B vision on CoreWeave GPUs) validates physical scene dynamics
+            stored in VastDB. If ambiguous blockage persists for &gt;30 seconds, an automated teleoperation escalation packet is dispatched via W&B Weave.
+          </p>
+
+          <h3>My Technical Contributions</h3>
+          <ul>
+            <li>Engineered the arbitration module synthesizing high-speed YOLO detections with deep NVIDIA Cosmos reasoning passes.</li>
+            <li>Authored metadata ingestion pipelines indexing multi-camera footage into VastDB via VAST DataEngine.</li>
+            <li>Co-authored <code>policy_eval.py</code> measuring policy replay safety adherence across hundreds of curb-transition frames.</li>
+          </ul>
+        </div>
+
+        <div class="pill-row" style="margin-top: 24px;">
+          <span>VAST DataEngine</span>
+          <span>VastDB</span>
+          <span>NVIDIA Cosmos Reason</span>
+          <span>YOLO11</span>
+          <span>Llama 3.3 70B</span>
+          <span>Gemma 4 31B</span>
+          <span>W&B Weave</span>
+          <span>CoreWeave</span>
+        </div>
+      </article>
+
+      <!-- Project 3: JobNinjas.ai -->
+      <article id="jobninjas" class="paper-card project-entry" data-category="Full-Stack Platforms" style="margin-bottom: 40px; padding: 36px;">
         <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:12px;">
           <div>
             <span class="badge badge-gold">Full-Stack AI Platform (Shipped Solo)</span>
@@ -268,8 +380,8 @@
         </div>
       </article>
 
-      <!-- Project 3: AI Talking Portfolio -->
-      <article id="ai-talking-portfolio" class="paper-card" style="margin-bottom: 40px; padding: 36px;">
+      <!-- Project 4: AI Talking Portfolio -->
+      <article id="ai-talking-portfolio" class="paper-card project-entry" data-category="Full-Stack Platforms" style="margin-bottom: 40px; padding: 36px;">
         <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:12px;">
           <div>
             <span class="badge badge-teal">Conversational AI & WebRTC</span>
@@ -314,8 +426,8 @@
         </div>
       </article>
 
-      <!-- Project 4: Miro × n8n Hackathon Project -->
-      <article id="miro-n8n-hackathon" class="paper-card" style="margin-bottom: 40px; padding: 36px;">
+      <!-- Project 5: Miro × n8n Hackathon Project -->
+      <article id="miro-n8n-hackathon" class="paper-card project-entry" data-category="Hackathon Projects,Full-Stack Platforms" style="margin-bottom: 40px; padding: 36px;">
         <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:12px;">
           <div>
             <span class="badge badge-gold">1st Place Hackathon Winner</span>
@@ -352,9 +464,9 @@
         </div>
       </article>
 
-      <!-- Project 5 & 6: Enterprise Healthcare & Insurance Systems -->
+      <!-- Projects 6 & 7: Enterprise Healthcare & Insurance Systems -->
       <div class="grid-2">
-        <article class="paper-card">
+        <article class="paper-card project-entry" data-category="Enterprise AI">
           <span class="badge badge-teal">Enterprise Healthcare AI</span>
           <h3 style="font-size: 1.5rem; margin-top: 10px;">Pharmacy GenAI Clinical Copilot</h3>
           <p class="paper-meta">CVS Pharmacy · Feb 2026 – Present</p>
@@ -375,7 +487,7 @@
           </div>
         </article>
 
-        <article class="paper-card">
+        <article class="paper-card project-entry" data-category="Enterprise AI">
           <span class="badge badge-gold">Enterprise Predictive ML</span>
           <h3 style="font-size: 1.5rem; margin-top: 10px;">Insurance Fraud Detection ML Pipeline</h3>
           <p class="paper-meta">Nationwide Insurance · Mar 2025 – Feb 2026</p>
@@ -396,6 +508,7 @@
           </div>
         </article>
       </div>
+      </div><!-- end projectContainer -->
 
       <!-- Open Source Ecosystem -->
       <div class="research-callout" style="margin-top: 48px;">
@@ -417,6 +530,30 @@
 
     <script src="/data/site-data.js"></script>
     <script src="/app-helpers.js"></script>
+    <script>
+      // Interactive Category Filter for Projects
+      document.addEventListener("DOMContentLoaded", () => {
+        const filterButtons = document.querySelectorAll("#projectCategoryFilter .category-chip");
+        const entries = document.querySelectorAll(".project-entry");
+
+        filterButtons.forEach((btn) => {
+          btn.addEventListener("click", () => {
+            filterButtons.forEach((b) => b.classList.remove("active"));
+            btn.classList.add("active");
+            const selected = btn.getAttribute("data-category");
+
+            entries.forEach((entry) => {
+              const categories = entry.getAttribute("data-category") || "";
+              if (selected === "all" || categories.includes(selected)) {
+                entry.style.display = "";
+              } else {
+                entry.style.display = "none";
+              }
+            });
+          });
+        });
+      });
+    </script>
     <script src="https://api.foyer.ink/static/widget.js" data-agent-id="tl_6e74c516a62d" data-server="https://api.foyer.ink" async></script>
   </body>
 </html>

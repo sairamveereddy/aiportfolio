@@ -19,6 +19,7 @@ async function runTests() {
     "/achievements",
     "/achievements/miro-n8n-hackathon",
     "/projects",
+    "/projects/crosswise",
     "/speaking-and-community",
     "/blog",
     "/blog/inside-miro-n8n-hackathon",

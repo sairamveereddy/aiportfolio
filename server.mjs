@@ -34,6 +34,7 @@ const siteTargets = [
   "tech-mahindra",
   "projects",
   "nyc-pulse",
+  "crosswise",
   "jobninjas",
   "ai-talking-portfolio",
   "miro-n8n-hackathon",
@@ -49,7 +50,7 @@ const siteTargets = [
   "speaking-and-community",
   "github-profile",
   "linkedin-profile",
-  "substack-profile",
+  "medium-profile",
   "instagram-profile",
   "skills",
   "certifications",
@@ -62,7 +63,7 @@ const resumeKnowledge = `
 Sairam Kumar Reddy Veereddy is an AI/ML Engineer, Applied AI Researcher, Hackathon Winner, and AI Educator based in Alpharetta, Georgia.
 Contact: vsairamkumarreddy@gmail.com, (217) 862-4693.
 Links: https://www.linkedin.com/in/sairam-kumar-365232192/, https://sairamveereddy.com,
-https://github.com/sairamveereddy, https://substack.com/@firstninja, https://www.instagram.com/first.ninja_/.
+https://github.com/sairamveereddy, https://medium.com/@vsairamkumarreddy, https://www.instagram.com/first.ninja_/.
 
 Professional summary:
 AI/ML Engineer with 4+ years translating cutting-edge research and emerging AI technologies
@@ -112,7 +113,8 @@ Research Publications:
    DOI: 10.5281/zenodo.21367111. Zenodo Citable Research Archive. Proposes AI Utilization Proficiency (AUP) and Baseline Differential Analysis (BDA) for AI literacy assessment.
 
 Selected Projects:
-NYC Pulse: AI-powered urban disruption intelligence using Mistral Large and Elasticsearch. Features the Evidence Loop verifying ripple-effect hypotheses against historical 311 data and GTFS transit schedules.
+NYC Pulse: AI-powered urban disruption intelligence prototype built at NYC Mistral × Elastic Hackathon (October 2026). Features an Evidence Loop verifying ripple-effect hypotheses with 1,488 subway stops, 20,000 311 request records, and 2,000 semantically indexed 311 complaints using Mistral Large and Elasticsearch.
+CrossWise: Vision-language AI crossing copilot for food delivery robots built at VAST Builders Challenge NYC Hackathon (team-48, October 2026). Evaluated on recorded multi-camera curb footage in NYC and SF using NVIDIA Cosmos Reason, YOLO11, Llama 3.3 70B, and Gemma 4 31B vision on VastDB/CoreWeave GPUs, achieving 0 illegal starts against DON'T WALK signals in frame-level policy replay.
 JobNinjas.ai: Full-stack AI platform built solo using AWS (Cognito, RDS, S3, SES), FastAPI, LangChain RAG agent, 8 n8n automation workflows, Vapi voice AI, Faster-Whisper, and WebRTC.
 AI Talking Portfolio: Full-stack conversational AI where visitors interact with an LLM agent in real time using WebRTC, OpenAI Realtime API, RAG, and dynamic DOM control.
 Pharmacy GenAI Copilot: Clinical RAG assistant on AWS SageMaker with Bedrock and OpenAI.
@@ -122,7 +124,7 @@ Speaking and Community:
 Instagram AI Content Creator (@first.ninja_) with ~16,900 followers (as of October 2026).
 Publishes daily AI tool explainers, multi-agent tutorials, open-source breakdowns, and research summaries.
 Technical blog on sairamveereddy.com/blog covering agent reliability, RAG architecture, and n8n workflows.
-Substack writer at firstninja. Substack and GitHub contributor with 27+ public repositories.
+Technical author on Medium (@vsairamkumarreddy) publishing deep-dives on agent reliability, AI reverse engineering, and production RAG. Active open-source contributor with 27+ public GitHub repositories.
 
 Technical skills:
 Foundation models & GenAI: OpenAI GPT-4, Anthropic Claude, AWS Bedrock, Azure OpenAI, Google Gemini, Vertex AI, Hugging Face, multimodal models.
@@ -168,12 +170,14 @@ Website control rules:
 - For Tech Mahindra/telecom/Telefonica, navigate to "tech-mahindra".
 - For GenAI/RAG/LangChain/LlamaIndex/projects, navigate to "projects" or the exact project.
 - For NYC Pulse, navigate to "nyc-pulse".
+- For CrossWise or food delivery robot, navigate to "crosswise".
 - For JobNinjas.ai, navigate to "jobninjas".
 - For AI Talking Portfolio, navigate to "ai-talking-portfolio".
 - For Miro × n8n Hackathon or team Strangers, navigate to "miro-n8n-hackathon" or "achievements".
 - For research papers, Zenodo, publications, navigate to "research", "the-invisible-singularity", or "from-detection-to-proficiency".
 - For achievements and hackathon wins, navigate to "achievements".
 - For technical blog posts and articles, navigate to "blog".
+- For Medium articles or publications, navigate to "speaking-and-community" or "medium-profile".
 - For Instagram, community, speaking, navigate to "speaking-and-community" or "instagram-profile".
 - For Claude Certified Architect, Anthropic, certifications, navigate to "certifications" or "claude-certified-architect".
 - For skills/tools/stack, navigate to "skills".

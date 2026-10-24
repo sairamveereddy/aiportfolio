@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CrossWise: AI Curb Crossing Copilot for Food Delivery Robots | Sairam Kumar Reddy Veereddy</title>
+    <meta
+      name="description"
+      content="Technical case study of CrossWise, an AI-powered crossing copilot for urban food delivery robots built at the VAST Builders Challenge NYC Hackathon (team-48)."
+    />
+    <link rel="canonical" href="https://sairamveereddy.com/projects/crosswise" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+    <!-- Open Graph & Social -->
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://sairamveereddy.com/projects/crosswise" />
+    <meta property="og:title" content="CrossWise: AI Curb Crossing Copilot for Food Delivery Robots | Case Study" />
+    <meta
+      property="og:description"
+      content="Multi-model vision-language crossing copilot evaluating curb video streams with NVIDIA Cosmos Reason, YOLO11, Llama 3.3 70B, and Gemma 4 31B."
+    />
+    <meta property="og:image" content="https://sairamveereddy.com/assets/sairam-veereddy.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Schema.org SoftwareApplication / TechArticle -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "CrossWise: AI Curb Crossing Copilot for Food Delivery Robots",
+        "name": "CrossWise — AI Curb Crossing Copilot",
+        "author": {
+          "@type": "Person",
+          "name": "Sairam Kumar Reddy Veereddy",
+          "url": "https://sairamveereddy.com"
+        },
+        "datePublished": "2026-10-18",
+        "description": "Technical case study of CrossWise, a vision-language crossing copilot for food delivery rovers built at the VAST Builders Challenge NYC Hackathon.",
+        "url": "https://sairamveereddy.com/projects/crosswise"
+      }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+    <!-- Mermaid JS for Architecture Diagram -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        mermaid.initialize({ startOnLoad: true, theme: "neutral" });
+      });
+    </script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="Sairam Kumar Reddy Veereddy home">
+        <span>SV</span>
+        <strong>Sairam Kumar Reddy Veereddy</strong>
+      </a>
+      <img
+        class="header-badge"
+        src="/assets/claude-certified-architect.png"
+        alt="Claude Certified Architect badge"
+      />
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        Menu
+      </button>
+      <nav aria-label="Portfolio navigation">
+        <a href="/research">Research</a>
+        <a href="/achievements">Achievements</a>
+        <a href="/projects" class="active">Projects</a>
+        <a href="/blog">Blog</a>
+        <a href="/speaking-and-community">Community</a>
+        <a href="/#experience">Experience</a>
+        <a href="/#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main class="section-block" style="padding-top: 48px;">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="sep">/</span>
+        <a href="/projects">AI Projects</a>
+        <span class="sep">/</span>
+        <span aria-current="page">CrossWise</span>
+      </nav>
+
+      <div class="page-header">
+        <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px;">
+          <span class="badge badge-gold">NYC Hackathon Project</span>
+          <span class="badge badge-teal">VAST Builders Challenge (team-48)</span>
+          <span class="badge badge-coral">Robotics Perception Prototype</span>
+        </div>
+        <h1>CrossWise: AI Curb Crossing Copilot for Food Delivery Robots</h1>
+        <p class="page-lead">
+          A multi-model vision-language crossing copilot engineered to prevent urban delivery robot freeze,
+          pedestrian blind-spot collisions, and illegal crosswalk entries at complex city intersections.
+        </p>
+      </div>
+
+      <!-- Quick Metadata Grid -->
+      <div class="meta-table" style="margin-bottom: 40px;">
+        <div class="meta-item">
+          <strong>Hackathon Event</strong>
+          <span>VAST Builders Challenge NYC (October 2026)</span>
+        </div>
+        <div class="meta-item">
+          <strong>Team Identifier</strong>
+          <span>team-48</span>
+        </div>
+        <div class="meta-item">
+          <strong>Open-Source Repo</strong>
+          <a href="https://github.com/sairamveereddy/CROSSWISE" target="_blank" rel="noopener noreferrer" style="color:var(--teal); font-weight:700;">github.com/sairamveereddy/CROSSWISE</a>
+        </div>
+        <div class="meta-item">
+          <strong>Operational Scope</strong>
+          <span>Decision Support on Multi-Camera Curb Footage (NYC & SF)</span>
+        </div>
+      </div>
+
+      <!-- Verification and Scope Notice -->
+      <div class="evidence-box" style="margin-bottom: 40px;">
+        <h4>Scope & Evaluation Transparency</h4>
+        <p style="font-size: 0.95rem; line-height: 1.6; margin: 0; color: var(--muted);">
+          <strong>Hardware Notice:</strong> CrossWise was developed and evaluated as an AI software decision-support and perception copilot.
+          It was tested against recorded multi-angle curb video streams across 7 fixed intersections in New York City and San Francisco.
+          It did <em>not</em> involve physical rover chassis manufacturing or autonomous drive-by-wire steering actuation on public streets.
+          Evaluation benchmarks reflect simulated policy replay on benchmarked video footage.
+        </p>
+      </div>
+
+      <article class="prose" style="max-width: 100%;">
+        <section>
+          <h2>1. Project Overview & The Urban Last-Mile Problem</h2>
+          <p>
+            Autonomous sidewalk delivery robots (such as Serve, Starship, or Cartken rovers) face their greatest failure rates
+            at <strong>curb-to-crosswalk transitions</strong>. Unlike open roadways or quiet suburban sidewalks, dense metropolitan
+            intersections (e.g., Broadway & 42nd St in Manhattan or Market St in San Francisco) exhibit extreme occlusion:
+          </p>
+          <ul>
+            <li><strong>Pedestrian Crowding & Ghost Stalls:</strong> Conventional proximity sensors freeze the robot indefinitely when pedestrians swarm the curb, causing delivery timeout failures.</li>
+            <li><strong>Signal Misinterpretation:</strong> Standard object detection models frequently misread pedestrian signal countdowns or confuse vehicular green lights with pedestrian "WALK" heads across multi-phase signals.</li>
+            <li><strong>Turning Vehicle Blind Spots:</strong> Right-turning vehicles entering crosswalks from behind the robot's field of view create severe collision hazards.</li>
+          </ul>
+          <p>
+            <strong>CrossWise</strong> was engineered at the VAST Builders Challenge NYC Hackathon (team-48) to act as a 
+            <strong>high-reliability crossing copilot</strong>. It continuously processes camera frames at the curb, tracks pedestrian cross-flows,
+            evaluates signal state confidence, and outputs definitive <code>GO</code>, <code>WAIT</code>, or <code>NO-GO</code> decisions with automated
+            teleoperation escalation when perception confidence drops below safety thresholds.
+          </p>
+        </section>
+
+        <section style="margin-top: 40px;">
+          <h2>2. System Architecture & Perception Pipeline</h2>
+          <p>
+            CrossWise pairs high-frequency real-time object tracking with deep multimodal reasoning models running across CoreWeave GPU compute
+            and indexed via VAST DataEngine and VastDB.
+          </p>
+
+          <div style="background: white; border: 1px solid var(--line); border-radius: 8px; padding: 24px; margin: 24px 0;">
+            <div class="mermaid">
+flowchart TD
+    subgraph SENSORS["Curb Camera Streams (NYC & SF Footage)"]
+        CAM1["Front Wide-Angle RGB (0.2s frame sampling)"]
+        CAM2["Left/Right Flank Cameras"]
+    end
+
+    subgraph FAST_PATH["Real-Time Perception (0.2s Loop)"]
+        YOLO["YOLO11 Object Tracking (Pedestrians, Bikes, Vehicles)"]
+        STATE["Crosswalk State Filter (Walk / Don't Walk / Flashing)"]
+    end
+
+    subgraph STORAGE["High-Throughput Storage & Ingestion"]
+        VAST["VAST DataEngine & VastDB Ingestion"]
+    end
+
+    subgraph REASONING["Deep Multimodal Reasoning (CoreWeave GPUs)"]
+        COSMOS["NVIDIA Cosmos Reason (Physical Scene Dynamics)"]
+        GEMMA["Gemma 4 31B Vision (Signal Head Verification)"]
+        LLAMA["Llama 3.3 70B (Policy Arbitration & Context Synthesis)"]
+    end
+
+    subgraph OUTPUT["Decision & Policy Engine"]
+        DECISION{"Safety Policy Check"}
+        GO["GO: Clear Path & Confirmed Walk"]
+        WAIT["WAIT: Dynamic Flow or Count < 3s"]
+        ESCALATE["ESCALATE: Stuck Alert to Teleop Human (30s timeout)"]
+    end
+
+    CAM1 --> YOLO
+    CAM2 --> YOLO
+    YOLO --> STATE
+    STATE --> VAST
+    VAST --> COSMOS
+    VAST --> GEMMA
+    COSMOS --> LLAMA
+    GEMMA --> LLAMA
+    LLAMA --> DECISION
+    DECISION --> GO
+    DECISION --> WAIT
+    DECISION --> ESCALATE
+            </div>
+          </div>
+
+          <h3>The Dual-Speed Loop:</h3>
+          <ol>
+            <li><strong>The Fast Perception Loop (0.2s):</strong> YOLO11 runs frame-by-frame on camera streams to detect pedestrian bounding boxes, velocity vectors, turning vehicles, and signal indicators.</li>
+            <li><strong>The Multimodal Reasoning Loop (CoreWeave / VastDB):</strong> NVIDIA Cosmos Reason evaluates physical plausibility and vehicle trajectories. Gemma 4 31B vision cross-verifies contradictory pedestrian signals. Llama 3.3 70B synthesizes spatial geometry to produce safety rationale.</li>
+            <li><strong>Teleoperation Escalation:</strong> If a delivery robot is immobilized at a curb for more than 30 seconds due to sensor ambiguity or crowd blockage, CrossWise triggers an automated dispatch packet to remote human operators via W&B Weave tracing.</li>
+          </ol>
+        </section>
+
+        <section style="margin-top: 40px;">
+          <h2>3. Key Technologies & Infrastructure</h2>
+          <div class="grid-2">
+            <div style="background: white; padding: 20px; border: 1px solid var(--line); border-radius: 8px;">
+              <h4 style="margin-top:0; color:var(--teal);">AI Models & Compute</h4>
+              <ul style="margin-bottom:0; font-size:0.92rem;">
+                <li><strong>NVIDIA Cosmos Reason:</strong> Physical scene understanding and spatial trajectory prediction.</li>
+                <li><strong>YOLO11:</strong> High-FPS bounding box detection for pedestrians, curbs, crosswalk markings, and cars.</li>
+                <li><strong>Llama 3.3 70B:</strong> High-level policy coordination and decision arbitration.</li>
+                <li><strong>Gemma 4 31B Vision:</strong> High-resolution signal head crop inspection.</li>
+                <li><strong>CoreWeave GPUs:</strong> Accelerated batch inference pipeline.</li>
+              </ul>
+            </div>
+            <div style="background: white; padding: 20px; border: 1px solid var(--line); border-radius: 8px;">
+              <h4 style="margin-top:0; color:var(--gold);">Data, Storage & Observability</h4>
+              <ul style="margin-bottom:0; font-size:0.92rem;">
+                <li><strong>VAST DataEngine:</strong> High-throughput ingestion of multi-camera recorded footage.</li>
+                <li><strong>VastDB:</strong> Fast tabular querying of frame-by-frame metadata, bounding boxes, and policy replay traces.</li>
+                <li><strong>W&B Weave:</strong> Real-time LLM prompt evaluation, tracing, and decision auditing.</li>
+                <li><strong>Python & OpenCV:</strong> Frame extraction, perspective transforms, and visual overlay generation.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section style="margin-top: 40px;">
+          <h2>4. Experimental Results: Frame-Level vs Segment-Level Policy Replay</h2>
+          <p>
+            During the VAST Builders Challenge hackathon, we conducted comparative replay evaluations (implemented in <code>policy_eval.py</code>)
+            benchmarking CrossWise against two operational approaches:
+          </p>
+
+          <table style="width:100%; border-collapse:collapse; margin:20px 0; background:white; font-size:0.92rem;">
+            <thead>
+              <tr style="background:#faf9f6; border-bottom:2px solid var(--line); text-align:left;">
+                <th style="padding:10px 14px;">Evaluation Metric</th>
+                <th style="padding:10px 14px;">Baseline (5s Segment LLM Replay)</th>
+                <th style="padding:10px 14px; color:var(--teal); font-weight:700;">CrossWise (0.2s Dual-Speed Replay)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom:1px solid var(--line);">
+                <td style="padding:10px 14px; font-weight:600;">Illegal Starts Against "DON'T WALK"</td>
+                <td style="padding:10px 14px; color:var(--coral); font-weight:700;">3 Violations (Lagged context)</td>
+                <td style="padding:10px 14px; color:var(--teal); font-weight:700;">0 Violations (100% adherence)</td>
+              </tr>
+              <tr style="border-bottom:1px solid var(--line);">
+                <td style="padding:10px 14px; font-weight:600;">Pedestrian Crosswalk Freeze Rate</td>
+                <td style="padding:10px 14px;">High (~42% unnecessary stops)</td>
+                <td style="padding:10px 14px;">Low (Tracks velocity vectors around robot)</td>
+              </tr>
+              <tr style="border-bottom:1px solid var(--line);">
+                <td style="padding:10px 14px; font-weight:600;">Decision Latency</td>
+                <td style="padding:10px 14px;">3,200 ms (Single slow VLM call)</td>
+                <td style="padding:10px 14px;">~210 ms Fast Loop / Asynchronous Deep VLM</td>
+              </tr>
+              <tr>
+                <td style="padding:10px 14px; font-weight:600;">Stuck Robot Escalation Time</td>
+                <td style="padding:10px 14px;">Manual report / Unmonitored</td>
+                <td style="padding:10px 14px;">Automated 30-second teleoperation alert</td>
+              </tr>
+            </tbody>
+          </table>
+          <p style="font-size:0.85rem; color:var(--muted);">
+            *Note: Results obtained on recorded test suites comprising 7 fixed NYC and SF intersection camera clips in benchmark simulations.
+          </p>
+        </section>
+
+        <section style="margin-top: 40px;">
+          <h2>5. Sairam's Technical Contributions</h2>
+          <ul>
+            <li><strong>Multi-Model Arbitration Logic:</strong> Designed the decision synthesis module resolving discrepancies between high-speed YOLO bounding boxes and deep NVIDIA Cosmos Reason outputs.</li>
+            <li><strong>VAST DataEngine & VastDB Ingestion:</strong> Built the metadata ingestion scripts that cataloged multi-camera streams into VastDB, enabling sub-millisecond retrieval during replay benchmarks.</li>
+            <li><strong>Policy Replay Test Harness:</strong> Co-authored <code>policy_eval.py</code> to quantitatively measure violations, freeze delays, and safety margin violations across hundreds of historical curb frames.</li>
+            <li><strong>W&B Weave Observability:</strong> Integrated execution tracing for all LLM/VLM reasoning passes to audit false positive detections in complex lighting conditions.</li>
+          </ul>
+        </section>
+
+        <!-- Unverified Details / Author Placeholders -->
+        <section style="margin-top: 40px;">
+          <h2>6. Author Verification & Additional Documentation Draft</h2>
+          <div class="evidence-box">
+            <span class="badge badge-draft" style="margin-bottom:8px;">Requires Author Verification</span>
+            <p style="font-size:0.92rem; color:var(--muted); margin-bottom:12px;">
+              The following fields are reserved for future post-hackathon documentation, media uploads, or competition outcome updates:
+            </p>
+            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:12px;">
+              <div style="background:white; padding:14px; border:1px solid var(--line); border-radius:6px;">
+                <strong style="display:block; font-size:0.8rem; text-transform:uppercase; color:var(--gold);">Video Demo Link</strong>
+                <span style="font-size:0.88rem; color:var(--muted);">[Author to upload YouTube/Loom screen recording of curb decision replay]</span>
+              </div>
+              <div style="background:white; padding:14px; border:1px solid var(--line); border-radius:6px;">
+                <strong style="display:block; font-size:0.8rem; text-transform:uppercase; color:var(--gold);">Hardware Prototype Testing</strong>
+                <span style="font-size:0.88rem; color:var(--muted);">[Author to verify if any physical test-rig mounting was evaluated]</span>
+              </div>
+              <div style="background:white; padding:14px; border:1px solid var(--line); border-radius:6px;">
+                <strong style="display:block; font-size:0.8rem; text-transform:uppercase; color:var(--gold);">Hackathon Official Award/Standing</strong>
+                <span style="font-size:0.88rem; color:var(--muted);">[Author to verify official VAST Builders Challenge standing or track awards]</span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </article>
+
+      <!-- Navigation Footer -->
+      <div style="margin-top: 56px; padding-top: 28px; border-top: 1px solid var(--line); display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;">
+        <a class="button secondary" href="/projects">← Back to All Projects</a>
+        <a class="button primary" href="https://github.com/sairamveereddy/CROSSWISE" target="_blank" rel="noopener noreferrer">
+          View CrossWise on GitHub (sairamveereddy/CROSSWISE) →
+        </a>
+      </div>
+    </main>
+
+    <div id="toast" class="toast-notice" role="status" aria-live="polite"></div>
+
+    <script src="/data/site-data.js"></script>
+    <script src="/app-helpers.js"></script>
+    <script src="https://api.foyer.ink/static/widget.js" data-agent-id="tl_6e74c516a62d" data-server="https://api.foyer.ink" async></script>
+  </body>
+</html>

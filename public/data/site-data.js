@@ -14,14 +14,15 @@ const SITE_DATA = {
     website: "https://sairamveereddy.com",
     linkedin: "https://www.linkedin.com/in/sairam-kumar-365232192/",
     github: "https://github.com/sairamveereddy",
-    substack: "https://substack.com/@firstninja",
+    medium: "https://medium.com/@vsairamkumarreddy",
+    mediumHandle: "@vsairamkumarreddy",
     instagram: "https://www.instagram.com/first.ninja_/",
     instagramHandle: "@first.ninja_",
     instagramFollowers: "16,900+",
     instagramDate: "October 2026",
     claudeCertified: "Claude Certified Architect",
-    bio: "AI/ML Engineer with 4+ years translating foundation models, cutting-edge AI research, and multimodal architectures into robust, production systems across healthcare, insurance, finance, and enterprise automation. Hackathon winner (Miro × n8n), independent researcher with citable publications on Zenodo, and creator educating 16,900+ engineers on practical AI development.",
-    summary: "Translating emerging AI research into tested production systems. Specializing in Agentic AI, RAG architectures, model evaluation benchmarks, and full-stack AI platform engineering."
+    bio: "AI/ML Engineer with 4+ years translating foundation models, cutting-edge AI research, and multimodal architectures into robust, production systems across healthcare, insurance, finance, and enterprise automation. Hackathon winner (Miro × n8n), NYC AI builder (Mistral × Elastic, VAST Builders Challenge), independent researcher with citable publications on Zenodo, and technical publisher on Medium and Instagram educating 16,900+ engineers.",
+    summary: "Translating emerging AI research into tested production systems. Specializing in Agentic AI, RAG architectures, model evaluation benchmarks, NYC hackathon prototypes, and technical education on Medium and Instagram."
   },
 
   navigation: [
@@ -33,6 +34,80 @@ const SITE_DATA = {
     { label: "Community", href: "/speaking-and-community" },
     { label: "Experience", href: "/#experience" },
     { label: "Contact", href: "/#contact" }
+  ],
+
+  // Real, live Medium articles from @vsairamkumarreddy RSS feed
+  mediumArticles: [
+    {
+      title: "How to Customize Android Games and Apps Using AI + Apktool (Free GitHub Tool)",
+      url: "https://medium.com/@vsairamkumarreddy/how-to-customize-android-games-and-apps-using-ai-apktool-free-github-tool-74ee4b5d230c",
+      date: "Oct 23, 2026",
+      readTime: "5 min read",
+      category: "Developer Tools"
+    },
+    {
+      title: "10 AI Tools You Should Know in 2026",
+      url: "https://medium.com/@vsairamkumarreddy/10-ai-tools-you-should-know-in-2026-c3e3e1e04e7b",
+      date: "Oct 23, 2026",
+      readTime: "6 min read",
+      category: "AI Tools"
+    },
+    {
+      title: "How to Find Viral Instagram Content Ideas Using Muse AI — With Just One Prompt",
+      url: "https://medium.com/@vsairamkumarreddy/how-to-find-viral-instagram-content-ideas-using-muse-ai-with-just-one-prompt-66cd89167fa7",
+      date: "Oct 19, 2026",
+      readTime: "4 min read",
+      category: "Prompt Engineering"
+    },
+    {
+      title: "Edit Videos Using Claude AI + Remotion: A Beginner's Guide",
+      url: "https://medium.com/@vsairamkumarreddy/edit-videos-using-claude-ai-remotion-a-beginners-guide-287f17605adc",
+      date: "Oct 17, 2026",
+      readTime: "7 min read",
+      category: "Generative Media"
+    },
+    {
+      title: "Build Interactive Website Animations with Claude AI + Rive MCP",
+      url: "https://medium.com/@vsairamkumarreddy/build-interactive-website-animations-with-claude-ai-rive-mcp-18287f2a99ca",
+      date: "Oct 15, 2026",
+      readTime: "6 min read",
+      category: "MCP Protocols"
+    },
+    {
+      title: "10 Startup Programs Every AI Founder Should Know in 2026",
+      url: "https://medium.com/@vsairamkumarreddy/10-startup-programs-every-ai-founder-should-know-in-2026-9b51fb9c76a6",
+      date: "Oct 8, 2026",
+      readTime: "8 min read",
+      category: "Startup Strategy"
+    },
+    {
+      title: "8 Free Open-Source GitHub Repos That Can Replace Your Paid Subscriptions",
+      url: "https://medium.com/@vsairamkumarreddy/8-free-open-source-github-repos-that-can-replace-your-paid-subscriptions-1802274105b4",
+      date: "Oct 3, 2026",
+      readTime: "6 min read",
+      category: "Open Source"
+    },
+    {
+      title: "Stop Paying for Software: 5 Free Open-Source Alternatives You Should Know",
+      url: "https://medium.com/@vsairamkumarreddy/stop-paying-for-software-5-free-open-source-alternatives-you-should-know-791b4d94a8b7",
+      date: "Sep 27, 2026",
+      readTime: "5 min read",
+      category: "Open Source"
+    },
+    {
+      title: "Stop Just Watching Courses: The Engineering Learning Stack You Actually Need",
+      url: "https://medium.com/@vsairamkumarreddy/stop-just-watching-courses-the-engineering-learning-stack-you-actually-need-3b9825e44d3f",
+      date: "Sep 26, 2026",
+      readTime: "7 min read",
+      category: "Career Engineering"
+    },
+    {
+      title: "10 Free AI & Machine Learning Courses & Credentials from Google, Microsoft, Harvard & IBM",
+      url: "https://medium.com/@vsairamkumarreddy/10-free-ai-machine-learning-courses-credentials-from-google-microsoft-harvard-ibm-b9fb0cc184b3",
+      date: "Sep 25, 2026",
+      readTime: "8 min read",
+      category: "Credentials & Education"
+    }
   ],
 
   research: [
@@ -179,36 +254,83 @@ const SITE_DATA = {
     {
       id: "nyc-pulse",
       slug: "nyc-pulse",
-      name: "NYC Pulse",
-      category: "AI Urban Intelligence & Semantic Search",
-      tagline: "Evidence-driven urban disruption intelligence powered by Mistral Large and Elasticsearch.",
-      summary: "City disruptions like subway failures create second- and third-order ripple effects across transit, street congestion, and public safety. NYC Pulse replaces naive LLM guessing with an autonomous Evidence Loop that queries historical 311 signals and transit geometries to verify hypotheses before reporting.",
+      name: "NYC PULSE — Evidence-Driven Urban Intelligence Agent",
+      category: "Hackathon Projects",
+      subCategory: "AI Urban Intelligence & Search",
+      tagline: "Evidence-driven urban disruption intelligence prototype built at NYC Mistral × Elastic hackathon.",
+      summary: "Built an AI-powered urban intelligence prototype at a NYC Mistral × Elastic hackathon to investigate second- and third-order ripple effects of city disruptions using an autonomous two-phase Evidence Loop.",
       problem: "When urban incidents happen (such as an L train outage at Bedford Ave during rush hour), conventional systems either output raw alert texts or use standard single-shot RAG that hallucinate ripple effects without evidentiary proof.",
       architecture: "Mistral Large reasoning agent coordinates with an Elasticsearch cluster storing millions of NYC 311 historical records and static GTFS subway schedules. The agent formulates impact hypotheses, calls geo-distance and aggregation tools, and conducts differential evidence verification.",
       evidenceLoop: "Event Trigger → Mistral Investigates → Elastic Retrieval → Mistral Creates Hypotheses → Elastic Evidence Verification → Mistral Evaluates Evidence → Grounded Structured Report.",
-      stack: ["Python", "Mistral Large", "Elasticsearch", "Streamlit", "GTFS Transit Data", "NYC 311 Open Data", "Geo-distance Queries", "Function Calling"],
+      stack: ["Mistral AI", "Elasticsearch", "Python", "Streamlit", "Geospatial search", "Vector embeddings", "AI agent tool calling"],
       contributions: [
         "Authored the multi-turn Mistral Large tool-calling agent in Python.",
         "Built Elasticsearch indices with full-text search, aggregations, and geo-point mapping for NYC transit stations.",
         "Formulated the two-phase Evidence Loop that tests hypotheses against baseline complaint rates.",
         "Engineered the Streamlit interactive dashboard presenting structured impact assessments."
       ],
+      implementationDetails: [
+        "1,488 subway-stop records (Static GTFS dataset)",
+        "20,000 NYC 311 request records indexed in Elasticsearch",
+        "2,000 semantically indexed 311 records",
+        "Geospatial and semantic retrieval tools",
+        "Agent-driven hypothesis investigation loop"
+      ],
       challenges: "Eliminating false ripple effect correlations: Solved by designing neighborhood baseline aggregations in Elasticsearch to verify whether complaint surges were statistically deviant from historical norms.",
       repoUrl: "https://github.com/sairamveereddy/nyc-pulse",
       demoUrl: "https://github.com/sairamveereddy/nyc-pulse#demo-scenario",
       relatedBlog: "/blog/nyc-pulse-mistral-elasticsearch",
+      event: "NYC Mistral × Elastic Hackathon (October 2026)",
+      isWinner: false,
       metrics: [
         { label: "Reasoning Model", value: "Mistral Large" },
-        { label: "Knowledge Store", value: "Elasticsearch" },
-        { label: "Dataset", value: "Millions of 311 Records + GTFS" },
+        { label: "Subway Stops", value: "1,488 Records" },
+        { label: "311 Requests", value: "20,000 Indexed" },
         { label: "Architecture", value: "Two-Phase Evidence Loop" }
+      ]
+    },
+    {
+      id: "crosswise",
+      slug: "crosswise",
+      name: "CrossWise — Crossing Copilot for Sidewalk Delivery Robots",
+      category: "Hackathon Projects",
+      subCategory: "Robotics AI & Video Intelligence",
+      tagline: "AI crossing copilot for sidewalk delivery robots making GO/WAIT/NO-GO decisions with video evidence.",
+      summary: "Built for the VAST Builders Challenge (team-48) in New York City, CrossWise evaluates street crossings on video footage, outputting GO, WAIT, or NO-GO decisions every 5 seconds with safety guardrails and stuck escalation so delivery robots never sit indefinitely at a curb.",
+      problem: "Sidewalk delivery robots frequently freeze or spin at intersections when signals are ambiguous, traffic is turning, or crosswalks are blocked. Without intelligent decision support and escalation, robots get trapped at curbs or make risky crossings.",
+      architecture: "Street footage in VAST S3 passes through VAST DataEngine (YOLO11 + Cosmos Reason + Embed) into VastDB. NVIDIA Cosmos Reason generates structured crossing tags, while Llama 3.3 70B and Gemma 4 31B vision (via Weights & Biases Inference on CoreWeave GPUs) evaluate obstacle-free paths and output structured JSON crossing decisions traced in W&B Weave.",
+      stack: ["VAST DataEngine", "VastDB", "NVIDIA Cosmos Reason", "YOLO11", "Llama 3.3 70B", "Gemma 4 31B", "W&B Weave", "Python", "Kubernetes"],
+      contributions: [
+        "Constructed decision reasoning pipeline in Python interfacing with Weights & Biases Inference APIs.",
+        "Engineered code-level safety guardrails downgrading ambiguous GO decisions to WAIT whenever turning vehicles or blocked paths are detected.",
+        "Designed the stuck-detection agent that triggers remote operator handoff after N consecutive non-GO segments.",
+        "Conducted policy replay evaluations comparing segment-level LLM decisions with frame-level crossing decisions."
+      ],
+      implementationDetails: [
+        "Tested across 7 fixed curb-level cameras (including NYC and SF streets)",
+        "Policy replay over 5 demo clips (150s, 750 decision moments)",
+        "0 starts against DON'T WALK / countdown in frame-level evaluation (vs 3 on segment LLM)",
+        "Decision support prototype evaluated on recorded footage (decision support only, no physical motor control)"
+      ],
+      challenges: "Signal ambiguity from curb perspective: Fixed street cameras often capture round vehicle lights rather than pedestrian walk heads. Mitigated via geometric crosswalk calibration and strict gap acceptance thresholds.",
+      repoUrl: "https://github.com/sairamveereddy/CROSSWISE",
+      demoUrl: "/projects/crosswise",
+      caseStudyUrl: "/projects/crosswise",
+      event: "VAST Builders Challenge (NYC Hackathon, Team-48, October 2026)",
+      isWinner: false,
+      metrics: [
+        { label: "Event", value: "VAST Builders Challenge" },
+        { label: "Safety Record", value: "0 Starts Against Hand" },
+        { label: "Vision Models", value: "Cosmos + YOLO11 + Gemma" },
+        { label: "Decisions", value: "GO / WAIT / NO-GO" }
       ]
     },
     {
       id: "jobninjas",
       slug: "jobninjas",
       name: "JobNinjas.ai",
-      category: "Full-Stack AI Platform & Agentic Automation",
+      category: "Full-Stack Platforms",
+      subCategory: "Agentic Automation & Voice AI",
       tagline: "Solo-built AI talent platform integrating AWS, FastAPI, LangChain RAG, n8n automations, and realtime voice.",
       summary: "An end-to-end AI platform designed and shipped solo, assisting job applicants with intelligent resume adaptation, agentic application workflows, and voice interview preparation.",
       problem: "Traditional job applications are disconnected: resume tailoring, cover letter drafting, interview practice, and application tracking require disjointed tools with high latency and zero contextual memory.",
@@ -224,6 +346,8 @@ const SITE_DATA = {
       repoUrl: "https://github.com/sairamveereddy/jobninjas",
       demoUrl: "https://jobninjas.ai",
       relatedBlog: "/blog/building-jobninjas-ai-platform",
+      event: null,
+      isWinner: false,
       metrics: [
         { label: "Infrastructure", value: "AWS Serverless & Containers" },
         { label: "Automations", value: "8 n8n Production Workflows" },
@@ -235,7 +359,8 @@ const SITE_DATA = {
       id: "ai-talking-portfolio",
       slug: "ai-talking-portfolio",
       name: "AI Talking Portfolio",
-      category: "Conversational AI & Realtime WebRTC",
+      category: "Full-Stack Platforms",
+      subCategory: "Conversational AI & WebRTC",
       tagline: "Realtime voice portfolio agent with OpenAI Realtime API and synchronized site navigation.",
       summary: "A production conversational agent that speaks directly with visitors via WebRTC, answering technical inquiries grounded in structured resume data while dynamically manipulating the DOM.",
       problem: "Static resumes and portfolio websites are passive reading experiences that fail to showcase actual AI engineering capabilities in a live interactive medium.",
@@ -250,6 +375,8 @@ const SITE_DATA = {
       repoUrl: "https://github.com/sairamveereddy/aiportfolio",
       demoUrl: "https://sairamveereddy.com",
       relatedBlog: "/blog/evaluating-ai-agent-reliability",
+      event: null,
+      isWinner: false,
       metrics: [
         { label: "Speech Protocol", value: "WebRTC Audio" },
         { label: "Latency", value: "Sub-second Conversational" },
@@ -261,9 +388,10 @@ const SITE_DATA = {
       id: "miro-n8n-bridge",
       slug: "miro-n8n-bridge",
       name: "Miro × n8n Autonomous Bridge",
-      category: "Autonomous Systems & Workflow Engineering",
+      category: "Hackathon Projects",
+      subCategory: "Autonomous Systems & Workflow Engineering",
       tagline: "Hackathon-winning bi-directional bridge transforming visual board diagrams into active AI workflows.",
-      summary: "Winning project built during the Miro × n8n Hackathon, connecting visual canvas elements with multi-agent execution in n8n and rendering structured AI outputs back onto the board in real time.",
+      summary: "1st Place winning project built during the Miro × n8n Hackathon with team Strangers, connecting visual canvas elements with multi-agent execution in n8n and rendering structured AI outputs back onto the board in real time.",
       problem: "Visual whiteboard diagrams typically remain static documentation separated from operational APIs and automation runners.",
       architecture: "Webhook listener receives Miro board event deltas, parses node connections into workflow graphs, invokes an n8n AI agent with tool capabilities, and posts resulting decisions back to Miro via REST APIs.",
       stack: ["n8n", "Miro REST API", "Webhooks", "OpenAI / Claude APIs", "JavaScript", "JSON Schema"],
@@ -275,6 +403,8 @@ const SITE_DATA = {
       repoUrl: "https://github.com/sairamveereddy",
       demoUrl: "/achievements/miro-n8n-hackathon",
       relatedBlog: "/blog/inside-miro-n8n-hackathon",
+      event: "Miro × n8n Hackathon (1st Place Winner)",
+      isWinner: true,
       metrics: [
         { label: "Hackathon Result", value: "1st Place Winner" },
         { label: "Execution Time", value: "Real-Time Bi-Directional" },
@@ -285,7 +415,8 @@ const SITE_DATA = {
       id: "pharmacy-copilot",
       slug: "pharmacy-copilot",
       name: "Pharmacy GenAI Clinical Copilot",
-      category: "Healthcare AI & Clinical Extraction",
+      category: "Enterprise AI",
+      subCategory: "Healthcare AI & Clinical Extraction",
       tagline: "RAG-based clinical assistant integrating OpenAI GPT-4 and AWS Bedrock under HIPAA compliance.",
       summary: "Production enterprise initiative at CVS Pharmacy combining clinical entity recognition, structured formulary lookup, and RAG pipelines to assist pharmacy operations.",
       problem: "Complex prescription reviews and drug interaction checking require manual parsing of unstructured clinical notes against strict formulary databases.",
@@ -299,6 +430,8 @@ const SITE_DATA = {
       repoUrl: "https://github.com/sairamveereddy",
       demoUrl: "#contact",
       relatedBlog: "/blog/building-production-rag-systems",
+      event: null,
+      isWinner: false,
       metrics: [
         { label: "Accuracy Gain", value: "+28% Extraction Gain" },
         { label: "Deployment", value: "AWS SageMaker + Bedrock" },
@@ -309,7 +442,8 @@ const SITE_DATA = {
       id: "insurance-fraud-pipeline",
       slug: "insurance-fraud-pipeline",
       name: "Insurance Fraud Detection ML Pipeline",
-      category: "Predictive ML & Real-Time Data Engineering",
+      category: "Enterprise AI",
+      subCategory: "Predictive ML & Real-Time Data Engineering",
       tagline: "High-precision fraud classification pipeline with Apache Airflow, Kafka CDC, and XGBoost.",
       summary: "End-to-end enterprise machine learning system at Nationwide Insurance delivering 92% precision on flagged claims through sub-5-minute streaming feeds.",
       problem: "Batch-daily fraud scoring resulted in delayed investigations and elevated false positive rates across complex auto and property claims.",
@@ -324,6 +458,8 @@ const SITE_DATA = {
       repoUrl: "https://github.com/sairamveereddy",
       demoUrl: "#contact",
       relatedBlog: "/blog/evaluating-ai-agent-reliability",
+      event: null,
+      isWinner: false,
       metrics: [
         { label: "Precision", value: "92% on Flagged Claims" },
         { label: "Data Latency", value: "Sub-5-minute CDC" },
@@ -344,6 +480,7 @@ const SITE_DATA = {
       author: "Sairam Kumar Reddy Veereddy",
       excerpt: "How our team 'Strangers' built a first-place bi-directional AI automation system bridging Miro visual canvas diagrams with n8n multi-agent execution in under a few hours.",
       featured: true,
+      mediumUrl: "https://medium.com/@vsairamkumarreddy",
       tags: ["n8n", "Miro", "Agentic AI", "Hackathon", "Architecture"],
       requiresVerification: false,
       verificationNote: null
@@ -359,7 +496,8 @@ const SITE_DATA = {
       author: "Sairam Kumar Reddy Veereddy",
       excerpt: "Why standard RAG fails for urban disruption analysis and how we engineered an autonomous Evidence Loop pairing Mistral Large reasoning with Elasticsearch memory.",
       featured: true,
-      tags: ["Mistral", "Elasticsearch", "AI Agents", "Evidence Loop", "Python"],
+      mediumUrl: "https://medium.com/@vsairamkumarreddy",
+      tags: ["Mistral", "Elasticsearch", "AI Agents", "Evidence Loop", "Python", "NYC Hackathon"],
       requiresVerification: false,
       verificationNote: null
     },
@@ -374,6 +512,7 @@ const SITE_DATA = {
       author: "Sairam Kumar Reddy Veereddy",
       excerpt: "A deep dive into shipping an AI platform solo: combining AWS Cognito/RDS, FastAPI, LangChain RAG, 8 n8n automation workflows, and real-time WebRTC voice.",
       featured: true,
+      mediumUrl: "https://medium.com/@vsairamkumarreddy",
       tags: ["FastAPI", "AWS", "LangChain", "n8n", "Vapi", "Full Stack AI"],
       requiresVerification: false,
       verificationNote: null
@@ -389,6 +528,7 @@ const SITE_DATA = {
       author: "Sairam Kumar Reddy Veereddy",
       excerpt: "Techniques for measuring deterministic tool execution, schema compliance, timeout recovery, and avoiding infinite loops in production agent architectures.",
       featured: false,
+      mediumUrl: "https://medium.com/@vsairamkumarreddy",
       tags: ["AI Agents", "Tool Calling", "Evaluation", "Reliability", "LangGraph"],
       requiresVerification: true,
       verificationNote: "Benchmark metrics on proprietary datasets are marked with placeholders pending author review."
@@ -404,6 +544,7 @@ const SITE_DATA = {
       author: "Sairam Kumar Reddy Veereddy",
       excerpt: "Moving beyond basic vector search: hybrid retrieval, cross-encoder re-ranking, document chunking tradeoffs, and enforcing strict citation attribution.",
       featured: false,
+      mediumUrl: "https://medium.com/@vsairamkumarreddy",
       tags: ["RAG", "ChromaDB", "Vector Search", "LlamaIndex", "Production AI"],
       requiresVerification: false,
       verificationNote: null
@@ -419,6 +560,7 @@ const SITE_DATA = {
       author: "Sairam Kumar Reddy Veereddy",
       excerpt: "An engineering decision framework comparing latency, cost, knowledge freshness, and data privacy when deciding between RAG, fine-tuning, or hybrid setups.",
       featured: false,
+      mediumUrl: "https://medium.com/@vsairamkumarreddy",
       tags: ["Enterprise AI", "Fine-Tuning", "RAG", "LLM Strategy", "Cost Optimization"],
       requiresVerification: false,
       verificationNote: null
@@ -434,6 +576,7 @@ const SITE_DATA = {
       author: "Sairam Kumar Reddy Veereddy",
       excerpt: "Design patterns for resilient workflow automations: idempotency tokens, dead letter queues, webhook security, and custom Python microservice bridges.",
       featured: false,
+      mediumUrl: "https://medium.com/@vsairamkumarreddy",
       tags: ["n8n", "Workflow Automation", "Error Handling", "Webhooks", "DevOps"],
       requiresVerification: false,
       verificationNote: null
@@ -449,6 +592,7 @@ const SITE_DATA = {
       author: "Sairam Kumar Reddy Veereddy",
       excerpt: "Formulating quantitative metrics for autonomous agents: goal completion rate, step efficiency, cost-per-successful-action, and regression testing pipelines.",
       featured: false,
+      mediumUrl: "https://medium.com/@vsairamkumarreddy",
       tags: ["Benchmarking", "Agentic AI", "Metrics", "Research", "Testing"],
       requiresVerification: true,
       verificationNote: "Benchmark comparative charts contain sample empirical schemas marked for author verification."
@@ -482,6 +626,11 @@ const SITE_DATA = {
         engagementRate: "Available via Instagram Insights update",
         topAudienceRegions: "Available via Instagram Insights update"
       }
+    },
+    medium: {
+      handle: "@vsairamkumarreddy",
+      url: "https://medium.com/@vsairamkumarreddy",
+      description: "Primary external publishing platform featuring in-depth essays, open-source alternatives, Android AI tooling, and engineering career advice."
     },
     speaking: [
       {

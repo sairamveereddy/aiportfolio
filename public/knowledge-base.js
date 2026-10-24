@@ -11,10 +11,10 @@ window.PORTFOLIO_KB = {
   linkedin: "https://www.linkedin.com/in/sairam-kumar-365232192/",
   website: "https://sairamveereddy.com",
   github: "https://github.com/sairamveereddy",
-  substack: "https://substack.com/@firstninja",
+  medium: "https://medium.com/@vsairamkumarreddy",
   instagram: "https://www.instagram.com/first.ninja_/",
   summary:
-    "I am an AI/ML Engineer with 4+ years translating cutting-edge research, foundation models, and emerging AI tools into robust production systems. I design quantitative evaluations, build multi-agent and RAG workflows, publish independent AI research on Zenodo, won the Miro × n8n hackathon with team Strangers, and educate a community of 16,900+ engineers on Instagram and Substack.",
+    "I am an AI/ML Engineer with 4+ years translating cutting-edge research, foundation models, and emerging AI tools into robust production systems. I design quantitative evaluations, build multi-agent and RAG workflows, publish independent AI research on Zenodo, won the Miro × n8n hackathon with team Strangers, and educate a community of 16,900+ engineers on Instagram and Medium.",
   voice:
     "Answer in first person as Sairam. Be confident, concise, practical, and specific. Ground every answer in Sairam's verified engineering experience, research publications, hackathon wins, and community education.",
   experience: [
@@ -115,13 +115,23 @@ window.PORTFOLIO_KB = {
   projects: [
     {
       id: "nyc-pulse",
-      name: "NYC Pulse",
-      label: "AI Urban Intelligence & Semantic Search",
+      name: "NYC PULSE — Evidence-Driven Urban Intelligence Agent",
+      label: "NYC Mistral × Elastic Hackathon Prototype",
       summary:
-        "Evidence-driven urban disruption intelligence powered by Mistral Large and Elasticsearch.",
+        "Evidence-driven urban disruption intelligence prototype built at the NYC Mistral × Elastic Hackathon (October 2026).",
       details:
-        "Replaces naive LLM guessing with an autonomous two-phase Evidence Loop that queries millions of historical 311 complaints and GTFS subway schedules to verify ripple-effect hypotheses.",
-      stack: ["Python", "Mistral Large", "Elasticsearch", "Streamlit", "GTFS", "Function Calling", "311 Open Data"]
+        "Investigates second- and third-order effects of city disruptions by replacing naive LLM guessing with an autonomous Evidence Loop. Documented implementation details: integrates 1,488 NYC subway-stop records, 20,000 NYC 311 service request records, and 2,000 semantically indexed 311 records using Mistral Large, Elasticsearch geospatial/semantic retrieval, Python, and Streamlit.",
+      stack: ["Mistral AI", "Elasticsearch", "Python", "Streamlit", "Geospatial Search", "Vector Embeddings", "AI Agent Tool Calling"]
+    },
+    {
+      id: "crosswise",
+      name: "CrossWise — AI Curb Crossing Copilot for Food Delivery Robots",
+      label: "NYC VAST Builders Challenge Prototype",
+      summary:
+        "Vision-language AI crossing copilot designed to prevent delivery robot stall and pedestrian collisions at urban intersections.",
+      details:
+        "Built for the VAST Builders Challenge (team-48) in NYC (October 2026). Evaluated on recorded multi-camera curb footage in NYC and SF with a multi-model pipeline: NVIDIA Cosmos Reason + YOLO11 pedestrian tracking + Llama 3.3 70B + Gemma 4 31B vision on VastDB/CoreWeave GPUs. Achieved 0 illegal starts against DON'T WALK signals in frame-level policy replay.",
+      stack: ["VAST DataEngine", "VastDB", "NVIDIA Cosmos Reason", "YOLO11", "Llama 3.3 70B", "Gemma 4 31B", "W&B Weave", "CoreWeave"]
     },
     {
       id: "jobninjas",
@@ -275,11 +285,11 @@ window.PORTFOLIO_KB = {
       summary: "Daily AI engineering tutorials, open-source model reviews, and automation architecture walkthroughs."
     },
     {
-      id: "substack-profile",
-      label: "Substack",
-      title: "First Ninja",
-      url: "https://substack.com/@firstninja",
-      summary: "Long-form engineering deep-dives, RAG research, and autonomous systems analysis."
+      id: "medium-profile",
+      label: "Medium",
+      title: "Sairam Kumar Reddy Veereddy (@vsairamkumarreddy)",
+      url: "https://medium.com/@vsairamkumarreddy",
+      summary: "Technical articles on agentic AI, production RAG, mobile AI decompilation, and open-source models."
     }
   ],
   routing: {
@@ -300,11 +310,17 @@ window.PORTFOLIO_KB = {
     pulse: "nyc-pulse",
     mistral: "nyc-pulse",
     elasticsearch: "nyc-pulse",
+    crosswise: "crosswise",
+    robot: "crosswise",
+    "food delivery": "crosswise",
+    "delivery robot": "crosswise",
     jobninjas: "jobninjas",
     "talking portfolio": "ai-talking-portfolio",
     blog: "blog",
     articles: "blog",
     writing: "blog",
+    medium: "speaking-and-community",
+    "medium articles": "blog",
     instagram: "speaking-and-community",
     community: "speaking-and-community",
     followers: "speaking-and-community",
@@ -329,7 +345,6 @@ window.PORTFOLIO_KB = {
     telecom: "tech-mahindra",
     github: "publications",
     linkedin: "publications",
-    substack: "publications",
     skills: "skills",
     education: "education",
     certifications: "education",
